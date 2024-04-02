@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Financeira</title>
+</head>
+<body>
+    Insira sua renda mensal em reais (R$) <input type="text" id="ipt_rendaMensal">
+    <input type="submit" onclick="calcular()" value="Analisar negócio"></input>
+
+    <div id="div_msg"></div>
+</body>
+</html>
+
+<script>
+
+    function calcular(){
+        var rendaMensal = Number(ipt_rendaMensal.value);
+        var rendaSemestral = rendaMensal * 6;
+        var perdaSemestral = rendaSemestral * (100 - 60) / 100;
+        var perdaMensal = perdaSemestral / 6;
+        var rendaAnual = rendaMensal * 12;
+        var perdaAnual = perdaSemestral * 2;
+
+
+        div_msg.innerHTML = ` <br> Você informou que ganha <span style="color:green;">R$${rendaMensal},00</span> por mês. Semestralmente falando você ganha <span style="color:green;">R$${rendaSemestral},00</span>. Porém, há uma perda de 40% da sua renda por semestre devido a falta de controle nas mercadorias nas prateleiras. <br><br>
+        Com isso, temos os seguintes valores: <br>
+        Por mês você deixa de ganhar <span style="color:red;">R$${perdaMensal},00</span>. <br> 
+        Por semestre você deixa de ganhar <span style="color:red;">R$${perdaSemestral},00</span>. <br> <br>
+        Com base nesses dados, pode ser feita uma estimativa de renda anual e perda anual também, segue os dados abaixo: <br> 
+        Renda anual: <span style="color:green;">R$${rendaAnual}, 00</span> e Perda Anual: <span style="color:red;">R$${perdaAnual},00</span>.`;
+    }
+
+</script>
