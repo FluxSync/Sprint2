@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Financeira</title>
+</head>
+
+<body>
+
+    <label> 
+        Insira sua renda mensal em reais (R$) <input type="text" id="ipt_rendaMensal">
+    </label><br><br>
+
+    <label> 
+        Insira a quantidade de setores que você possui no seu mercado: <input type="text" id="ipt_qtdSetores">
+    </label><br> <br>
+
+    <label>
+        Insira a quantidade de gôndolas os setores possuem: <input type="text" id="ipt_qtdGondolas">
+    </label><br><br>
+
+    <label>
+        Insira o comprimento (em metros) das gôndolas: <input type="text" id="ipt_tamGondola">
+    </label><br><br>
+
+    <label>
+        Insira o número de prateleiras que as gôndolas possuem: <input type="text" id="ipt_numPrateleiras">
+    </label><br><br>
+
+    <button onclick="calcular()">Analisar negócio</button>
+
+    <div id="div_msg"></div>
+</body>
+
+</html>
+
+<script>
+
+    function calcular() {
+        var rendaMensal = Number(ipt_rendaMensal.value);
+        var rendaSemestral = rendaMensal * 6;
+        var perdaSemestral = rendaSemestral * (100 - 60) / 100;
+        var perdaMensal = perdaSemestral / 6;
+        var rendaAnual = rendaMensal * 12;
+        var perdaAnual = perdaSemestral * 2;
+        var qtdSetor = Number(ipt_qtdSetores.value);
+        var qtdGondolas = Number(ipt_qtdGondolas.value);
+        var tamGondola = Number(ipt_tamGondola.value);
+        var numPrateleiras = Number(ipt_numPrateleiras.value);
+        var rangeSensor = 10;
+        var tamGondolaCM = tamGondola * 100;
+        var qtdSensor = ((tamGondolaCM / rangeSensor) * numPrateleiras) * qtdGondolas * qtdSetor;
+        var precoDeCadaSensor = 10;
+        var precoSensor = precoDeCadaSensor * qtdSensor;
+
+
+        div_msg.innerHTML = ` <br> Você informou que ganha <span style="color:green;">R$${rendaMensal},00</span> por mês. Semestralmente falando você ganha <span style="color:green;">R$${rendaSemestral},00</span>. Porém, segundo (fonte de pesquisa), há uma perda de 40% da sua renda por semestre devido a falta de controle nas mercadorias nas prateleiras. <br><br>
+        Com isso, temos os seguintes valores: <br>
+        Por mês você deixa de ganhar <span style="color:red;">R$${perdaMensal},00</span>. <br> 
+        Por semestre você deixa de ganhar <span style="color:red;">R$${perdaSemestral},00</span>. <br> <br>
+        Com base nesses dados, pode ser feita uma estimativa de renda anual e perda anual também, segue os dados abaixo: <br> 
+        Renda anual: <span style="color:green;">R$${rendaAnual}, 00</span> e Perda Anual: <span style="color:red;">R$${perdaAnual},00</span>. <br> <br>
+        
+        No seu mercado há ${qtdSetor} setores e em cada setor há ${qtdGondolas} gôndolas, onde cada gôndola possui ${numPrateleiras} prateleiras. Serão necessários ${qtdSensor} sensores onde cada sensor custa <span style="color:blue;">R$${precoDeCadaSensor},00</span> totalizando <span style="color:blue;">R$${precoSensor},00</span>.`;
+    }
+
+</script>
