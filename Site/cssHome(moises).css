@@ -142,7 +142,7 @@ body {
 
     max-width: 100%;
     height: auto;
-  
+
 }
 
 .tituloContainer1 {
@@ -460,13 +460,13 @@ body {
 }
 
 .botaoCalculadora:hover {
-   
+
     background-color: black;
     color: #92C7CF;
     transition: 0.5s;
 }
 
-.botaoContainer2:hover{
+.botaoContainer2:hover {
     background-color: black;
     color: #92C7CF;
     transition: 0.5s;
@@ -532,7 +532,7 @@ body {
 
 .container13 p {
     width: 642px;
-  
+
     font-size: 20px;
 }
 
