@@ -31,16 +31,22 @@
                 <div class="box-input-cadastro flex">
                     <input id="input_empresa" class="inter input" type="text" placeholder="Nome da empresa" />
                     <input id="input_cnpj" class="inter input" type="text" placeholder="CNPJ" />
+                    <div id="div_mensagemCnpj"></div>
                     <input id="input_emailEmpresa" class="inter input" type="text" placeholder="Email" />
+                    <div id="div_mensagemEmailEmpresa"></div>
                     <input id="input_telefone" class="inter input" type="text" placeholder="Telefone" />
+                    <div id="div_mensagemTelefone"></div>
                     <input id="input_gestor" class="inter input" type="text" placeholder="Nome do gestor" />
                     <input id="input_emailGestor" class="inter input" type="text" placeholder="Email do gestor" />
-                    <input id="input_senha" class="inter input" type="text" placeholder="Senha" />
-                    <input id="input_confirmarSenha" class="inter input" type="text" placeholder="Confirmar senha" />
+                    <div id="div_mensagemEmailGestor"></div>
+                    <input id="input_senha" class="inter input" type="password" placeholder="Senha" />
+                    <div id="div_mensagemSenha"></div>
+                    <input id="input_confirmarSenha" class="inter input" type="password" placeholder="Confirmar senha" />
+                    <div id="div_mensagemConfirmarSenha"></div>
                 </div>
 
                 <div class="box-btn-cadastro flex">
-                    <button class="inter">Concluir Cadastro</button>
+                    <button class="inter" onclick="validarTudo()">Concluir Cadastro</button>
                 </div>
                 <div class="conecte flex">
                     Já tem uma conta?<a href="tela-login.html" class="linkCad">Conecte-se</a>
@@ -51,3 +57,4 @@
 </body>
 
 </html>
+<script src="cadastro(victor).js"></script>
