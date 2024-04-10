@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Digite o PX para convertar em vw e vh
+    <input type="number" id="input_px">
+
+    Digite a font-size em px para convertem em REM
+    <input type="number" id="input_rem">
+    <button onclick="calculadora()">Calcular</button>
+
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+
+
+    function calculadora() {
+        div_mensagem.innerHTML=``
+
+        var PX = Number(input_px.value) 
+        var REM = Number(input_rem.value) 
+        var resoluçãoWidth = 1920; 
+        var resoluçãoHeight = 1080;
+
+        var calculoRem = (PX/REM)
+        var CalculoWidth = (PX/resoluçãoWidth) * 100
+        var calculoHeight = (PX/resoluçãoHeight) *100
+        div_mensagem.innerHTML += `Essa quantidade de px em vw é ${CalculoWidth.toFixed(2)} e em vh é ${calculoHeight.toFixed(2)} <br>`
+        div_mensagem.innerHTML+= `Essa quantidade em px em REM é ${calculoRem.toFixed(2)}`
+
+    }
+
+</script>

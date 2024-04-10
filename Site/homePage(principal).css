@@ -9,8 +9,8 @@ body{
 
 
 .container1{
-    width: 100vw;
-    height: 85vh;
+    width: 99vw;
+    height: 102vh;
  
     background-color: rgb(233, 229, 229);
 }
@@ -37,34 +37,34 @@ body{
 
 .container3 h3{
     color: white;
-    font-size: 45px;
+    font-size: 2.81rem;
     margin: 0;
 }
 
 
 
 .texto{
-    width: 561px;
-    height: 327px;
+    width: 29.22vw;
+    height: 51.94vh;
         color: white;
 }
 
 .texto h1{
-    font-size: 45px;
+    font-size: 2.5rem;
 }
 .texto h3{
-    font-size: 27px;
+    font-size: 2.3rem;
 }
 .texto p {
-    font-size: 22px;
+    font-size: 1.40rem;
 }
 .container2{
     margin-left: 5vh;
 }
 
 .logoFlux {
-    width: 300px;
-    height: 300px;
+    width: 15.63vw;
+    height: 27.78vh;
 }
 
 .containerLeft, .containerRight {
@@ -89,13 +89,14 @@ body{
    
     border: 2px solid black;
     background-color: #11009E;
-    width: 159px;
-    height: 40px;
+    width: 8.28vw;
+    height: 3.70vh;
     text-align: center;
     color: white;
-    font-size: 28px;
+    font-size: 1.56rem;
     border-radius: 7px;
-    list-style:none;
+    text-decoration: none;
+    list-style: none;
 }
 
 .navbar li:hover {
@@ -103,8 +104,13 @@ body{
     color: #11009E;
     transition: 2s;
     cursor: pointer;
+    text-decoration: none;
     list-style: none;
 
+}
+
+.navbar  a {
+    text-decoration: none;
 }
 
 .navbar ul{
@@ -121,21 +127,21 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-  width: 830px;
-  height: 436px;
+  width: 43.23vw;
+  height: 40.37vh;
   position: relative;
    border-radius: 15px;
 }
 
 .empilhadeira {
-    width: 450px;
-    height: 436px;
+    width: 23.44vw;
+    height: 40.37vh;
     border-radius: 15px;
 }
 
 .planeta {
-    width: 316px;
-    height: 347px;
+    width: 16.46vw;
+    height: 32.13vh;
     border-radius: 25px;
   
    position: absolute;
@@ -152,22 +158,11 @@ body{
     border-radius: 15px;
 }
 
-.Valores{
-  
-    display: flex;
-    align-items: center;
 
-    width: 100vw;
-    height: 80vh;
 
-    justify-content: space-around;
-    margin-left: 3vh;
-   
-}
-
-.Valores img{
-    width: 100px;
-    height: 100px;
+.imgValores {
+    width: 5.21vw;
+    height: 9.26vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -175,21 +170,21 @@ body{
 }
 
 .textoValores{
-    width: 561px;
-    height: 327px;
+    width: 29.22vw;
+    height: 30.28vh;
     margin-right: 10vh;
 }
 
 .textoValores h1{
-    font-size: 45px;
+    font-size: 2.5rem;
 }
 
 .textoValores p {
-    font-size: 20px;
+    font-size: 1.40rem;
 }
 .item1 img{
-    height: 150px;
-    width: 150px;
+    height: 13.89vh;
+   width: 7.81vw;
    
     background-color: rgb(255, 255, 255);
     border-radius: 30%;
@@ -204,8 +199,8 @@ body{
 }
 
 .item2 img{
-    height: 150px;
-    width: 150px;
+   height: 13.89vh;
+   width: 7.81vw;
    
     background-color: rgb(255, 255, 255);
     border-radius: 30%;
@@ -219,8 +214,8 @@ body{
     cursor: pointer;
 }
 .item3 img{
-    height: 150px;
-    width: 150px;
+   height: 13.89vh;
+   width: 7.81vw;
    
     background-color: rgb(255, 255, 255);
     border-radius: 30%;
@@ -237,8 +232,8 @@ body{
 
 .item1:hover img {
 
-    height: 155px;
-    width: 155px;
+   height: 14.35vh;
+   width: 8.07vw;
 
     transition: 1.8s;
 
@@ -251,8 +246,8 @@ body{
 
 .item2:hover img {
 
-    height: 155px;
-    width: 155px;
+   height: 14.35vh;
+   width: 8.07vw;
 
     transition: 1.8s;
 
@@ -267,8 +262,8 @@ body{
 
 .item3:hover img {
 
-    height: 155px;
-    width: 155px;
+   height: 14.35vh;
+   width: 8.07vw;
 
     transition: 1.8s;
 
@@ -277,6 +272,14 @@ body{
     
 
 }
+.containerTeste {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 90vw;
+  height: 60vh;
+    
+}
 
 .container10{
     display: flex;
@@ -284,27 +287,40 @@ body{
     justify-content: space-between;
     gap: 15vh;
     flex-direction: column;
-    width: 100vw;
+    width: 99vw;
 }
-.container10 img{
+.container11 img{
     width: 648px;
     height: 457px;
     border-radius: 40px;
-
-   
 }
+
+.container12 img{
+    width: 648px;
+    height: 457px;
+    border-radius: 40px;
+}
+
+.container13 img{
+    width: 648px;
+    height: 457px;
+    border-radius: 40px;
+}
+
+
 
 .container11{
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 90vw;
+  height: 60vh;
     
 }
 
 .textoContainer11 {
-    width: 561px;
-    height: 327px;
+    width: 29.22vw;
+    height: 30.27vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -313,11 +329,12 @@ body{
 }
 
 .textoContainer11 h1{
-    font-size: 45px;
+  font-size: 2.5rem;
+    margin: 0;
 }
 
 .textoContainer11 p {
-    font-size: 22px;
+   font-size: 1.40rem;
 }
 
 
@@ -326,12 +343,13 @@ body{
     align-items: center;
     justify-content: space-between;
     width: 90vw;
+  height: 60vh;
     
 }
 
 .textoContainer12 {
-    width: 561px;
-    height: 327px;
+    width: 29.22vw;
+    height: 30.27vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -340,11 +358,12 @@ body{
 }
 
 .textoContainer12 h1{
-    font-size: 45px;
+  font-size: 2.5rem;
+    margin: 0;
 }
 
 .textoContainer12 p {
-    font-size: 22px;
+   font-size: 1.40rem;
 }
 
 
@@ -357,22 +376,23 @@ body{
 }
 
 .textoContainer13 {
-    width: 561px;
-    height: 327px;
+    width: 29.22vw;
+    height: 30.27vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    font-size: 22px;
+   font-size: 1.40rem;
     
 }
 
 .textoContainer13 h1{
-    font-size: 45px;
+  font-size: 2.5rem;
+    margin: 0;
 }
 
 .textoContainer13 p {
-    font-size: 22px;
+   font-size: 1.40rem;
 }
 
 .container14{
