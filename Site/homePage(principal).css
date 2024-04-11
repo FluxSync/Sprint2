@@ -4,7 +4,8 @@ body{
  
  
   font-family: "Roboto", sans-serif;
-    background-color: rgb(233, 229, 229)
+    background-color: rgb(233, 229, 229);
+    overflow-x: hidden;
 }
 
 

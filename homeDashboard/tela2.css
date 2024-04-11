@@ -54,8 +54,6 @@ header {
 /* Main */
 
 main {
-    background-color: black;
-    color: #fff;
     height: 87vh;
     width: 100vw;
     display: flex;
@@ -123,7 +121,7 @@ main {
 }
 
 .switch .switch-wrapper input:checked+.switch-btn::before {
-    transform: translateX(2.8vh);
+    transform: translateX(4vh);
 }
 
 .switch .switch-wrapper input {
