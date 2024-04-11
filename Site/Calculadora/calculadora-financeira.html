@@ -1,79 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Calculadora Financeira</title>
     <link rel="stylesheet" href="calculadora-financeira(reynald).css" />
 
     <!-- LINK FONT INTER -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"/>
-</head>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-<body>
+  <body>
     <div id="div_conteudo">
-        <div class="container">
-            <div class="cabecalho">
-                <img src="./assets/logoFlux copy.svg" alt="">
-                <h1>Simulador Financeira</h1>
-            </div>
-            
-            <label> 
-                Insira sua renda mensal em reais (R$) <input type="text" id="ipt_rendaMensal">
-            </label><br><br>
-        
-            <label> 
-                Insira a quantidade de setores que você possui no seu mercado: <input type="text" id="ipt_qtdSetores">
-            </label><br> <br>
-        
-            <label>
-                Insira a quantidade de gôndolas os setores possuem: <input type="text" id="ipt_qtdGondolas">
-            </label><br><br>
-        
-            <label>
-                Insira o comprimento (em metros) das gôndolas: <input type="text" id="ipt_tamGondola">
-            </label><br><br>
-        
-            <label>
-                Insira o número de prateleiras que as gôndolas possuem: <input type="text" id="ipt_numPrateleiras">
-            </label><br><br>
-        
-            <button onclick="calcular()">Simular</button>
-
-            <div id="div_msg"></div>
-        
+      <div class="container">
+        <div class="cabecalho">
+          <a href="../homePage(principal).html"
+            ><img src="./assets/logoFlux copy.svg" alt=""
+          /></a>
+          <h1>Simulador Financeiro</h1>
         </div>
+        <div class="insert">
+          <div class="label-form">
+            <label>
+              Insira sua renda mensal em reais (R$)
+              <input type="text" id="ipt_rendaMensal" />
+            </label>
+
+            <label>
+              Insira a quantidade de setores que você possui no seu mercado:
+              <input type="text" id="ipt_qtdSetores" />
+            </label>
+
+            <label>
+              Insira a quantidade de gôndolas os setores possuem:
+              <input type="text" id="ipt_qtdGondolas" />
+            </label>
+
+            <label>
+              Insira o comprimento (em metros) das gôndolas:
+              <input type="text" id="ipt_tamGondola" />
+            </label>
+
+            <label>
+              Insira o número de prateleiras que as gôndolas possuem:
+              <input type="text" id="ipt_numPrateleiras" />
+            </label>
+            <button onclick="calcular()">Simular</button>
+          </div>
+        </div>
+        <div id="div_msg"></div>
+      </div>
     </div>
-
-
-
-</body>
-
+  </body>
 </html>
 
 <script>
-    function calcular() {
-        var rendaMensal = Number(ipt_rendaMensal.value);
-        var rendaSemestral = rendaMensal * 6;
-        var perdaSemestral = rendaSemestral * (100 - 60) / 100;
-        var perdaMensal = perdaSemestral / 6;
-        var rendaAnual = rendaMensal * 12;
-        var perdaAnual = perdaSemestral * 2;
-        var qtdSetor = Number(ipt_qtdSetores.value);
-        var qtdGondolas = Number(ipt_qtdGondolas.value);
-        var tamGondola = Number(ipt_tamGondola.value);
-        var numPrateleiras = Number(ipt_numPrateleiras.value);
-        var rangeSensor = 10;
-        var tamGondolaCM = tamGondola * 100;
-        var qtdSensor = ((tamGondolaCM / rangeSensor) * numPrateleiras) * qtdGondolas * qtdSetor;
-        var precoDeCadaSensor = 10;
-        var precoSensor = precoDeCadaSensor * qtdSensor;
+  function calcular() {
+    var rendaMensal = Number(ipt_rendaMensal.value);
+    var rendaSemestral = rendaMensal * 6;
+    var perdaSemestral = (rendaSemestral * (100 - 60)) / 100;
+    var perdaMensal = perdaSemestral / 6;
+    var rendaAnual = rendaMensal * 12;
+    var perdaAnual = perdaSemestral * 2;
+    var qtdSetor = Number(ipt_qtdSetores.value);
+    var qtdGondolas = Number(ipt_qtdGondolas.value);
+    var tamGondola = Number(ipt_tamGondola.value);
+    var numPrateleiras = Number(ipt_numPrateleiras.value);
+    var rangeSensor = 10;
+    var tamGondolaCM = tamGondola * 100;
+    var qtdSensor =
+      (tamGondolaCM / rangeSensor) * numPrateleiras * qtdGondolas * qtdSetor;
+    var precoDeCadaSensor = 10;
+    var precoSensor = precoDeCadaSensor * qtdSensor;
 
-
-        div_conteudo.innerHTML = ` <br>
+    div_conteudo.innerHTML = ` <br>
         <div class="container">
             <p>Você informou que ganha <span style="color:green;"> R$${rendaMensal},00</span> por mês.
             Semestralmente falando você ganha <span style="color:green;">R$${rendaSemestral},00.</span> 
@@ -89,9 +94,6 @@
             <br>
 
             <a href="calculadora-financeira.html"><button>Voltar</button></a>
-        </div>`;    
-
-    }
-
-
+        </div>`;
+  }
 </script>
