@@ -31,18 +31,20 @@ body{
 }
 .container3{
     display: flex;
-    align-items: center;
-    
+    align-items: center;  
 }
 
-
-.container3 h3{
-    color: white;
-    font-size: 2.81rem;
-    margin: 0;
+.logo {
+    margin-left: 5rem;
+    height: 10rem;
+    padding:0
 }
 
-
+.txt-logo{
+    margin-left: 2rem;
+    font-size: 4rem;
+    color: #fff;
+}
 
 .texto{
     width: 29.22vw;
@@ -63,10 +65,6 @@ body{
     margin-left: 5vh;
 }
 
-.logoFlux {
-    width: 15.63vw;
-    height: 27.78vh;
-}
 
 .containerLeft, .containerRight {
     position: absolute; 
@@ -286,7 +284,7 @@ body{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 15vh;
+    gap: 25vh;
     flex-direction: column;
     width: 99vw;
 }
