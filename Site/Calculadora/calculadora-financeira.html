@@ -19,47 +19,48 @@
     <div id="div_conteudo">
       <div class="container">
         <div class="cabecalho">
-          <a href="../homePage(principal).html"
-            ><img src="./assets/logoFlux copy.svg" alt=""
-          /></a>
-          <h1>Simulador Financeiro</h1>
+          <img src="./assets/logoFlux copy.svg" alt="" />
+          <h1>Simulador Financeira</h1>
         </div>
-        <div class="insert">
-          <div class="label-form">
-            <label>
-              Insira sua renda mensal em reais (R$)
-              <input type="text" id="ipt_rendaMensal" />
-            </label>
 
-            <label>
-              Insira a quantidade de setores que você possui no seu mercado:
-              <input type="text" id="ipt_qtdSetores" />
-            </label>
+        <label>
+          Insira sua renda do seu mercado mensal (R$)
+          <input type="text" id="ipt_rendaMensal" /> </label
+        ><br /><br />
 
-            <label>
-              Insira a quantidade de gôndolas os setores possuem:
-              <input type="text" id="ipt_qtdGondolas" />
-            </label>
+        <label>
+          Insira a quantidade de setores que você possui no seu mercado:
+          <input type="text" id="ipt_qtdSetores" /> </label
+        ><br />
+        <br />
 
-            <label>
-              Insira o comprimento (em metros) das gôndolas:
-              <input type="text" id="ipt_tamGondola" />
-            </label>
+        <label>
+          Insira a quantidade de gôndolas que os setores possuem:
+          <input type="text" id="ipt_qtdGondolas" /> </label
+        ><br /><br />
 
-            <label>
-              Insira o número de prateleiras que as gôndolas possuem:
-              <input type="text" id="ipt_numPrateleiras" />
-            </label>
-            <button onclick="calcular()">Simular</button>
-          </div>
-        </div>
+        <label>
+          Insira o comprimento das gôndolas (metros):
+          <input type="text" id="ipt_tamGondola" /> </label
+        ><br /><br />
+
+        <label>
+          Insira o número de prateleiras que as gôndolas possuem:
+          <input type="text" id="ipt_numPrateleiras" /> </label
+        ><br /><br />
+
+        <button onclick="calcular()">Simular</button>
+
         <div id="div_msg"></div>
       </div>
     </div>
   </body>
+  
 </html>
 
 <script>
+    var precoSensor = 0;
+
   function calcular() {
     var rendaMensal = Number(ipt_rendaMensal.value);
     var rendaSemestral = rendaMensal * 6;
@@ -76,13 +77,13 @@
     var qtdSensor =
       (tamGondolaCM / rangeSensor) * numPrateleiras * qtdGondolas * qtdSetor;
     var precoDeCadaSensor = 10;
-    var precoSensor = precoDeCadaSensor * qtdSensor;
+    precoSensor = precoDeCadaSensor * qtdSensor;
 
     div_conteudo.innerHTML = ` <br>
         <div class="container">
             <p>Você informou que ganha <span style="color:green;"> R$${rendaMensal},00</span> por mês.
             Semestralmente falando você ganha <span style="color:green;">R$${rendaSemestral},00.</span> 
-            Porém, segundo (fonte de pesquisa), há uma perda de 40% da sua renda por semestre devido a falta de controle nas mercadorias nas prateleiras. <br><br>
+            Porém, segundo <a href="">NeoGrid</a>, há uma perda de 40% da sua renda por semestre devido a falta de controle nas mercadorias nas prateleiras. <br><br>
             Com isso, temos os seguintes valores: <br>
             Por mês você deixa de ganhar <span style="color:red;">R$${perdaMensal},00</span>. <br> 
             Por semestre você deixa de ganhar <span style="color:red;">R$${perdaSemestral},00</span>. <br> <br>
@@ -94,6 +95,88 @@
             <br>
 
             <a href="calculadora-financeira.html"><button>Voltar</button></a>
+
+        <button style= "margin-top: 5px;" onclick="selecionarFormaPagamento()">Tela de pagamento</button>
         </div>`;
+  }
+
+  function selecionarFormaPagamento() {
+    div_conteudo.innerHTML = `
+    <div class="container">
+        <label>
+            Selecione a forma de pagamento:
+            <select id="sl_formaPagamento">
+                <option value="#">Selecione uma forma de pagamento</option>
+                <option value="1">À vista</option>
+                <option value="2">Parcelamento</option>
+            </select>
+            <br/>
+            <br/>
+        </label>
+
+        <button onclick = "parcelar()">Selecionar</button>
+    </div>
+    `;
+  }
+
+  
+  function parcelar() {
+    formaPagamento = sl_formaPagamento.value;
+
+    div_conteudo.innerHTML = `<br> <br>
+    <div class="container">
+        <label id= "label_parcelas" style="display:none;">
+                    Insira a quantidade de parcelas: 
+                    <select id="sl_parcelas">
+                        <option value="#">Selecione a quantidade de parcelas</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                    </select><br/><br/>
+
+                    <button onclick = "mostrarParcelas()">Mostar as parcelas</button>
+                    <a href="calculadora-financeira.html"><button>Voltar</button></a>
+                </label>
+            </div>
+
+            
+            `;
+
+    if (formaPagamento == 2) {
+      label_parcelas.style.display = "block";
+    }else{
+        div_conteudo.innerHTML = `
+        <div class="container">
+            O valor total será de: ${precoSensor}
+
+            <a href="calculadora-financeira.html"><button style= "margin-top: 5px;">Voltar</button></a>
+        </div>`;
+    }
+
+    
+  }
+
+  var parcelas = 0;
+  function mostrarParcelas() {
+    parcelas = sl_parcelas.value;
+    var frase = "";
+
+    for(var cont = 1; cont <= parcelas; cont++){
+        frase += `<br>${cont} Parcela: R$${precoSensor/12}`;
+    }
+
+    div_conteudo.innerHTML += `<br>
+    <div class="container">
+        ${frase}
+    </div>`;
   }
 </script>
