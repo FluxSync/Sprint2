@@ -1,4 +1,4 @@
-var nomeEmpresa = input_empresa.value;
+var nomeEmpresa = '';
 var cnpj = '';
 var emailEmpresa = '';
 var telefone = '';
@@ -69,10 +69,14 @@ function validarSenha() {
 
 
 }
+function nomeEmpresa(){
+    nomeEmpresa = input_empresa.value;
+}
 function validarTudo() {
     validarcnpj();
     validarEmailEmpresa();
     validarTelefone();
     validarEmailGestor();
     validarSenha();
+    nomeEmpresa();
 }
