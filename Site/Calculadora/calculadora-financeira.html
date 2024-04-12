@@ -81,16 +81,16 @@
 
     div_conteudo.innerHTML = ` <br>
         <div class="container">
-            <p>Você informou que ganha <span style="color:green;"> R$${rendaMensal},00</span> por mês.
-            Semestralmente falando você ganha <span style="color:green;">R$${rendaSemestral},00.</span> 
-            Porém, segundo <a href="">NeoGrid</a>, há uma perda de 40% da sua renda por semestre devido a falta de controle nas mercadorias nas prateleiras. <br><br>
+            <p>Você informou que ganha <span style="color:green;"> R$${rendaMensal}</span> por mês.
+            Semestralmente falando você ganha <span style="color:green;">R$${rendaSemestral}.</span> 
+            <br><br>Porém, segundo <a href="">NeoGrid</a>, há uma perda de 40% da sua renda por semestre devido a falta de controle nas mercadorias nas prateleiras. <br><br>
             Com isso, temos os seguintes valores: <br>
-            Por mês você deixa de ganhar <span style="color:red;">R$${perdaMensal},00</span>. <br> 
-            Por semestre você deixa de ganhar <span style="color:red;">R$${perdaSemestral},00</span>. <br> <br>
+            Por mês você deixa de ganhar <span style="color:red;">R$${perdaMensal}</span>. <br> 
+            Por semestre você deixa de ganhar <span style="color:red;">R$${perdaSemestral}</span>. <br> <br>
             Com base nesses dados, pode ser feita uma estimativa de renda anual e perda anual também, segue os dados abaixo: <br> 
-            Renda anual: <span style="color:green;">R$${rendaAnual}, 00</span> e Perda Anual: <span style="color:red;">R$${perdaAnual},00</span>. <br> <br>
+            Renda anual: <span style="color:green;">R$${rendaAnual}</span> e Perda Anual: <span style="color:red;">R$${perdaAnual}</span>. <br> <br>
         
-            No seu mercado há ${qtdSetor} setores e em cada setor há ${qtdGondolas} gôndolas, onde cada gôndola possui ${numPrateleiras} prateleiras. Serão necessários ${qtdSensor} sensores onde cada sensor custa <span style="color:blue;">R$${precoDeCadaSensor},00</span> totalizando <span style="color:blue;">R$${precoSensor},00</span></p>
+            No seu mercado há ${qtdSetor} setores e em cada setor há ${qtdGondolas} gôndolas, onde cada gôndola possui ${numPrateleiras} prateleiras. Serão necessários ${qtdSensor} sensores onde cada sensor custa <span style="color:blue;">R$${precoDeCadaSensor}</span> totalizando <span style="color:blue;">R$${precoSensor}</span>.</p>
             <br>
             <br>
 
@@ -143,7 +143,7 @@
                         <option value="12">12</option>
                     </select><br/><br/>
 
-                    <button onclick = "mostrarParcelas()">Mostar as parcelas</button>
+                    <button style= "margin-bottom: 5px;" onclick = "mostrarParcelas()">Mostar as parcelas</button>
                     <a href="calculadora-financeira.html"><button>Voltar</button></a>
                 </label>
             </div>
@@ -172,11 +172,17 @@
 
     for(var cont = 1; cont <= parcelas; cont++){
         frase += `<br>${cont} Parcela: R$${precoSensor/12}`;
+        
     }
 
     div_conteudo.innerHTML += `<br>
-    <div class="container">
+    <div id="div_res" class="container"">
         ${frase}
     </div>`;
+
+    div_res.style.display = "none";
+
+    div_res.style.display = "block";
+    
   }
 </script>
