@@ -5,7 +5,7 @@ var telefone = '';
 var nomeGestor = '';
 var emailGestor = ''
 var senha = '';
-var confirmarSenha = input_confirmarSenha.value;
+var confirmarSenha = '';
 
 function validarcnpj(){
     cnpj = input_cnpj.value;
@@ -47,6 +47,7 @@ function validarEmailGestor(){
 }
 function validarSenha() {
     senha = input_senha.value;
+    var confirmarSenha = input_confirmarSenha.value;
     var mensagemSenha = '';
     if (senha.length < 8) {
         mensagemSenha = 'Senha deve ter no mínimo 8 caracteres.';
@@ -60,8 +61,13 @@ function validarSenha() {
     else if (!/[\W_]/.test(senha)) {
         mensagemSenha = 'Senha deve conter pelo menos um caractere especial.';
     }
+    if(confirmarSenha != senha){
+        div_mensagemConfirmaeSenha.innerHTML = 'Senha não é igual';
+    }
 
     div_mensagemSenha.innerHTML = mensagemSenha;
+
+
 }
 function validarTudo() {
     validarcnpj();
