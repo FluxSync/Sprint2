@@ -64,34 +64,63 @@ main {
     display: flex;
 }
 
-.info{
-    width: 50vw;
+.info {
+    position: fixed;
+    width: 20vw;
+    right: 0;
+}
+
+.gondolas {
+    position: fixed;
+    height: 28vh;
+    width: 60vw;
+    left: 0;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: row;
+    justify-content: start;
+    align-items: end;
+}
+
+.h1-gondola {
+    margin-left: 8rem;
+}
+
+.subtitle {
+    height: 5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
     align-items: center;
-    gap: 10px;
+    margin: 0.5rem;
+    overflow: hidden;
+    font-weight: 600;
 
 }
-.gondolas{
-    width: 50vw;
-}
 
-.red-info{
+.red-info {
+    display: flex;
     background-color: #840303;
     height: 0.5rem;
     width: 0.5rem;
     padding: 1rem;
     border-radius: 360px;
+    margin-right: 0.4rem;
+    border: 3px solid #000000;
 }
-.blue-info{
+
+.blue-info {
     background-color: #11009e;
     height: 0.5rem;
     width: 0.5rem;
     padding: 1rem;
     border-radius: 360px;
+    margin-right: 0.4rem;
+    border: 3px solid #000000;
 }
 
+.txt-info {
+    font-weight: 800;
+}
 
 
 .check-txt {
@@ -100,13 +129,23 @@ main {
 
 
 .switch {
+    position: fixed;
+    height: 28vh;
+    width: 100vw;
+    right: 0;
+    left: 0;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    gap: 1rem;
 }
-.switch-txt{
-    width: 10rem;
+
+.switch-txt {
+    width: 8rem;
+    text-align: center;
+    font-weight: 800;
 }
 
 .switch .switch-txt {
@@ -236,21 +275,26 @@ main {
 }
 
 
-.empty{
+.empty {
     background-color: #840303;
 }
-.contains{
+
+.contains {
     background-color: #11009e;
 }
-.empty:hover{
+
+.empty:hover {
     cursor: pointer;
-    background-color: #df0505;
+    background-image: linear-gradient(45deg, #000000, #ffffff);
+    color: #840303;
+    font-weight: 900;
+    border: #840303 solid 3px;
 }
-.contains:hover{
+
+.contains:hover {
     cursor: pointer;
-    background-color: #1701dd;
+    background-image: linear-gradient(45deg, #000000, #ffffff);
+    color: #11009e;
+    font-weight: 900;
+    border: #11009e solid 3px;
 }
-
-
-
-
