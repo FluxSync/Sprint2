@@ -56,16 +56,43 @@ header {
 main {
     height: 87vh;
     width: 100vw;
-    display: flex;
-    flex-direction: column;
 }
-
 
 .info-content {
-    margin-top: 6vh;
-    height: 17vh;
-    text-align: center;
+    height: 28vh;
+    top: 0;
+    display: flex;
 }
+
+.info{
+    width: 50vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+}
+.gondolas{
+    width: 50vw;
+}
+
+.red-info{
+    background-color: #840303;
+    height: 0.5rem;
+    width: 0.5rem;
+    padding: 1rem;
+    border-radius: 360px;
+}
+.blue-info{
+    background-color: #11009e;
+    height: 0.5rem;
+    width: 0.5rem;
+    padding: 1rem;
+    border-radius: 360px;
+}
+
+
 
 .check-txt {
     margin-top: 10px;
@@ -77,6 +104,9 @@ main {
     justify-content: center;
     align-items: center;
     cursor: pointer;
+}
+.switch-txt{
+    width: 10rem;
 }
 
 .switch .switch-txt {
@@ -121,7 +151,7 @@ main {
 }
 
 .switch .switch-wrapper input:checked+.switch-btn::before {
-    transform: translateX(4vh);
+    transform: translateX(3.2vh);
 }
 
 .switch .switch-wrapper input {
@@ -198,7 +228,6 @@ main {
 }
 
 .card {
-    background-color: rgb(132, 3, 3);
     height: 9rem;
     width: 15rem;
     margin-bottom: 15px;
@@ -207,35 +236,21 @@ main {
 }
 
 
-
-
-
-
-
-/* Footer */
-
-footer {
-    background-color: var(--babyBlue);
-    color: white;
-    height: 17vh;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    font-size: 18px;
+.empty{
+    background-color: #840303;
 }
-
-.call {
-    height: 13vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+.contains{
+    background-color: #11009e;
+}
+.empty:hover{
+    cursor: pointer;
+    background-color: #df0505;
+}
+.contains:hover{
+    cursor: pointer;
+    background-color: #1701dd;
 }
 
 
-.footer-txt {
-    margin-left: 110px;
-}
 
-.icon {
-    margin-left: 30px;
-}
+
