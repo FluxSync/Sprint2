@@ -29,10 +29,10 @@
     <div class="box">
       <div class="setor">
         <select name="" id="select_setor" class="select_setor">
-          <option value="#" class="noSelect" selected disabled>Setor</option>
-          <option value="limpeza">Limpeza</option>
-          <option value="hortifruti">Hortifruti</option>
-          <option value="acougue">Açougue</option>
+          <option value="" class="noSelect" selected disabled>Setor</option>
+          <option value="Limpeza">Limpeza</option>
+          <option value="Hortifruti">Hortifruti</option>
+          <option value="Açougue">Açougue</option>
         </select>
         <div class="search-box">
           <input type="text" class="search-txt" placeholder="Pesquisar Setor" />
@@ -42,34 +42,19 @@
         </div>
       </div>
       <div class="content">
-        <h1>Setor ______</h1>
-        <div class="info">
-          <p>Gondolas no setor: ?</p>
-          <p>Prateleiras no setor: ?</p>
-          <p>Sensores no Setor: ?</p>
+        <h1 id="nomeDoSetor">Selecione um Setor</h1>
+        <div class="infoSetor" id="infoSetor" style="display: none;">
+          <p id="gondolasNoSetor">Gôndolas no setor: ?</p>
+          <p id="prateleirasNoSetor">Prateleiras no setor: ?</p>
+          <p id="sensoresNoSetor">Sensores no Setor: ?</p>
         </div>
       </div>
       <div class="div-button">
-        <button class="button-data">Ver Dados</button>
+        <button onclick="tela2()" class="button-data">Ver Dados </button>
       </div>
     </div>
   </main>
-
-  <footer>
-    <div class="call">
-      <span>Central</span>
-      <span>(11) 0000-0000</span>
-    </div>
-    <div class="footer-txt">
-      <span>FluxTech © 2024 Todos os direitos reservados</span>
-    </div>
-    <div class="footer-redes">
-      <img src="assets/icons8-instagram (2).svg" alt="" class="ig icon" height="53px">
-      <img src="assets/icon-linkedin.svg" alt="" class="in icon">
-      <img src="assets/icons8-whatsapp (1).svg" alt="" class="wpp icon">
-
-    </div>
-  </footer>
 </body>
 
 </html>
+<script src="home.js"></script>

@@ -18,6 +18,7 @@ header {
   height: 13vh;
   display: flex;
   justify-content: space-between;
+  border-bottom: #11009e solid 4px;
 }
 
 .flux {
@@ -94,7 +95,24 @@ main {
   width: 45vw;
   display: flex;
   flex-direction: column;
+  border-radius: 45px;
+  border: 5px solid transparent;
+  animation: mudar-cor 3s linear infinite, girar;
+}
 
+
+@keyframes mudar-cor {
+  0% {
+    border-color: var(--blue);
+  }
+
+  50% {
+    border-color: #ffffff;
+  }
+
+  100% {
+    border-color: var(--blue);
+  }
 }
 
 .setor {
@@ -106,7 +124,7 @@ main {
 
 
 .search-box {
-  background: #11009e;
+  background: #38373f;
   height: 40px;
   width: fit-content;
   border-radius: 40px;
@@ -157,6 +175,7 @@ main {
   width: 8vw;
   margin-left: 10px;
   cursor: pointer;
+  border-radius: 15px;
 }
 
 .noSelect {
@@ -177,7 +196,7 @@ main {
   font-size: 40px;
 }
 
-.info {
+.infoSetor {
   margin-top: 1vh;
   margin-left: 3vw;
   display: flex;
@@ -200,32 +219,6 @@ main {
   height: 4vh;
   padding: 0 8vw;
   cursor: pointer;
-}
-
-
-
-footer {
-  background-color: var(--babyBlue);
-  color: white;
-  height: 17vh;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  font-size: 18px;
-}
-
-.call {
-  height: 13vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-}
-
-
-.footer-txt {
-  margin-left: 110px;
-}
-
-.icon {
-  margin-left: 30px;
+  border-radius: 30px;
+  text-align: center;
 }

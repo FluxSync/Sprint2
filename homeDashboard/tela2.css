@@ -82,7 +82,9 @@ main {
 }
 
 .h1-gondola {
-    margin-left: 8rem;
+    margin-bottom: 1rem;
+    margin-left: 10rem;
+    font-size: 1.5rem;
 }
 
 .subtitle {
@@ -224,7 +226,7 @@ main {
     color: #fff;
     transition: all 600ms ease-in-out;
     background: linear-gradient(to left, transparent 0%, black 200%);
-    opacity: 0.1;
+    opacity: 0.4;
     cursor: pointer;
     border: none;
 }
@@ -272,8 +274,15 @@ main {
     margin-bottom: 15px;
     border-radius: 25px;
     color: #fff;
+    opacity: 1;
+    transition: opacity 2s ease;
 }
 
+.invisible {
+    display: block;
+    opacity: 0;
+    transition: opacity 2s ease;
+}
 
 .empty {
     background-color: #840303;
@@ -281,6 +290,7 @@ main {
 
 .contains {
     background-color: #11009e;
+    display: none;
 }
 
 .empty:hover {

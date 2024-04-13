@@ -31,3 +31,26 @@ controls.forEach((control) => {
     items[currentItem].classList.add("current-item");
   });
 });
+
+function checkBoxChanged() {
+  let checkAll = document.getElementById("checkAll");
+  let contains = document.querySelectorAll(".contains");
+
+  if (checkAll.checked) {
+    contains.forEach((item) => {
+      item.style.display = "block";
+      setTimeout(() => {
+        item.classList.remove("invisible");
+      }, 1000);
+    });
+  } else {
+    contains.forEach((item) => {
+      item.classList.add("invisible");
+      setTimeout(() => {
+        item.style.display = "none";
+      }, 1000);
+    });
+  }
+}
+let checkAll = document.getElementById("checkAll");
+checkAll.addEventListener("change", checkBoxChanged);

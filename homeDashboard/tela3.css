@@ -1,0 +1,52 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    font-family: "Inter", sans-serif;
+}
+
+:root {
+    --blue: #11009e;
+    --babyBlue: #40679e;
+}
+
+/* Header*/
+
+header {
+    background-color: #f1eedc;
+    height: 13vh;
+    display: flex;
+    justify-content: space-between;
+}
+
+.flux {
+    display: flex;
+    align-items: center;
+    margin-left: 1vw;
+}
+
+.logo {
+    height: 12vh;
+}
+
+.logo-txt {
+    font-size: 23px;
+    font-weight: 800;
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    margin-right: 3vw;
+}
+
+.icon-menu {
+    height: 8vh;
+}
+
+.icon-menu:hover {
+    color: white;
+    transform: scale(0.8);
+    cursor: pointer;
+}
