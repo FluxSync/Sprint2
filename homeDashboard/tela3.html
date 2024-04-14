@@ -9,7 +9,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;700&family=Inter:wght@100..900&family=Lora:ital,wght@0,700;1,400&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="tela2.css" />
+    <link rel="stylesheet" href="tela3.css" />
 
     <title>Flux</title>
 </head>
@@ -24,4 +24,45 @@
             <img src="assets/menu.svg" alt="" class="icon-menu">
         </div>
     </header>
+    <main class="dashboard">
+        <section class="indicators">
+            <h1 class="title-indicators">Principais Indicadores</h1>
+            <div class="info-cards">
+                <div class="card date">
+                    <h3 class="title-card" s>Data das Estocagens</h3>
+                    <div class="indicators-itens">
+                        <span class="item-indicator">Última Estocagem: 02/10</span>
+                        <span class="item-indicator">Penúltima Estocagem: 30/09</span>
+                    </div>
+                </div>
+                <div class="card stock">
+                    <h3 class="title-card">Tempo de Estoque</h3>
+                    <div class="indicators-itens">
+                        <span class="item-indicator">Tempo sem Estoque: 3:20 (horas)</span>
+                        <span class="item-indicator">Tempo com Estoque: 78:20 (horas)</span>
+                    </div>
+                </div>
+                <div class="card speed">
+                    <h3 class="title-card">Melhores Meses</h3>
+                    <div class="indicators-itens">
+                        <span class="item-indicator">1°: Maio</span>
+                        <span class="item-indicator">2°: Julho</span>
+                        <span class="item-indicator">3°: Outubro</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="replacement">
+            <h2 class="title-replacement">Velocidade de Reposição</h2>
+            <div class="replacement-timer">
+                <div class="timer"><span>3 horas</span></div>
+            </div>
+            <div class="replacement-bar">
+                <span class="bar good">Bom</span>
+                <span class="bar normal">Normal</span>
+                <span class="bar bad">Ruim</span>
+                <span class="bar v-bad">Péssimo</span>
+            </div>
+        </section>
+    </main>
 </body>
