@@ -20,25 +20,35 @@
       <div class="container-login flex">
         <div class="box-login flex">
           <div class="content-logo">
-           <a href="homePage(principal).html"> <div class="logo"></div></a>
+            <a href="homePage(principal).html"> <div class="logo"></div></a>
           </div>
 
           <h1 class="logar">Faça seu login</h1>
           <div class="box-input-login flex">
-            <input class="inter" type="text" placeholder="E-mail" />
-            <input class="inter" type="password" placeholder="Senha" />
+            <input
+              id="input_emailEmpresa"
+              class="inter"
+              type="text"
+              placeholder="E-mail"
+            />
+            <div id="div_mensagemEmailEmpresa"></div>
+            <input
+              id="input_senha"
+              class="inter"
+              type="password"
+              placeholder="Senha"
+            />
+            <div id="div_mensagemSenha"></div>
           </div>
 
           <div class="box-btn-login flex">
-            <button class="inter">Entrar</button>
+            <button class="inter" onclick="validarTudo()">Entrar</button>
           </div>
           <div class="checkBox">
             <input type="checkbox" id="lembrar-senha" />Lembrar minha senha
           </div>
           <div class="cadastre-se flex">
-            Ainda não tem cadastro?<a
-              href="cadastro.html"
-              class="linkCad"
+            Ainda não tem cadastro?<a href="cadastro.html" class="linkCad"
               >CADASTRE-SE JÁ</a
             >
           </div>
@@ -49,3 +59,4 @@
     </div>
   </body>
 </html>
+<script src="tela-login.js"></script>
