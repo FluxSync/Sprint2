@@ -3,7 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     overflow-x: hidden;
-    font-family: "Inter", sans-serif;
+    font-family: Cambria, sans-serif;
 }
 
 :root {
@@ -11,14 +11,30 @@
     --babyBlue: #40679e;
 }
 
+
+@keyframes mudar-cor {
+    0% {
+        border-color: var(--blue);
+    }
+
+    50% {
+        border-color: #ffffff;
+    }
+
+    100% {
+        border-color: var(--blue);
+    }
+}
+
 /* Header*/
 
 header {
     background-color: #000000;
-    color: #ffffff;
     height: 13vh;
     display: flex;
     justify-content: space-between;
+    border-bottom: #11009e solid 4px;
+    overflow-y: hidden;
 }
 
 .flux {
@@ -36,20 +52,26 @@ header {
     font-weight: 800;
 }
 
-.menu {
+.nav {
     display: flex;
+    justify-content: space-around;
+    height: 13vh;
+    width: 40vw;
     align-items: center;
-    margin-right: 3vw;
 }
 
-.icon-menu {
-    height: 8vh;
-}
-
-.icon-menu:hover {
-    color: white;
-    transform: scale(0.8);
-    cursor: pointer;
+.nav-button {
+    height: 5vh;
+    line-height: 5vh;
+    width: 10vw;
+    border-radius: 25px;
+    background-color: var(--blue);
+    color: #fff;
+    border: #fff 2px solid;
+    text-decoration: none;
+    list-style: none;
+    overflow-y: hidden;
+    text-align: center;
 }
 
 /* Main */
@@ -57,7 +79,7 @@ header {
 .dashboard {
     height: 87vh;
     width: 100vw;
-    background-image: url(assets/backgroundColor.jpg);
+    background-image: url(assets/backGG.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -69,8 +91,9 @@ header {
     height: 27vh;
     width: 66vw;
     margin: 0.7rem;
-    border: 1px solid gray;
+    border: 2px solid gray;
     overflow-y: hidden;
+    animation: mudar-cor 3s infinite;
 }
 
 .title-indicators {
@@ -89,13 +112,15 @@ header {
     background-color: rgb(0, 0, 0);
     color: #ffffff;
     border: 1px solid gray;
+    animation: mudar-cor 3s infinite;
 }
 
 .card {
     height: 22vh;
     width: 66vw;
-    border: 1px solid gray;
+    border: 2px solid gray;
     overflow-y: hidden;
+    animation: mudar-cor 3s infinite;
 }
 
 .title-card {
@@ -123,18 +148,21 @@ header {
     background-color: rgb(0, 0, 0);
     color: #ffffff;
     margin: 0.7rem;
-    border: 1px solid gray;
+    border: 2px solid gray;
     overflow-y: hidden;
+    animation: mudar-cor 3s infinite;
 }
 
 .title-replacement {
     border: 1px solid gray;
     text-align: center;
+    line-height: 4vh;
     height: 5vh;
+    animation: mudar-cor 3s infinite;
 }
 
 .replacement-timer {
-    height: 57vh;
+    height: 60vh;
     display: flex;
     justify-content: center;
     align-items: start;
@@ -152,11 +180,36 @@ header {
     align-items: center;
     justify-content: center;
     font-size: 2rem;
+    transition: transform 1.5s linear;
+    animation: pulsar 3s infinite;
 
 }
 
+
+@keyframes pulsar {
+    0% {
+        border-color: #fff;
+    }
+
+    50% {
+        border-color: #000;
+    }
+
+    100% {
+        border-color: #fff;
+    }
+}
+
+
+
+
+
+
+
+
+
 .timer:hover {
-    transform: scale(1.1);
+    transform: scale(1.2);
 }
 
 .replacement-bar {
@@ -174,7 +227,7 @@ header {
     height: 6vh;
     line-height: 5vh;
     color: #ffffff;
-    border: 0.1rem solid #010101;
+    border: 0.1rem solid #ffffff;
     overflow-y: hidden;
 }
 

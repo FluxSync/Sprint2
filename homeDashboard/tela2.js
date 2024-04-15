@@ -41,7 +41,7 @@ function checkBoxChanged() {
       item.style.display = "block";
       setTimeout(() => {
         item.classList.remove("invisible");
-      }, 1000);
+      }, 500);
     });
   } else {
     contains.forEach((item) => {
