@@ -16,7 +16,6 @@ function validarEmailEmpresa() {
 
 function validarSenha() {
     senha = input_senha.value;
-    var confirmarSenha = input_confirmarSenha.value;
     var mensagemSenha = '';
     if (senha.length < 8) {
         mensagemSenha = 'Senha deve ter no mínimo 8 caracteres.';
@@ -30,13 +29,14 @@ function validarSenha() {
     else if (!/[\W_]/.test(senha)) {
         mensagemSenha = 'Senha deve conter pelo menos um caractere especial.';
     }
-    div_mensagemSenha.innerHTML = mensagemSenha;
 
+    div_mensagemSenha.innerHTML = mensagemSenha;
 
 }
 
 function validarTudo() {
-    validarEmailEmpresa();
-    validarSenha();
+
+validarEmailEmpresa();
+validarSenha();
 
 }
