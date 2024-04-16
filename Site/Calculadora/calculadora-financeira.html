@@ -1,65 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Calculadora Financeira</title>
-    <link rel="stylesheet" href="calculadora-financeira(reynald).css" />
 
-    <!-- LINK FONT INTER -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
-      rel="stylesheet"
-    />
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calculadora Financeira</title>
+  <link rel="stylesheet" href="calculadora-financeira.css" />
 
-  <body>
-    <div id="div_conteudo">
-      <div class="container">
-        <div class="cabecalho">
-          <img src="./assets/logoFlux copy.svg" alt="" />
-          <h1>Simulador Financeira</h1>
-        </div>
+  <!-- LINK FONT INTER -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet" />
+</head>
 
-        <label>
-          Insira sua renda do seu mercado mensal (R$)
-          <input type="text" id="ipt_rendaMensal" /> </label
-        ><br /><br />
-
-        <label>
-          Insira a quantidade de setores que você possui no seu mercado:
-          <input type="text" id="ipt_qtdSetores" /> </label
-        ><br />
-        <br />
-
-        <label>
-          Insira a quantidade de gôndolas que os setores possuem:
-          <input type="text" id="ipt_qtdGondolas" /> </label
-        ><br /><br />
-
-        <label>
-          Insira o comprimento das gôndolas (metros):
-          <input type="text" id="ipt_tamGondola" /> </label
-        ><br /><br />
-
-        <label>
-          Insira o número de prateleiras que as gôndolas possuem:
-          <input type="text" id="ipt_numPrateleiras" /> </label
-        ><br /><br />
-
-        <button onclick="calcular()">Simular</button>
-
-        <div id="div_msg"></div>
+<body>
+  <div id="div_conteudo">
+    <div class="container">
+      <div class="cabecalho">
+        <img src="./assets/logoFlux copy.svg" alt="" />
+        <h1>Simulador Financeira</h1>
       </div>
+
+      <label>
+        Insira sua renda do seu mercado mensal (R$)
+        <input type="text" id="ipt_rendaMensal" /> </label><br /><br />
+
+      <label>
+        Insira a quantidade de setores que você possui no seu mercado:
+        <input type="text" id="ipt_qtdSetores" /> </label><br />
+      <br />
+
+      <label>
+        Insira a quantidade de gôndolas que os setores possuem:
+        <input type="text" id="ipt_qtdGondolas" /> </label><br /><br />
+
+      <label>
+        Insira o comprimento das gôndolas (metros):
+        <input type="text" id="ipt_tamGondola" /> </label><br /><br />
+
+      <label>
+        Insira o número de prateleiras que as gôndolas possuem:
+        <input type="text" id="ipt_numPrateleiras" /> </label><br /><br />
+
+      <button onclick="calcular()">Simular</button>
+
+      <div id="div_msg"></div>
     </div>
-  </body>
-  
+  </div>
+</body>
+
 </html>
 
 <script>
-    var precoSensor = 0;
+  var precoSensor = 0;
 
   function calcular() {
     var rendaMensal = Number(ipt_rendaMensal.value);
@@ -119,7 +112,7 @@
     `;
   }
 
-  
+
   function parcelar() {
     formaPagamento = sl_formaPagamento.value;
 
@@ -153,8 +146,8 @@
 
     if (formaPagamento == 2) {
       label_parcelas.style.display = "block";
-    }else{
-        div_conteudo.innerHTML = `
+    } else {
+      div_conteudo.innerHTML = `
         <div class="container">
             O valor total será de: ${precoSensor}
 
@@ -162,7 +155,7 @@
         </div>`;
     }
 
-    
+
   }
 
   var parcelas = 0;
@@ -170,9 +163,9 @@
     parcelas = sl_parcelas.value;
     var frase = "";
 
-    for(var cont = 1; cont <= parcelas; cont++){
-        frase += `<br>${cont} Parcela: R$${precoSensor/12}`;
-        
+    for (var cont = 1; cont <= parcelas; cont++) {
+      frase += `<br>${cont} Parcela: R$${precoSensor / 12}`;
+
     }
 
     div_conteudo.innerHTML += `<br>
@@ -183,6 +176,6 @@
     div_res.style.display = "none";
 
     div_res.style.display = "block";
-    
+
   }
 </script>
