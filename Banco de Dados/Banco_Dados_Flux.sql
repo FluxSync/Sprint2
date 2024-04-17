@@ -1,68 +1,116 @@
 create database grupo_pi;
 use grupo_pi;
 
-create table mercado (
-idMercado int primary key auto_increment,
-nome varchar(45) not null unique,
+create table usuario(
+idUsuario int primary key auto_increment,
+nomeEmpresa varchar(45) not null unique,
 senha varchar(45) not null,
 cnpj char(14) not null unique,
-email varchar(50) not null unique,
-constraint chkEmail check (email like ("%@%")),
+emailEmpresa varchar(50) not null unique,
+constraint chkEmail check (emailEmpresa like ("%@%")),
+nomeGestor varchar(45) not null,
+emailGestor varchar(50) not null,
+constraint chkEmailGestor check (emailGestor like ("%@%")),
 telefone char(12) not null unique);
 
 
-insert into mercado values
-(default,'Empresa A', 'senha123', '85794158000145', 'empresaA@email.com', '11-123456789'),
-(default,'Empresa B', 'senha456', '56713648000190', 'empresaB@email.com', '11-987654321'),
-(default,'Empresa C', 'senha789', '26476185000180', 'empresaC@email.com', '11-678901234'),
-(default,'Empresa D', 'senhaabc', '23479516000170', 'empresaD@email.com', '11-210987654'),
-(default,'Empresa E', 'senhadef', '03248791000160', 'empresaE@email.com', '11-543210987'),
-(default,'Empresa F', 'senhaghi', '34867195000150', 'empresaF@email.com', '11-890123456'),
-(default,'Empresa G', 'senhijkl', '67913468000140', 'empresaG@email.com', '11-345678901'),
-(default,'Empresa H', 'senhamno', '52347167000110', 'empresaH@email.com', '11-567890123'),
-(default,'Empresa I', 'senhapqr', '12547895000130', 'empresaI@email.com', '11-901234567'),
-(default,'Empresa J', 'senha123', '66479551000120', 'empresaJ@email.com', '11-230987654');
-
-select*from mercado;
-
-create table prateleira (
-idPrateleira int primary key auto_increment,
-nomeProduto varchar(45) not null,
-qtdMax_Produto int not null,
-Setor varchar(45),
-fkMercado int, 
-constraint fkPrateleiraMercado foreign key (fkMercado) references mercado(idMercado));
+insert into usuario values
+(default, 'Empresa1', 'senha123', '12345678901234', 'empresa1@example.com', 'Gestor1', 'gestor1@example.com', '11-345678901'),
+(default, 'Empresa2', 'senha456', '23456789012345', 'empresa2@example.com', 'Gestor2', 'gestor2@example.com', '11-456789012'),
+(default, 'Empresa3', 'senha789', '34567890123456', 'empresa3@example.com', 'Gestor3', 'gestor3@example.com', '11-989894545'),
+(default, 'Empresa5', 'senhadef', '56778901234567', 'empresa5@example.com', 'Gestor5', 'gestor5@example.com', '11-778901234'),
+(default, 'Empresa6', 'senhaghi', '67890123456789', 'empresa6@example.com', 'Gestor6', 'gestor6@example.com', '11-901234567'),
+(default, 'Empresa7', 'senhajkl', '78901234567890', 'empresa7@example.com', 'Gestor7', 'gestor7@example.com', '11-012345678'),
+(default, 'Empresa8', 'senhamno', '89012345678901', 'empresa8@example.com', 'Gestor8', 'gestor8@example.com', '11-123456789'),
+(default, 'Empresa9', 'senhapqr', '90123456789012', 'empresa9@example.com', 'Gestor9', 'gestor9@example.com', '11-234567890');
 
 
-insert into prateleira values 
-(default,'Bolacha', 30 ,'Industrializados', 1),
-(default,'Refrigerante', 25, 'Bebidas', 2),
-(default,'Desinfetante', 23, 'Higiene e Limpeza', 3),
-(default,'Detergente', 28, 'Higiene e Limpeza', 4),
-(default,'Cerveja', 30, 'Bebidas', 5);
+create table setorMercado (
+idSetor int primary key auto_increment,
+nomeSetor varchar(45),
+fkUsuario int, 
+constraint fkUsuarioSetorMercado foreign key (fkUsuario) references usuario(idUsuario));
+
+insert into setorMercado values
+(default, 'Limpeza', 1),
+(default, 'Açougue', 2),
+(default, 'Padaria', 3),
+(default, 'Bebidas', 4),
+(default, 'Enlatados', 5),
+(default, 'Congelados', 6),
+(default, 'Laticínios', 7),
+(default, 'Hortifruti', 8);
+
+
+create table gondola (
+idGondola int primary key auto_increment,
+qtdPrateleiras int not null,
+tamanhoGondola float not null,
+fkSetor int, 
+constraint fkGondolaSetor foreign key (fkSetor) references setorMercado(idSetor));
+
+insert into gondola values 
+(default, 4, 2.0, 1),
+(default, 5, 2.0, 2),
+(default, 3, 2.0, 3),
+(default, 6, 2.0, 4),
+(default, 4, 2.0, 5),
+(default, 7, 2.0, 6),
+(default, 4, 2.0, 7),
+(default, 5, 2.0, 8);
+
+select*from gondola;
 
 create table sensor (
 idSensor int primary key auto_increment,
 nomeSensor varchar(45),
 tipoSensor varchar(45),
-fkPrateleira int,
-constraint fkSensorPrateleira foreign key (fkPrateleira) references prateleira(idPrateleira));
-
+fkGondola int,
+constraint fkSensorGondola foreign key (fkGondola) references gondola(idGondola));
 
 insert into sensor values
-(default,'TRC5000', 'Sensor de Bloqueio', 1);
+(default, 'TRC5000', 'Bloqueio', 1),
+(default, 'TRC5000', 'Bloqueio', 2),
+(default, 'TRC5000', 'Bloqueio', 3),
+(default, 'TRC5000', 'Bloqueio', 4),
+(default, 'TRC5000', 'Bloqueio', 5),
+(default, 'TRC5000', 'Bloqueio', 6),
+(default, 'TRC5000', 'Bloqueio', 7),
+(default, 'TRC5000', 'Bloqueio', 8),
+(default, 'TRC5000', 'Bloqueio', 1),
+(default, 'TRC5000', 'Bloqueio', 2),
+(default, 'TRC5000', 'Bloqueio', 1),
+(default, 'TRC5000', 'Bloqueio', 3),
+(default, 'TRC5000', 'Bloqueio', 4),
+(default, 'TRC5000', 'Bloqueio', 5),
+(default, 'TRC5000', 'Bloqueio', 6),
+(default, 'TRC5000', 'Bloqueio', 7),
+(default, 'TRC5000', 'Bloqueio', 8),
+(default, 'TRC5000', 'Bloqueio', 1),
+(default, 'TRC5000', 'Bloqueio', 2),
+(default, 'TRC5000', 'Bloqueio', 3),
+(default, 'TRC5000', 'Bloqueio', 4),
+(default, 'TRC5000', 'Bloqueio', 5),
+(default, 'TRC5000', 'Bloqueio', 6),
+(default, 'TRC5000', 'Bloqueio', 7),
+(default, 'TRC5000', 'Bloqueio', 8);
 
 
 create table registroSensor (
-idRegistro int primary key auto_increment,
+idRegistro int auto_increment,
+fkSensor int, 
+constraint pkComposta primary key (idRegistro, fkSensor),
 horaRegistro datetime,
-statusSensor varchar(45),
-fkSensor int,
+statusSensor varchar(45), constraint chkStatus check (statusSensor in ("0","1")),
 constraint fkSensorRegistroSensor foreign key (fkSensor) references sensor (idSensor));
 
+drop table registroSensor;
 insert into registroSensor values
-(default, '2024-04-09 08:00:00', 'Ativo', 1),
-(default, '2024-04-09 08:15:00', 'Inativo', 1),
-(default, '2024-04-09 08:30:00', 'Ativo', 1);
+(default, 1, '2024-04-09 08:00:00', '0'),
+(default, 2, '2024-04-09 08:15:00', '1'),
+(default, 3, '2024-04-09 08:30:00', '1'),
+(default, 4, '2024-04-09 09:00:00', '0'),
+(default, 5, '2024-04-09 09:15:00', '1'),
+(default, 6, '2024-04-09 09:30:00', '1');
 
 
