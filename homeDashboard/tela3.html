@@ -10,6 +10,7 @@
         href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;700&family=Inter:wght@100..900&family=Lora:ital,wght@0,700;1,400&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="tela3.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <title>Flux</title>
 </head>
@@ -22,51 +23,62 @@
         </div>
 
         <div class="nav">
-            <a href="home.html" class="nav-button"><span>Home</span></a>
+            <a href="home.html" class="nav-button"><span>Setores</span></a>
             <a href="../Site/cadastro-setor.html" class="nav-button"><span>Cadastrar Setor</span></a>
             <a href="../Site/tela-login.html" class="nav-button"><span>Sair</span></a>
 
         </div>
     </header>
     <main class="dashboard">
-        <section class="indicators">
-            <h1 class="title-indicators">Principais Indicadores</h1>
-            <div class="info-cards">
-                <div class="card date">
-                    <h3 class="title-card" s>Data das Estocagens</h3>
-                    <div class="indicators-itens">
-                        <span class="item-indicator">Última Estocagem: 02/10</span>
-                        <span class="item-indicator">Penúltima Estocagem: 30/09</span>
+        <div class="box">
+            <section class="indicators">
+                <h1 class="title-indicators">Indicadores</h1>
+                <div class="info-cards">
+                    <div class="card date">
+                        <h3 class="title-card">Última Estocagem</h3>
+                        <div class="indicators-itens-big">
+                            <span class="item-indicator-big">02/10</span>
+
+                        </div>
+                    </div>
+                    <div class="card stock">
+                        <h3 class="title-card">Porcentagem de Tempo sem Estoque na Gôndola na Última Semana</h3>
+                        <div class="indicators-itens-big">
+                            <span class="item-indicator-big">10.12%</span>
+                        </div>
+                    </div>
+                    <div class=" card speed">
+                        <h3 class="title-card">Meses com Mais Reposição de Estoque</h3>
+                        <div class="indicators-itens-small">
+                            <span class="item-indicator-small">1° Fevereiro (12)</span>
+                            <span class="item-indicator-small">2° Julho (10)</span>
+                            <span class="item-indicator-small">3° Setembro (7)</span>
+                        </div>
                     </div>
                 </div>
-                <div class="card stock">
-                    <h3 class="title-card">Tempo de Estoque</h3>
-                    <div class="indicators-itens">
-                        <span class="item-indicator">Tempo sem Estoque: 3:20 (horas)</span>
-                        <span class="item-indicator">Tempo com Estoque: 78:20 (horas)</span>
-                    </div>
-                </div>
-                <div class="card speed">
-                    <h3 class="title-card">Melhores Meses</h3>
-                    <div class="indicators-itens">
-                        <span class="item-indicator">1°: Maio</span>
-                        <span class="item-indicator">2°: Julho</span>
-                        <span class="item-indicator">3°: Outubro</span>
-                    </div>
-                </div>
+            </section>
+            <div class="content-dash">
+                <canvas id="dash" class="dash"></canvas>
             </div>
-        </section>
+
+        </div>
         <section class="replacement">
             <h2 class="title-replacement">Velocidade de Reposição</h2>
             <div class="replacement-timer">
-                <div class="timer"><span>3 horas</span></div>
+                <div class="timer"><span>17 horas</span></div>
             </div>
-            <div class="replacement-bar">
-                <span class="bar good">Bom</span>
-                <span class="bar normal">Normal</span>
-                <span class="bar bad">Ruim</span>
-                <span class="bar v-bad">Péssimo</span>
+            <div class="replacement-subtitle">
+                <h3 class="subtitle-title">Legenda de Reposição</h3>
+                <div class="replacement-bar">
+                    <span onclick="otimo()" class="bar good">Otímo</span>
+                    <span onclick="bom()" class="bar normal">Bom</span>
+                    <span onclick="ruim()" class="bar bad">Ruim</span>
+                    <span onclick="pessimo()" class="bar v-bad">Péssimo</span>
+                </div>
             </div>
         </section>
     </main>
 </body>
+
+</html>
+<script src="tela3.js"></script>

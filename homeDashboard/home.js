@@ -7,9 +7,9 @@ function changeSelect() {
 
   if (setorSelecionado) {
     infoSetor.style.display = "flex";
-    gondolasNoSetor.innerHTML = "Gôndolas no Setor:";
-    prateleirasNoSetor.innerHTML = "Prateleiras no Setor:";
-    sensoresNoSetor.innerHTML = "Sensores no Setor:";
+    gondolasNoSetor.innerHTML = "Gôndolas no Setor: 14";
+    prateleirasNoSetor.innerHTML = "Prateleiras no Setor: 56";
+    sensoresNoSetor.innerHTML = "Sensores no Setor: 616";
     nomeDoSetor.innerHTML = `Setor de ${setorSelecionado}`;
   } else {
     infoSetor.style.display = "none";

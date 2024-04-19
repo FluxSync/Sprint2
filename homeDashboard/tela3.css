@@ -3,7 +3,8 @@
     padding: 0;
     box-sizing: border-box;
     overflow-x: hidden;
-    font-family: Cambria, sans-serif;
+    font-family: "Inter", sans-serif;
+    overflow-y: hidden;
 }
 
 :root {
@@ -79,18 +80,35 @@ header {
 .dashboard {
     height: 87vh;
     width: 100vw;
-    background-image: url(assets/backGG.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-attachment: fixed;
+    background-color: rgb(12, 12, 12);
     display: flex;
 }
 
-.indicators {
-    height: 27vh;
+.box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5vh;
+    margin: 0;
+    height: 87vh;
     width: 66vw;
-    margin: 0.7rem;
+}
+
+.content-dash {
+    padding: 10px;
+    margin-left: 1vw;
+    height: 50vh;
+    width: 64vw;
+    background-color: black;
+    border: 2px solid gray;
+    animation: mudar-cor 3s infinite;
+}
+
+
+.indicators {
+    height: 28vh;
+    width: 64.5vw;
+    margin-top: 2vh;
     border: 2px solid gray;
     overflow-y: hidden;
     animation: mudar-cor 3s infinite;
@@ -124,23 +142,37 @@ header {
 }
 
 .title-card {
-    height: 4vh;
+    height: 6vh;
     text-align: center;
 }
 
-.indicators-itens {
-    height: 18vh;
+.indicators-itens-big {
+    height: 14vh;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
 }
 
-
-
-.item-indicator {
-    display: block;
-    padding-left: 0.5rem;
+.item-indicator-big {
+    font-size: 3rem;
+    text-align: center;
 }
+
+.indicators-itens-small {
+    height: 14vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.item-indicator-small {
+    font-size: 1rem;
+    text-align: center;
+}
+
+
+
+
 
 .replacement {
     width: 34vw;
@@ -148,6 +180,7 @@ header {
     background-color: rgb(0, 0, 0);
     color: #ffffff;
     margin: 0.7rem;
+    margin-top: 2vh;
     border: 2px solid gray;
     overflow-y: hidden;
     animation: mudar-cor 3s infinite;
@@ -173,7 +206,7 @@ header {
     width: 13rem;
     border-radius: 180px;
     border: #ffffff 3px solid;
-    background-color: #04a00e;
+    background-color: #ff4500;
     margin-top: 10vh;
     color: rgb(255, 255, 255);
     display: flex;
@@ -212,6 +245,24 @@ header {
     transform: scale(1.2);
 }
 
+
+.replacement-subtitle {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+}
+
+.subtitle-title {
+    display: flex;
+    width: 30vw;
+    height: 5vh;
+    align-items: center;
+    justify-content: center;
+    border: rgb(0, 0, 0) 2px solid;
+    background: linear-gradient(to bottom, #4e5365, #2b2d42);
+}
+
 .replacement-bar {
     display: flex;
     justify-content: center;
@@ -227,7 +278,7 @@ header {
     height: 6vh;
     line-height: 5vh;
     color: #ffffff;
-    border: 0.1rem solid #ffffff;
+    border: 0.1rem solid #000000;
     overflow-y: hidden;
 }
 
@@ -235,15 +286,48 @@ header {
     background-color: #04a00e;
 }
 
+.good:hover {
+    background-color: #012f04;
+    border-color: #ffffff;
+}
+
+
+
 .normal {
     background-color: #ffff00;
     color: #000000;
+}
+
+.normal:hover {
+    background-color: #787801;
+    color: #000000;
+    border-color: #ffffff;
 }
 
 .bad {
     background-color: #ff4500;
 }
 
+.bad:hover {
+    background-color: #a12e05;
+    border-color: #ffffff;
+}
+
 .v-bad {
     background-color: #840303;
+}
+
+.v-bad:hover {
+    background-color: #4d0101;
+    border-color: #ffffff;
+}
+
+.container-dash {
+    display: flex;
+    justify-content: end;
+    align-items: end;
+    height: 30vh;
+    width: 50vw;
+    background-color: white;
+
 }
