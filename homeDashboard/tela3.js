@@ -35,7 +35,7 @@ new Chart(dash, {
         display: true,
         title: {
           display: true,
-          text: "Últimos Dias(Dias Atrás)", // Título do eixo X
+          text: "Última Semana", // Título do eixo X
           font: {
             weight: "bold", // Estilo da fonte (negrito)
             size: 16, // Tamanho da fonte
