@@ -414,16 +414,21 @@ body{
     font-size: 25px;
 }
 
+/*Container que faz as imagens ficarem invisiveis com transparencia 0 (opacity:0), com o eixo x -100% fazendo que tenha
+a sensação que a imagem vem da esquerda para o centro retornando do lado esquerdo, caso fose 100% iria ter a sensação da direita para o centro
+pro centro, com uma transição de 1.8s para que as imagens fiquem a 0% fazendo com que fiquei vísivel ao úsario */
 .invisivel {
     opacity: 0;
     filter: blur(15px);
-    transition: all 2.8s;
+    transition: all 1.8s;
     transform: translateX(-100%);
 }
 
+/*Container que faz as imagens ficarem vísiveis ao úsuario com a transperencia 1 (opacity:1), com o eixo x a 0%, 
+fazendo a imagem ficar ao centro para o úsuario*/
 .show {
     opacity: 1;
-    transition: all 2.8s;
+    transition: all 1.8s;
     filter: blur(0px);
     transform: translateX(0%);
 }
