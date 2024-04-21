@@ -436,22 +436,12 @@ fazendo a imagem ficar ao centro para o úsuario*/
 
 
 
-
-
-
-
-
-
-
-
-
-
 ::-webkit-scrollbar {
     width: 0.9rem; 
   }
   
   ::-webkit-scrollbar-track {
-    background: #1cadd1; 
+    background: #40679E; 
   }
   
   ::-webkit-scrollbar-thumb {
