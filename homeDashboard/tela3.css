@@ -80,7 +80,7 @@ header {
 .dashboard {
     height: 87vh;
     width: 100vw;
-    background-color: rgb(12, 12, 12);
+    background-color: rgb(4, 4, 4);
     display: flex;
 }
 
@@ -96,9 +96,9 @@ header {
 
 .content-dash {
     padding: 10px;
-    margin-left: 1vw;
+   
     height: 50vh;
-    width: 64vw;
+    width: 64.4vw;
     background-color: black;
     border: 2px solid gray;
     animation: mudar-cor 3s infinite;
@@ -144,6 +144,8 @@ header {
 .title-card {
     height: 6vh;
     text-align: center;
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
 .indicators-itens-big {
@@ -216,6 +218,18 @@ header {
     transition: transform 1.5s linear;
     animation: pulsar 3s infinite;
 
+}
+
+.small-txt{
+    font-size: 1rem;
+}
+
+.time{
+    margin-left: 3.5rem;
+}
+
+.none{
+    text-decoration: none;
 }
 
 
@@ -331,3 +345,4 @@ header {
     background-color: white;
 
 }
+

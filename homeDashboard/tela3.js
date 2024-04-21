@@ -2,10 +2,10 @@ function otimo(params) {
   alert("Tempo Otímo: Entre 0-3 Horas");
 }
 function bom(params) {
-  alert("Tempo Bom: Entre 3-8 Horas");
+  alert("Tempo Bom: Entre 4-8 Horas");
 }
 function ruim(params) {
-  alert("Tempo Ruim: Entre 8-24 Horas");
+  alert("Tempo Ruim: Entre 9-24 Horas");
 }
 function pessimo(params) {
   alert("Tempo Péssimo: Acima de 24 Horas");
@@ -20,9 +20,9 @@ new Chart(dash, {
     datasets: [
       {
         label: "Com Estoque",
-        data: [1, 1, 0, 1, 1, 1, 1],
+        data: [1, 0, 1, 1, 1, 0, 1],
         borderWidth: 1,
-        backgroundColor: "#a20000",
+        backgroundColor: "#11009e",
         borderColor: "#a20000",
       },
     ],
