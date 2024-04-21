@@ -17,9 +17,10 @@
 <body>
 
 
+    <!--Container 1 que contém a imagem da empilhadeira e do planeta, e tem a logo e a navbar-->
     <div class="container1">
 
-
+        <!--Lado esquerdo do container 1 que é o logo e o texto-->
         <div class="containerLeft">
 
             <div class="container2">
@@ -48,7 +49,7 @@
     
 
 
-   
+   <!--Lado que contém a navbar e as imagens-->
     <div class="containerRight">
 
         <div class="navbar">
@@ -72,8 +73,9 @@
 
 
 
-    
+    <!--Container que contem um ritmo(lógica) igual, uma imagem ao lado de um texto, trocando apenas se é pra direita ou esquerda-->
     <div class="container10">
+        <!--Container dos valores-->
         <div class="containerValores">
             <div class="invisivel">
             <div class="textoValores">
@@ -110,7 +112,7 @@
         
     </div>
 
-
+        <!--Container de análise e estatistícas-->
         <div class="invisivel">
         <div class="container11">
             
@@ -128,6 +130,8 @@
         </div>
         </div>
 
+
+        <!--Container do sensor de bloqueio-->
         <div class="invisivel">
         <div class="container12">
             
@@ -144,6 +148,8 @@
         
         </div></div>
 
+
+        <!--Container do retorno financeiro-->
         <div class="invisivel">
         <div class="container13">
 
@@ -160,11 +166,12 @@
     </div></div>
     <br><br><br>
   
+    <!--Container do footer, com nossas informações e nosso contato-->
     <div class="container14">
         
         <div class="textoContainer14">
             <h1>Central</h1>
-            <p>(11) 91342-3135</p>
+            <p>(11) 9****-****</p>
         </div>
        
         <h2>Flux &copy; 2024 Todos os direitos reservados</h2>
@@ -185,22 +192,4 @@
 
 </html>
 
-<script >
-    var ObservandoElementos = new IntersectionObserver((entrada) => {
-
-        entrada.forEach((entre) => {
-            console.log(entrada)
-            if (entre.isIntersecting === true) {
-                entre.target.classList.add('show')
-            }
-            else {
-                entre.target.classList.remove('show')
-            }
-
-        })
-    })
-
-    var elementosInvisiveis = document.querySelectorAll('.invisivel')
-
-    elementosInvisiveis.forEach((elemento) => ObservandoElementos.observe(elemento))
-</script>
+<script src="animação.js"></script>
