@@ -182,20 +182,28 @@ body{
 .textoValores p {
     font-size: 1.40rem;
 }
+.txt-analise{
+    font-size: 1.5rem;
+}
+
 .item1 img{
-    height: 13.89vh;
-   width: 7.81vw;
+    margin-top: 40vh;
+    height: 65vh;
+    width: 35vw;
    
     background-color: rgb(255, 255, 255);
     border-radius: 30%;
 }
 .item1{
+    height: 40vh;
+    width: 50vw;
     text-align: center;
     
     display: flex;
     align-items: center;
     flex-direction: column;
     cursor: pointer;
+    justify-content: center;
 }
 
 .item2 img{
@@ -229,19 +237,6 @@ body{
     cursor: pointer;
 }
 
-
-.item1:hover img {
-
-   height: 14.35vh;
-   width: 8.07vw;
-
-    transition: 1.8s;
-
-    background-color: #92C7CF;
-    transition: 2.4s;
-    
-
-}
 
 
 .item2:hover img {
@@ -278,6 +273,7 @@ body{
     justify-content: space-between;
     width: 90vw;
   height: 60vh;
+  text-align: center;
     
 }
 
