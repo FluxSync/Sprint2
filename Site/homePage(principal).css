@@ -170,7 +170,7 @@ body{
 
 .textoValores{
     width: 29.22vw;
-    height: 30.28vh;
+  
     margin-right: 10vh;
 }
 
@@ -187,7 +187,7 @@ body{
 }
 
 .item1 img{
-    margin-top: 40vh;
+   
     height: 65vh;
     width: 35vw;
    
@@ -316,7 +316,7 @@ body{
 
 .textoContainer11 {
      width: 39.22vw;
-    height: 60.27vh;
+    
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -346,7 +346,7 @@ body{
 
 .textoContainer12 {
      width: 39.22vw;
-    height: 60.27vh;
+    
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -374,7 +374,7 @@ body{
 
 .textoContainer13 {
      width: 39.22vw;
-    height: 60.27vh;
+    
     display: flex;
     flex-direction: column;
     align-items: center;
