@@ -35,8 +35,9 @@ function validarSenha() {
 }
 
 function validarTudo() {
-
+var dashboard = "/homeDashboard/home.html"
 validarEmailEmpresa();
 validarSenha();
+window.location.href = dashboard
 
 }

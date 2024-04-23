@@ -18,7 +18,7 @@
     <div class="container">
       <div class="cabecalho">
         <img src="./assets/logoFlux copy.svg" alt="" />
-        <h1>Simulador Financeira</h1>
+        <h1>Simulador Financeiro</h1>
       </div>
      
       <div class="box-inputs">
@@ -30,7 +30,7 @@
         <p>Insira a quantidade de setores que você possui no seu mercado:</p>
         <input type="text" id="ipt_qtdSetores" /> </label>
     
-
+        
       <label>
         <p>Insira a quantidade de gôndolas que os setores possuem:</p>
         <input type="text" id="ipt_qtdGondolas" /> </label>
@@ -46,7 +46,7 @@
       <button onclick="calcular()">Simular</button>
 
     </div>
-
+    
 
       <div id="div_msg"></div>
     </div>
@@ -145,7 +145,7 @@
 
         
 
-        <button onclick="selecionarFormaPagamento()" style="margin-bottom: 5px;">Voltar</button>
+        <a href="../homePage(principal).html"><button style="margin-bottom: 5px;">Voltar</button></a>
         <button style= "margin-bottom: 5px;" onclick = "mostrarParcelas()">Mostar as parcelas</button>
                 
             </div>
@@ -162,7 +162,7 @@
         <div class="container">
             O valor total será de: ${precoSensor}
 
-            <button style= "margin-top: 5px;" onclick="selecionarFormaPagamento()">Voltar</button>
+            <a href="../homePage(principal).html"><button>Voltar</button></a>
         </div>`;
     }
 
@@ -178,7 +178,7 @@
 
 
     for (var cont = 1; cont <= parcelas; cont++) {
-      frase += `<br>${cont} Parcela: R$${precoSensor / cont}`;
+      frase += `<br>${cont} Parcela: R$${(precoSensor / parcelas).toFixed()},00.`;
 
     }
 
