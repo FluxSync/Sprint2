@@ -78,5 +78,6 @@ function validarTudo() {
     validarTelefone();
     validarEmailGestor();
     validarSenha();
-    nomeEmpresa();
+    //nomeEmpresa();
+    window.location.href = cadastro.html;
 }
