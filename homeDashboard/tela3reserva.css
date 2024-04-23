@@ -211,7 +211,7 @@ header {
     width: 13rem;
     border-radius: 180px;
     border: #ffffff 3px solid;
-    background-color: #04a00e;
+    background-color: #840303;
     margin-top: 10vh;
     color: rgb(255, 255, 255);
     display: flex;
@@ -219,7 +219,7 @@ header {
     justify-content: center;
     font-size: 2rem;
     transition: transform 1.5s linear;
-    animation: pulsar 3s infinite;
+    animation: pulsar 0.8s infinite;
 
 }
 
@@ -235,25 +235,28 @@ header {
     text-decoration: none;
 }
 
+
+@keyframes pulsar {
+    0% {
+        border-color: #fb0101;
+        transform: scale(1.05);
+    }
+
+    50% {
+        border-color: #ffffff;
+        transform: scale(1);
+    }
+
+    100% {
+        border-color: #fb0101;
+        transform: scale(1.05);
+    }
+}
+
 .nav-button:hover{
     color:var(--blue);
     background-color:#fff
   }
-
-
-@keyframes pulsar {
-    0% {
-        border-color: #fff;
-    }
-
-    50% {
-        border-color: #000;
-    }
-
-    100% {
-        border-color: #fff;
-    }
-}
 
 
 
@@ -342,4 +345,3 @@ header {
     background-color: white;
 
 }
-

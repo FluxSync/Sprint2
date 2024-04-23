@@ -118,3 +118,18 @@ body {
     font-size: 20px;
     box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.3);
 }
+
+.box-cadastro input {
+    margin: 0.4vh
+
+
+}
+
+
+.inputClass {
+    font-size: 10px;
+    color: red;
+    max-width:fit-content;
+    margin: 0;
+
+}

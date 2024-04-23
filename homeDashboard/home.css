@@ -63,7 +63,7 @@ header {
 /* Main   */
 
 main {
-  background-image: url(assets/BackCesta.webp);
+  background-image: #fff;
   background-repeat: no-repeat;
   background-size: cover;
   height: 87vh;
@@ -75,7 +75,8 @@ main {
 
 .box {
   padding: 15px;
-  background-color: #f1eedc;
+  background-color: #000000;
+  color: #fff;
   height: 65vh;
   width: 45vw;
   display: flex;
@@ -200,10 +201,19 @@ main {
 
 .button-data {
   background-color: var(--blue);
-  color: white;
+  color: #fff;
   height: 4vh;
   padding: 0 8vw;
   cursor: pointer;
   border-radius: 30px;
   text-align: center;
+}
+.button-data:hover{
+    color:var(--blue);
+    background-color:#fff
+}
+
+.nav-button:hover{
+  color:var(--blue);
+  background-color:#fff
 }
