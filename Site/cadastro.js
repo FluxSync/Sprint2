@@ -69,8 +69,13 @@ function validarSenha() {
 
 
 }
+function nomeGestor(){
+    nomeGestor = input_gestor.value;
+    div_mensagemGestor = '';
+}
 function nomeEmpresa(){
     nomeEmpresa = input_empresa.value;
+    div_mensagemEmpresa = '';
 }
 function validarTudo() {
     validarcnpj();
