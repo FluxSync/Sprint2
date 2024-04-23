@@ -20,29 +20,33 @@
         <img src="./assets/logoFlux copy.svg" alt="" />
         <h1>Simulador Financeira</h1>
       </div>
+     
+      <div class="box-inputs">
+      <label>
+        <p>Insira sua renda do seu mercado mensal (R$)</p>
+        <input type="text" id="ipt_rendaMensal" /> </label>
 
       <label>
-        Insira sua renda do seu mercado mensal (R$)
-        <input type="text" id="ipt_rendaMensal" /> </label><br /><br />
+        <p>Insira a quantidade de setores que você possui no seu mercado:</p>
+        <input type="text" id="ipt_qtdSetores" /> </label>
+    
 
       <label>
-        Insira a quantidade de setores que você possui no seu mercado:
-        <input type="text" id="ipt_qtdSetores" /> </label><br />
-      <br />
+        <p>Insira a quantidade de gôndolas que os setores possuem:</p>
+        <input type="text" id="ipt_qtdGondolas" /> </label>
 
       <label>
-        Insira a quantidade de gôndolas que os setores possuem:
-        <input type="text" id="ipt_qtdGondolas" /> </label><br /><br />
+        <p>Insira o comprimento das gôndolas (metros):</p>
+        <input type="text" id="ipt_tamGondola" /> </label>
 
       <label>
-        Insira o comprimento das gôndolas (metros):
-        <input type="text" id="ipt_tamGondola" /> </label><br /><br />
-
-      <label>
-        Insira o número de prateleiras que as gôndolas possuem:
-        <input type="text" id="ipt_numPrateleiras" /> </label><br /><br />
+        <p>Insira o número de prateleiras que as gôndolas possuem:</p>
+        <input type="text" id="ipt_numPrateleiras" /> </label> <br><br>
 
       <button onclick="calcular()">Simular</button>
+
+    </div>
+
 
       <div id="div_msg"></div>
     </div>
@@ -74,16 +78,16 @@
 
     div_conteudo.innerHTML = ` <br>
         <div class="container">
-            <p>Você informou que ganha <span style="color:green;"> R$${rendaMensal}</span> por mês.
-            Semestralmente falando você ganha <span style="color:green;">R$${rendaSemestral}.</span> 
+            <p>Você informou que ganha <span style="color:green;"> R$${rendaMensal.toFixed()}</span> por mês.
+            Semestralmente falando você ganha <span style="color:green;">R$${rendaSemestral.toFixed()}.</span> 
             <br><br>Porém, segundo <a href="">NeoGrid</a>, há uma perda de 40% da sua renda por semestre devido a falta de controle nas mercadorias nas prateleiras. <br><br>
             Com isso, temos os seguintes valores: <br>
-            Por mês você deixa de ganhar <span style="color:red;">R$${perdaMensal}</span>. <br> 
-            Por semestre você deixa de ganhar <span style="color:red;">R$${perdaSemestral}</span>. <br> <br>
+            Por mês você deixa de ganhar <span style="color:red;">R$${perdaMensal.toFixed()}</span>. <br> 
+            Por semestre você deixa de ganhar <span style="color:red;">R$${perdaSemestral.toFixed()}</span>. <br> <br>
             Com base nesses dados, pode ser feita uma estimativa de renda anual e perda anual também, segue os dados abaixo: <br> 
-            Renda anual: <span style="color:green;">R$${rendaAnual}</span> e Perda Anual: <span style="color:red;">R$${perdaAnual}</span>. <br> <br>
+            Renda anual: <span style="color:green;">R$${rendaAnual.toFixed()}</span> e Perda Anual: <span style="color:red;">R$${perdaAnual.toFixed()}</span>. <br> <br>
         
-            No seu mercado há ${qtdSetor} setores e em cada setor há ${qtdGondolas} gôndolas, onde cada gôndola possui ${numPrateleiras} prateleiras. Serão necessários ${qtdSensor} sensores onde cada sensor custa <span style="color:blue;">R$${precoDeCadaSensor}</span> totalizando <span style="color:blue;">R$${precoSensor}</span>.</p>
+            No seu mercado há ${qtdSetor} setores e em cada setor há ${qtdGondolas} gôndolas, onde cada gôndola possui ${numPrateleiras} prateleiras. Serão necessários ${qtdSensor} sensores onde cada sensor custa <span style="color:blue;">R$${precoDeCadaSensor.toFixed()}</span> totalizando <span style="color:blue;">R$${precoSensor.toFixed()}</span>.</p>
             <br>
             <br>
 
@@ -107,6 +111,7 @@
             <br/>
         </label>
 
+        <a href="calculadora-financeira.html"><button style="margin-bottom: 5px;">Voltar</button></a>
         <button onclick = "parcelar()">Selecionar</button>
     </div>
     `;
@@ -136,11 +141,17 @@
                         <option value="12">12</option>
                     </select><br/><br/>
 
-                    <button style= "margin-bottom: 5px;" onclick = "mostrarParcelas()">Mostar as parcelas</button>
-                    <a href="calculadora-financeira.html"><button>Voltar</button></a>
-                </label>
+        </label>
+
+        
+
+        <button onclick="selecionarFormaPagamento()" style="margin-bottom: 5px;">Voltar</button>
+        <button style= "margin-bottom: 5px;" onclick = "mostrarParcelas()">Mostar as parcelas</button>
+                
             </div>
 
+            <div id="div_res" class="container" style="display: none; margin-top: 25px;">
+        </div>
             
             `;
 
@@ -151,7 +162,7 @@
         <div class="container">
             O valor total será de: ${precoSensor}
 
-            <a href="calculadora-financeira.html"><button style= "margin-top: 5px;">Voltar</button></a>
+            <button style= "margin-top: 5px;" onclick="selecionarFormaPagamento()">Voltar</button>
         </div>`;
     }
 
@@ -163,17 +174,16 @@
     parcelas = sl_parcelas.value;
     var frase = "";
 
+    div_res.innerHTML = "";
+
+
     for (var cont = 1; cont <= parcelas; cont++) {
-      frase += `<br>${cont} Parcela: R$${precoSensor / 12}`;
+      frase += `<br>${cont} Parcela: R$${precoSensor / cont}`;
 
     }
 
-    div_conteudo.innerHTML += `<br>
-    <div id="div_res" class="container"">
-        ${frase}
-    </div>`;
+    div_res.innerHTML += `${frase}`;
 
-    div_res.style.display = "none";
 
     div_res.style.display = "block";
 

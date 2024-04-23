@@ -17,7 +17,10 @@ body {
     background-color: #F1EEDC;
     padding: 25px;
     border-radius: 20px;
+    align-items: center;
+    /* max-width: fit-content; */
 }
+
 
 .cabecalho {
     display: flex;
@@ -38,6 +41,7 @@ input {
     justify-content: center;
     width: 300px;
     height: 20px;
+
 }
 
 button {
@@ -56,18 +60,25 @@ button {
     align-items: center;
     flex-direction: column;
 
-    margin: 4vh;
+    
     text-align: center;
-    gap: 1vh;
+
     border-radius: 35px;
 
 }
 
 .label-form button {
-    margin-top: 2vh;
+    margin-top: 5vh;
 }
 
 .insert {
     gap: 3vh;
     display: flex;
+}
+.box-inputs label {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2vh;
 }
