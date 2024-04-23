@@ -65,7 +65,7 @@ header {
 main {
     height: 87vh;
     width: 100vw;
-    background: url(assets/backMercado.jpg);
+    background: #fff;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -356,6 +356,11 @@ main {
 .none{
     text-decoration: none;
 }
+
+.nav-button:hover{
+    color:var(--blue);
+    background-color:#fff
+  }
 
 @keyframes mudar-cor-red {
     50% {
