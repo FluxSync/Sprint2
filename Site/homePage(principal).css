@@ -24,7 +24,7 @@ body{
     left: 0;
     background-color: #40679E;
    
-    border-radius: 0px 0px 192px 13px;
+    border-radius: 1px 45px 350px 10px;;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -59,10 +59,11 @@ body{
     font-size: 2.3rem;
 }
 .texto p {
-    font-size: 1.40rem;
+    font-size: 1.7rem;
 }
 .container2{
     margin-left: 5vh;
+    text-align: center;
 }
 
 
@@ -89,7 +90,7 @@ body{
     border: 2px solid black;
     background-color: #11009E;
     width: 8.28vw;
-    height: 3.70vh;
+    height: 3.9vh;
     text-align: center;
     color: white;
     font-size: 1.56rem;
@@ -105,6 +106,7 @@ body{
     cursor: pointer;
     text-decoration: none;
     list-style: none;
+    
 
 }
 
@@ -133,14 +135,14 @@ body{
 }
 
 .empilhadeira {
-    width: 23.44vw;
-    height: 40.37vh;
+    width: 408px;
+    height: 436px;
     border-radius: 15px;
 }
 
 .planeta {
-    width: 16.46vw;
-    height: 32.13vh;
+    width: 316px;
+    height: 347px;
     border-radius: 25px;
   
    position: absolute;
@@ -150,7 +152,7 @@ body{
     position: absolute;
     bottom: 0; 
     right: 0; 
-    width: 40%; 
+    width: 25%; 
     height: 100%; 
    display: flex;
    align-items: center;
@@ -191,7 +193,7 @@ body{
     height: 65vh;
     width: 35vw;
    
-    background-color: rgb(255, 255, 255);
+
     border-radius: 30%;
 }
 .item1{
@@ -278,10 +280,11 @@ body{
 }
 
 .container10{
+    margin-top: 5vh;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 35vh;
+    gap: 15vh;
     flex-direction: column;
     width: 99vw;
 }
