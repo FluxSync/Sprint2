@@ -1,58 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculadora Financeira</title>
+    <link rel="stylesheet" href="calculadora-financeira.css" />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Calculadora Financeira</title>
-  <link rel="stylesheet" href="calculadora-financeira.css" />
+    <!-- LINK FONT INTER -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-  <!-- LINK FONT INTER -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet" />
-</head>
+  <body>
+    <div id="div_conteudo">
+      <div class="container">
+        <div class="cabecalho">
+          <a href="/Site/homePage(principal).html">
+            <img src="./assets/logoFlux copy.svg" alt=""
+          /></a>
+          <h1>Simulador Financeiro</h1>
+        </div>
 
-<body>
-  <div id="div_conteudo">
-    <div class="container">
-      <div class="cabecalho">
-        <img src="./assets/logoFlux copy.svg" alt="" />
-        <h1>Simulador Financeiro</h1>
+        <div class="box-inputs">
+          <label>
+            <p>Insira sua renda do seu mercado mensal (R$)</p>
+            <input type="text" id="ipt_rendaMensal" />
+          </label>
+
+          <label>
+            <p>
+              Insira a quantidade de setores que você possui no seu mercado:
+            </p>
+            <input type="text" id="ipt_qtdSetores" />
+          </label>
+
+          <label>
+            <p>Insira a quantidade de gôndolas que os setores possuem:</p>
+            <input type="text" id="ipt_qtdGondolas" />
+          </label>
+
+          <label>
+            <p>Insira o comprimento das gôndolas (metros):</p>
+            <input type="text" id="ipt_tamGondola" />
+          </label>
+
+          <label>
+            <p>Insira o número de prateleiras que as gôndolas possuem:</p>
+            <input type="text" id="ipt_numPrateleiras" />
+          </label>
+          <br /><br />
+
+          <button onclick="calcular()">Simular</button>
+        </div>
+
+        <div id="div_msg"></div>
       </div>
-     
-      <div class="box-inputs">
-      <label>
-        <p>Insira sua renda do seu mercado mensal (R$)</p>
-        <input type="text" id="ipt_rendaMensal" /> </label>
-
-      <label>
-        <p>Insira a quantidade de setores que você possui no seu mercado:</p>
-        <input type="text" id="ipt_qtdSetores" /> </label>
-    
-        
-      <label>
-        <p>Insira a quantidade de gôndolas que os setores possuem:</p>
-        <input type="text" id="ipt_qtdGondolas" /> </label>
-
-      <label>
-        <p>Insira o comprimento das gôndolas (metros):</p>
-        <input type="text" id="ipt_tamGondola" /> </label>
-
-      <label>
-        <p>Insira o número de prateleiras que as gôndolas possuem:</p>
-        <input type="text" id="ipt_numPrateleiras" /> </label> <br><br>
-
-      <button onclick="calcular()">Simular</button>
-
     </div>
-    
-
-      <div id="div_msg"></div>
-    </div>
-  </div>
-</body>
-
+  </body>
 </html>
 
 <script>
@@ -117,7 +125,6 @@
     `;
   }
 
-
   function parcelar() {
     formaPagamento = sl_formaPagamento.value;
 
@@ -165,8 +172,6 @@
             <a href="../homePage(principal).html"><button>Voltar</button></a>
         </div>`;
     }
-
-
   }
 
   var parcelas = 0;
@@ -176,16 +181,14 @@
 
     div_res.innerHTML = "";
 
-
     for (var cont = 1; cont <= parcelas; cont++) {
-      frase += `<br>${cont} Parcela: R$${(precoSensor / parcelas).toFixed()},00.`;
-
+      frase += `<br>${cont} Parcela: R$${(
+        precoSensor / parcelas
+      ).toFixed()},00.`;
     }
 
     div_res.innerHTML += `${frase}`;
 
-
     div_res.style.display = "block";
-
   }
 </script>
