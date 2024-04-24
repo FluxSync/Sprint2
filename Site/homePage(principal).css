@@ -48,7 +48,7 @@ body{
 
 .texto{
     width: 29.22vw;
-    height: 51.94vh;
+    
         color: white;
 }
 
@@ -59,7 +59,7 @@ body{
     font-size: 2.3rem;
 }
 .texto p {
-    font-size: 1.7rem;
+    font-size: 1.5rem;
 }
 .container2{
     margin-left: 5vh;
