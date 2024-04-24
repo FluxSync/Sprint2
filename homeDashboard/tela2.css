@@ -188,7 +188,7 @@ main {
 }
 
 .switch-txt {
-    width: 8rem;
+    width: 12rem;
     text-align: center;
     font-weight: 800;
 }
@@ -215,7 +215,7 @@ main {
     justify-content: space-between;
     align-items: center;
     border-radius: 3rem;
-    background-image: linear-gradient(to top, red, rgb(0, 0, 0));
+    background-image: linear-gradient(to bottom, var(--blue), rgb(0, 0, 0));
 }
 
 .switch .switch-wrapper .switch-btn::before {
@@ -231,7 +231,7 @@ main {
 }
 
 .switch .switch-wrapper input:checked+.switch-btn {
-    background-image: linear-gradient(to bottom, var(--blue), rgb(0, 0, 0));
+    background-image: linear-gradient(to top, #ff0000, rgb(0, 0, 0));
 }
 
 .switch .switch-wrapper input:checked+.switch-btn::before {
@@ -334,7 +334,6 @@ main {
 
 .contains {
     background-image: linear-gradient(to bottom, var(--blue), rgb(0, 0, 0));
-    display: none;
 }
 
 .empty:hover {

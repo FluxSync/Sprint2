@@ -36,7 +36,7 @@ function checkBoxChanged() {
   let checkAll = document.getElementById("checkAll");
   let contains = document.querySelectorAll(".contains");
 
-  if (checkAll.checked) {
+  if (!checkAll.checked) {
     contains.forEach((item) => {
       item.style.display = "block";
       setTimeout(() => {
