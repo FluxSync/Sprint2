@@ -12,6 +12,8 @@ function validarEmailEmpresa() {
         mensagemEmailEmpresa = ('Email inválido')
     }
     div_mensagemEmailEmpresa.innerHTML = mensagemEmailEmpresa;
+
+    return true;
 }
 
 function validarSenha() {
@@ -32,12 +34,15 @@ function validarSenha() {
 
     div_mensagemSenha.innerHTML = mensagemSenha;
 
+    return true;
+
 }
-
-function validarTudo() {
 var dashboard = "/homeDashboard/home.html"
-validarEmailEmpresa();
-validarSenha();
-window.location.href = dashboard
-
+function validarTudo() {
+    if (
+        validarEmailEmpresa() &&
+        validarSenha()
+    ) {
+        window.location.href = dashboard;
+    }
 }
