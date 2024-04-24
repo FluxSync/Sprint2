@@ -97,7 +97,6 @@ function validarTudo() {
         validarTelefone() &&
         validarEmailGestor() &&
         validarSenha()
-        // nomeEmpresa()
     ) {
         window.location.href = login;
     }

@@ -10,8 +10,12 @@ function validarEmailEmpresa() {
     var emailArroba = emailEmpresa.indexOf("@");
     if (emailCom == false || emailArroba == false) {
         mensagemEmailEmpresa = ('Email inválido')
+    } else {
+        return true;
     }
     div_mensagemEmailEmpresa.innerHTML = mensagemEmailEmpresa;
+
+
 }
 
 function validarSenha() {
@@ -28,16 +32,19 @@ function validarSenha() {
     }
     else if (!/[\W_]/.test(senha)) {
         mensagemSenha = 'Senha deve conter pelo menos um caractere especial.';
+    } else {
+        return true;
     }
 
     div_mensagemSenha.innerHTML = mensagemSenha;
 
+
+
 }
-
-function validarTudo() {
 var dashboard = "/homeDashboard/home.html"
-validarEmailEmpresa();
-validarSenha();
-window.location.href = dashboard
-
+function validarTudo() {
+    if (validarEmailEmpresa() &&
+        validarSenha()) {
+        window.location.href = dashboard;
+    }
 }
