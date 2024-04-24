@@ -14,8 +14,6 @@ function validarEmailEmpresa() {
         return true;
     }
     div_mensagemEmailEmpresa.innerHTML = mensagemEmailEmpresa;
-
-    return true;
 }
 
 function validarSenha() {
@@ -37,8 +35,6 @@ function validarSenha() {
     }
 
     div_mensagemSenha.innerHTML = mensagemSenha;
-
-    return true;
 
 }
 var cadastroSetor = "/Site/cadastro-setor.html"
