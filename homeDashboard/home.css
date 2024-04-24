@@ -63,7 +63,7 @@ header {
 /* Main   */
 
 main {
-  background-image: #fff;
+  background-image: url(assets/BackCesta.webp);
   background-repeat: no-repeat;
   background-size: cover;
   height: 87vh;
@@ -217,3 +217,4 @@ main {
   color:var(--blue);
   background-color:#fff
 }
+

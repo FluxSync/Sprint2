@@ -1,5 +1,5 @@
 function otimo(params) {
-  alert("Tempo Otímo: Entre 0-3 Horas");
+  alert("Tempo Otímo: Abaixo de 4 Horas");
 }
 function bom(params) {
   alert("Tempo Bom: Entre 4-8 Horas");

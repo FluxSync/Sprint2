@@ -10,10 +10,16 @@ function validarEmailEmpresa() {
     var emailArroba = emailEmpresa.indexOf("@");
     if (emailCom == false || emailArroba == false) {
         mensagemEmailEmpresa = ('Email inválido')
+    } else {
+        return true;
     }
     div_mensagemEmailEmpresa.innerHTML = mensagemEmailEmpresa;
 
+<<<<<<< HEAD
     return true;
+=======
+
+>>>>>>> 63282499acfcd1e05870e0f50ff314fa203ba22c
 }
 
 function validarSenha() {
@@ -30,10 +36,13 @@ function validarSenha() {
     }
     else if (!/[\W_]/.test(senha)) {
         mensagemSenha = 'Senha deve conter pelo menos um caractere especial.';
+    } else {
+        return true;
     }
 
     div_mensagemSenha.innerHTML = mensagemSenha;
 
+<<<<<<< HEAD
     return true;
 
 }
@@ -46,3 +55,15 @@ function validarTudo() {
         window.location.href = dashboard;
     }
 }
+=======
+
+
+}
+var setor = "cadastro-setor.html"
+function validarTudo() {
+    if (validarEmailEmpresa() &&
+        validarSenha()) {
+        window.location.href = setor;
+    }
+}
+>>>>>>> 63282499acfcd1e05870e0f50ff314fa203ba22c

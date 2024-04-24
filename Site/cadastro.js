@@ -7,6 +7,11 @@ var emailGestor = ''
 var senha = '';
 var confirmarSenha = '';
 
+var home = "homePage(principal).html"
+function voltarHome(){
+    window.location.href = home;
+}
+
 function validarcnpj() {
     cnpj = input_cnpj.value;
     var mensagemCnpj = '';
@@ -17,8 +22,6 @@ function validarcnpj() {
     } else {
         return true;
     }
-
-
 }
 function validarEmailEmpresa() {
     emailEmpresa = input_emailEmpresa.value;
@@ -31,7 +34,6 @@ function validarEmailEmpresa() {
     } else {
         return true;
     }
-
 }
 function validarTelefone() {
     telefone = input_telefone.value;
@@ -40,7 +42,7 @@ function validarTelefone() {
     if (leitorTelefone != 11) {
         mensagemTelefone = 'Telefone inválido';
         div_mensagemTelefone.innerHTML = mensagemTelefone;
-    }else {
+    } else {
         return true;
     }
 }
@@ -52,10 +54,9 @@ function validarEmailGestor() {
     if (emailCom == false || emailArroba == false) {
         mensagemEmailGestor = 'Email inválido';
         div_mensagemEmailGestor.innerHTML = mensagemEmailGestor;
-    }else {
+    } else {
         return true;
     }
-
 }
 function validarSenha() {
     senha = input_senha.value;
@@ -75,12 +76,9 @@ function validarSenha() {
     }
     if (confirmarSenha != senha) {
         div_mensagemConfirmaeSenha.innerHTML = 'Senha não é igual';
-    }else {
+    } else {
         return true;
     }
-
-
-
 }
 function nomeGestor() {
     nomeGestor = input_gestor.value;
@@ -97,7 +95,6 @@ function validarTudo() {
         validarTelefone() &&
         validarEmailGestor() &&
         validarSenha()
-        // nomeEmpresa()
     ) {
         window.location.href = login;
     }
