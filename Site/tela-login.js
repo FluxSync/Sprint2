@@ -41,10 +41,10 @@ function validarSenha() {
 
 
 }
-var dashboard = "/homeDashboard/home.html"
+var setor = "cadastro-setor.html"
 function validarTudo() {
     if (validarEmailEmpresa() &&
         validarSenha()) {
-        window.location.href = dashboard;
+        window.location.href = setor;
     }
 }
