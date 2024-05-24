@@ -58,9 +58,10 @@ function cadastrar(req, res) {
     var cnpj = req.body.cnpjServer
     var emailEmpresa = req.body.emailServer
     var telefone = req.body.telefoneServer
-    var nomeGestor = req.body.nomeGestorServer
     var senha = req.body.senhaServer
-
+    var nomeGestor = req.body.nomeGestorServer
+    var emailGestor= req.body.emailGestorServer
+    var idUsuario = req.body.ID.USUARIO 
 
     // Faça as validações dos valores
     if (empresa == undefined) {
@@ -72,9 +73,7 @@ function cadastrar(req, res) {
     } else if (telefone == undefined) {
         res.status(400).send("Seu telefone está undefined!");
     }
-    else if (nomeGestor == undefined) {
-        res.status(400).send("O nome do gestor está undefined!");
-    }
+  
     else if (senha == undefined) {
         res.status(400).send("Sua senha está undefined!");
     }
@@ -96,10 +95,28 @@ function cadastrar(req, res) {
                     res.status(500).json(erro.sqlMessage);
                 }
             );
-    }
+    }  usuarioModel.cadastrarGestor(nomeGestor, emailGestor)
+    .then(
+        function (resultado) {
+            res.json(resultado);
+        }
+    ).catch(
+        function (erro) {
+            console.log(erro);
+            console.log(
+                "\nHouve um erro ao realizar o cadastro! Erro: ",
+                erro.sqlMessage
+            );
+            res.status(500).json(erro.sqlMessage);
+        }
+    );
 }
+
+
 
 module.exports = {
     autenticar,
-    cadastrar
+    cadastrar,
+
+   
 }
