@@ -17,7 +17,7 @@
     <div class="container-geral flex inter">
         <div class="container-bem-vindo flex">
             <div class="logo flex">
-                <a href="homePage(principal).html"><img src="./assets/logo.png" alt="FluxSync" /></a>
+                <a href="index.html"><img src="./assets/logo.png" alt="FluxSync" /></a>
             </div>
 
             <h1 class="seja-bem-vindo">Seja bem-vindo!</h1>
@@ -37,10 +37,7 @@
                     <div class='inputClass'id="div_mensagemEmailEmpresa"></div> 
                     <input id="input_telefone" class="inter input" type="text" placeholder="Telefone" />
                     <div class='inputClass'id="div_mensagemTelefone"></div> 
-                    <input id="input_gestor" class="inter input" type="text" placeholder="Nome do gestor" />
-                    <div class="inputClass" id="div_mensagemGestor"></div>
-                    <input id="input_emailGestor" class="inter input" type="text" placeholder="Email do gestor" />
-                    <div class='inputClass'id="div_mensagemEmailGestor"></div> 
+                   
                     <input id="input_senha" class="inter input" type="password" placeholder="Senha" />
                     <div class='inputClass'id="div_mensagemSenha"></div> 
                     <input id="input_confirmarSenha" class="inter input" type="password" placeholder="Confirmar senha" />
@@ -71,8 +68,7 @@ function validarTudo() {
     var cnpjInput = input_cnpj.value 
     var emailEmpresa = input_emailEmpresa.value 
     var telefone = input_telefone.value
-    var nomeGestor = input_gestor.value 
-    var emailGestor = input_emailGestor.value 
+    
     var senha = input_senha.value  
 
     if (
@@ -80,14 +76,11 @@ function validarTudo() {
       cnpjInput == "" ||
       emailEmpresa == "" ||
       telefone == "" ||
-      nomeGestor == "" 
-      || emailGestor ==''
-      || senha ==''
+  
+    senha ==''
     ) {
       
-      mensagem_erro.innerHTML =
-        "(Mensagem de erro para todos os campos em branco)";
-
+      
       
       return false;
     } else {
@@ -108,14 +101,36 @@ function validarTudo() {
         emailServer:emailEmpresa,
         telefoneServer:telefone,
         senhaServer:senha,
-        nomeGestorServer: nomeGestor,
-        emailGestorServer: emailGestor
+       
       }),
     })
+    .then(function (resposta) {
+        console.log("resposta: ", resposta);
 
+        if (resposta.ok) {
+         
+
+         alert(`Cadastrado realizado com sucesso!`)
+
+          setTimeout(() => {
+            window.location = "tela-login.html";
+          }, "2000");
+
+      
+        } else {
+          throw "Houve um erro ao tentar realizar o cadastro!";
+        }
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+ 
+      });
 
     return false;
   }
+
+    
+  
 
 
 </script>
