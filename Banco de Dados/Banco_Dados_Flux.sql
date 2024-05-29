@@ -21,19 +21,13 @@ constraint chkEmailGestor check (emailGestor like ("%@%")),
 constraint fkGestorUsuario foreign key (fkUsuario) references usuario(idUsuario));
 
 
-create table setorMercado (
-idSetor int primary key auto_increment,
-nomeSetor varchar(45),
-fkGestor int, 
-constraint fkGestorSetorMercado foreign key (fkGestor) references gestor(idGestor));
-
-
 create table gondola (
 idGondola int primary key auto_increment,
 qtdPrateleiras int not null,
 tamanhoGondola float not null,
-fkSetor int, 
-constraint fkGondolaSetor foreign key (fkSetor) references setorMercado(idSetor));
+setorMercado varchar(45) not null,
+fkGestor int, 
+constraint fkGondolaGestor foreign key (fkGestor) references gestor(idGestor));
 
 
 create table sensor (
@@ -51,7 +45,6 @@ constraint pkComposta primary key (idRegistro, fkSensor),
 horaRegistro datetime,
 statusSensor varchar(45), constraint chkStatus check (statusSensor in ("0","1")),
 constraint fkSensorRegistroSensor foreign key (fkSensor) references sensor (idSensor));
-
 
 
 
