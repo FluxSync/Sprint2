@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cadastre seu gestor aqui!</title>
+    <title>Faça o login do seu gestor!</title>
     <link rel="stylesheet" href="cadastro-gestor.css" />
 
     <!-- LINK FONT INTER -->
@@ -17,18 +17,15 @@
     <div class="container-geral flex inter">
         <div class="container-cadastro flex">
             <div class="box-cadastro flex">
-                <h1 class="cadastrar-setor">Cadastro do Gestor</h1>
+                <h1 class="cadastrar-setor">Login do Gestor</h1>
                 <div class="box-input-cadastro flex">
-                    <input class="inter" id="input_gestor" type="text" placeholder="Nome do Gestor" />
                     <input class="inter" type="text" id="input_emailGestor" placeholder="Email do Gestor" />
                     <input class="inter" type="text" id="input_senhaGestor" placeholder="Senha do Gestor" />
-                    <input class="inter" type="text" id="input_confirmarSenha" placeholder="Confirme a senha" />
 
                 </div>
 
                 <div class="box-btn-cadastro flex">
                     <button class="inter" onclick="cadastroGestor()">Finalizar</button>
-                    <button class="inter" <a href="cadastro-gestor.html"></a>Adicionar outro gestor</button>
                 </div>
             </div>
         </div>
@@ -47,67 +44,67 @@
 
 </html>
 <script>
-    var home = "homePage(principal).html"
-    function voltarHome() {
-        window.location.href = home;
-    }
 
     function cadastroGestor() {
-        var idUsuario = sessionStorage.ID_USUARIO
-        var nomeGestor = input_gestor.value
-        var emailGestor = input_emailGestor.value
-        var senhaGestor = input_senhaGestor.value
+        var emailGestor = input_emailGestor.value;
+        var senhaGestor = input_senhaGestor.value;
 
 
         if (
-
-            nomeGestor == ""
-            || emailGestor == ''
+            emailGestor == ''
             || senhaGestor == ''
 
         ) {
-
             mensagem_erro.innerHTML =
                 "(Mensagem de erro para todos os campos em branco)";
-
 
             return false;
         } else {
 
-        }
-
-        // Enviando o valor da nova input
-        fetch("/usuarios/cadastrarGestor", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                // crie um atributo que recebe o valor recuperado aqui
-                // Agora vá para o arquivo routes/usuario.js
-                nomeGestorServer: nomeGestor,
-                emailGestorServer: emailGestor,
-                senhaGestorServer: senhaGestor,
-                idUsuario: idUsuario
-
-            }),
-        })
-            .then(function (resposta) {
-
-                console.log("resposta: ", resposta);
+            // Enviando o valor da nova input
+            fetch("/usuarios/autenticarGestor", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    emailServer: emailGestor,
+                    senhaServer: senhaGestor
+                })
+            }).then(function (resposta) {
+                console.log("ESTOU NO THEN DO entrar()!")
 
                 if (resposta.ok) {
-                   
-                    window.alert("Seu gestor foi cadastrado com sucesso!!");
-                    window.location.href = "./login-gestor.html"
+                    console.log(resposta);
+
+                    resposta.json().then(json => {
+                        console.log(json);
+                        console.log(JSON.stringify(json));
+                        sessionStorage.EMAIL_USUARIO = json.email;
+                        sessionStorage.NOME_USUARIO = json.nome;
+                        sessionStorage.ID_USUARIO = json.id;
+
+                        setTimeout(function () {
+                            window.location = "./dashboard/cards.html";
+                        }, 1000); // apenas para exibir o loading
+
+                    });
 
                 } else {
-                    throw ("Houve um erro ao tentar realizar o cadastro!");
-                }
-            }).catch(function (resposta) {
-                console.log(`#ERRO: ${resposta}`);
 
-            });
+                    console.log("Houve um erro ao tentar realizar o login!");
+
+                    resposta.text().then(texto => {
+                        console.error(texto);
+                    });
+                }
+
+            }).catch(function (erro) {
+                console.log(erro);
+            })
+
+            return false;
+        }
     }
 
 

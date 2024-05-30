@@ -1,17 +1,17 @@
 var usuarioModel = require("../models/usuarioModel");
 
 
-function autenticar(req, res) {
-    var emailEmpresa = req.body.emailServer;
-    var senha = req.body.senhaServer;
+function autenticarGestor(req, res) {
+    var emailGestor = req.body.emailServer;
+    var senhaGestor = req.body.senhaServer;
 
-    if (emailEmpresa == undefined) {
+    if (emailGestor == undefined) {
         res.status(400).send("Seu email está undefined!");
-    } else if (senha == undefined) {
+    } else if (senhaGestor == undefined) {
         res.status(400).send("Sua senha está indefinida!");
     } else {
 
-        usuarioModel.autenticar(emailEmpresa, senha)
+        usuarioModel.autenticarGestor(emailGestor, senhaGestor)
         .then(
             function (resultadoAutenticar) {
                 console.log(`\nResultados encontrados: ${resultadoAutenticar.length}`);
@@ -86,10 +86,11 @@ function cadastrarGestor(req, res) {
 
     
         var emailGestor = req.body.emailGestorServer
+        var senhaGestor = req.body.senhaGestorServer
         var nomeGestor = req.body.nomeGestorServer
         var idUsuario = req.body.idUsuario
 
-    usuarioModel.cadastrarGestor(idUsuario, nomeGestor, emailGestor).then(function (resultado) {
+    usuarioModel.cadastrarGestor(idUsuario, nomeGestor, emailGestor,senhaGestor).then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {
@@ -102,9 +103,9 @@ function cadastrarGestor(req, res) {
     });
 }
 module.exports = {
-    autenticar,
     cadastrar,
-    cadastrarGestor
+    cadastrarGestor,
+    autenticarGestor
 
    
 }
