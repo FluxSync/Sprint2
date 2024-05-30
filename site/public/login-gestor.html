@@ -25,7 +25,7 @@
                 </div>
 
                 <div class="box-btn-cadastro flex">
-                    <button class="inter" onclick="cadastroGestor()">Finalizar</button>
+                    <button class="inter" onclick="autenticarGestor()">Finalizar</button>
                 </div>
             </div>
         </div>
@@ -45,7 +45,7 @@
 </html>
 <script>
 
-    function cadastroGestor() {
+    function autenticarGestor() {
         var emailGestor = input_emailGestor.value;
         var senhaGestor = input_senhaGestor.value;
 
@@ -72,7 +72,7 @@
                     senhaServer: senhaGestor
                 })
             }).then(function (resposta) {
-                console.log("ESTOU NO THEN DO entrar()!")
+                console.log("ESTOU NO THEN DO autenticarGestor()!")
 
                 if (resposta.ok) {
                     console.log(resposta);
@@ -80,12 +80,12 @@
                     resposta.json().then(json => {
                         console.log(json);
                         console.log(JSON.stringify(json));
-                        sessionStorage.EMAIL_USUARIO = json.email;
-                        sessionStorage.NOME_USUARIO = json.nome;
-                        sessionStorage.ID_USUARIO = json.id;
+                        sessionStorage.EMAIL_GESTOR = json.emailGestor;
+                        sessionStorage.NOME_GESTOR = json.nomeGestor;
+                        sessionStorage.ID_GESTOR = json.idGestor;
 
                         setTimeout(function () {
-                            window.location = "./dashboard/cards.html";
+                            window.location = "./cadastro-setor.html";
                         }, 1000); // apenas para exibir o loading
 
                     });

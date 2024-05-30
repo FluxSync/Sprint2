@@ -19,14 +19,16 @@
       <div class="box-cadastro flex">
         <h1 class="cadastrar-setor">Cadastro do Setor</h1>
         <div class="box-input-cadastro flex">
-          <input class="inter" type="text" placeholder="Nome do Setor" />
-          <input class="inter" type="text" placeholder="Quantidade de Gôndolas no Setor" />
-          <input class="inter" type="text" placeholder="Número de Prateleiras por Gôndola" />
-          <input class="inter" type="text" placeholder="Tamanho das prateleiras (Metros)" />
+          <input class="inter" type="text" id="input_nome_setor" placeholder="Nome do Setor" />
+          <input class="inter" type="text" id="input_qtd_gondolas" placeholder="Quantidade de Gôndolas no Setor" />
+          <input class="inter" type="text" id="input_prateleiras_gondolas" placeholder="Número de Prateleiras por Gôndola" />
+          <input class="inter" type="text" id="input_tamanho_prateleiras" placeholder="Tamanho das prateleiras (Metros)" />
         </div>
 
         <div class="box-btn-cadastro flex">
-          <a href="../homeDashboard/home.html"><button onclick="cadastrarSetor()" class="inter">Finalizar</button></a>
+          <!-- <a href="../homeDashboard/home.html"> -->
+            <button onclick="cadastrarSetor()" class="inter">Finalizar</button>
+          <!-- </a> -->
           <button class="inter" <a href="cadastro-setor.html"></a>Adicionar outro setor</button>
         </div>
       </div>
@@ -51,5 +53,46 @@
     window.location.href = home;
   }
 
+  function cadastrarSetor() {
+    var idGestor = sessionStorage.getItem('ID_GESTOR');
+    console.log(idGestor);
 
+    var prateleiras_gondolas = Number(input_prateleiras_gondolas.value);
+    var tamanho_prateleiras = Number(input_tamanho_prateleiras.value);
+    var nome_setor = Number(input_nome_setor.value);
+
+    fetch("/gondolas/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                prateleiras_gondolasServer: prateleiras_gondolas,
+                tamanho_prateleirasServer: tamanho_prateleiras,
+                nome_setorServer: nome_setor,
+                idGestorServer: idGestor
+
+            }),
+        })
+            .then(function (resposta) {
+
+                console.log("resposta: ", resposta);
+
+                if (resposta.ok) {
+                   
+                    window.alert("Seu gestor foi cadastrado com sucesso!!");
+                    window.location.href = "./MANDAR PARA DASH AQUI!.html"
+
+                } else {
+                    throw ("Houve um erro ao tentar realizar o cadastro!");
+                }
+            }).catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+
+            });
+
+    
+  }
 </script>
