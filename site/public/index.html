@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home | Flux</title>
-    <link rel="stylesheet" href="homePage(principal).css">
+    <link rel="stylesheet" href="styleHome.css">
     <link rel="shortcut icon" href="Assets/logoFlux.png" type="imagem_flux">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,179 +16,158 @@
 
 <body>
 
+    <!-- Navigation -->
 
-    <!--Container 1 que contém a imagem da empilhadeira e do planeta, e tem a logo e a navbar-->
-    <div class="container1">
+    <nav>
+        <img src="assets/logo.png"alt="">
+        <div class="navigation">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Sobre a Flux</a></li>
+                <li><a href="#">Calculadora</a></li>
+                <li><a href="#">Cadastrar</a></li>
+                <li><a href="#">Entrar</a></li>
+            </ul>
+        </div>
+    </nav>
 
-        <!--Lado esquerdo do container 1 que é o logo e o texto-->
-        <div class="containerLeft">
+    <!-- Home -->
 
-            <div class="container2">
-                <div class="container3">
-                    <img class="logo" src="assets/fluxLogoNew.png" alt="">´
+    <section id="home">
+        <h2>è a Flux né</h2>
+        <p>essa flux tal tal tal atla bla bla bla muito legal daora divertido eba eb abe a maneiro, de mais em</p>
 
-
-                    <h3 class="txt-logo">Flux</h3>
-                </div>
-                <div class="texto">
-                    <div class="invisivel">
-                        <h3>Bem-vindo a Flux.</h3>
-                        <h1>Transformando ações em oportunidades.</h1>
-                        <p>
-                            Flux é uma startup inovadora que está revolucionando o gerenciamento de estoques em
-                            atacadões
-                            com uma abordagem tecnológica pioneira. Nossa missão é solucionar um dos maiores desafios do
-                            setor: manter as prateleiras sempre abastecidas, garantindo a satisfação do cliente e a
-                            eficiência operacional.
-                        </p>
-                    </div>
-                </div>
-            </div>
+        <div class="btn">
+            <a class="blue" href="#">Saiba Mais!</a>
         </div>
 
+    </section>
 
+    <!-- tecnologias -->
 
+    <section id="tecnologias">
+        <h1>Nossa Técnologia</h1>
+        <p>Saiba sobre como fazemos para alcançar nosso objetivo com as nossas técnologias avançadas</p>
 
-        <!--Lado que contém a navbar e as imagens-->
-        <div class="containerRight">
-
-            <div class="navbar">
-                <ul>
-                    <a href="cadastro.html">
-                        <li>Cadastrar</li>
-                    </a>
-                    <a href="Calculadora/calculadora-financeira.html">
-                        <li>Simulador</li>
-                    </a>
-                    <a href="tela-login.html">
-                        <li>Entrar</li>
-                    </a>
-                  
-                </ul>
+        <div class="cards">
+            <div class="cards-tec">
+                <h3>Titulo</h3>
+                <p>texto explicativo</p>
             </div>
-
-            <div class="imagensRight">
-                <div class="invisivel">
-                    <img class="empilhadeira" src="Assets/imagemEmpilhadeira.png" alt="">
-                    <div class="sobreposicao">
-                        <img class="planeta" src="Assets/imagemCarrinho (1).png" alt="">
-                    </div>
-                </div>
+            <div class="cards-tec">
+                <h3>Titulo</h3>
+                <p>texto explicativo</p>
             </div>
-
+            <div class="cards-tec">
+                <h3>Titulo</h3>
+                <p>texto explicativo</p>
+            </div>
         </div>
+    </section>
+
+    <div class="fazemos">
+        <h1>O que fazemos</h1>
+        <p>Saiba sobre como fazemos para alcançar nosso objetivo com as nossas técnologias avançadas <br> <br><br><br></p>
     </div>
 
-
-
-    <!--Container que contem um ritmo(lógica) igual, uma imagem ao lado de um texto, trocando apenas se é pra direita ou esquerda-->
-    <div class="container10">
-        <!--Container dos valores-->
-        <div class="containerValores">
-            <div class="invisivel">
-                <div class="textoValores">
-                    <h1> Missão Flux
-
-                    </h1>
-                    <p>
-                        A missão da Flux é ambiciosa: reduzir de 40 % pra 15% suas perdas devido ao desabastecimento nas prateleiras, semestralmente. Esta meta não apenas melhora significativamente a disponibilidade de produtos, mas também otimiza a cadeia de suprimentos, impactando positivamente a rentabilidade dos varejistas. Ao alcançar esse objetivo, a Flux não apenas eleva os padrões de eficiência operacional, mas também fortalece as relações entre varejistas e consumidores, garantindo uma melhor experiência de compra.</p>
-                </div>
+    <section class="nos">
+        <div class="card">
+            <img src="assets/nos.jpeg" alt="">
+            <div class="info">
+                <h2>Nossa Equipe</h2>
             </div>
 
-            <div class="invisivel">
-                <div class="item1">
-                    <img class="imgValores" src="assets/Analytics-amico-removebg-preview.png" alt="">
-
-                </div>
-            </div>
-
-
         </div>
+       
 
-        <!--Container de análise e estatistícas-->
-        <div class="invisivel">
-            <div class="container11">
-
-                <img class="imagemPadrao" src="Assets/analise.jpg" alt="">
-                <div class="textoContainer11">
-                    <h1>Análise e estatistícas</h1> <br>
-                    <p>Em um mercado cada vez mais competitivo, a capacidade de uma empresa de se adaptar rapidamente às
-                        mudanças nas preferências dos consumidores pode ser a chave para sua sobrevivência e sucesso.
-                        Aqui,
-                        a análise e as estatísticas desempenham um papel crucial, especialmente no contexto da gestão de
-                        prateleiras em ambientes de varejo. Com a adoção de tecnologias avançadas, como sensores de
-                        bloqueio, as empresas estão agora capacitadas com dados em tempo real, permitindo-lhes tomar
-                        decisões informadas que não apenas otimizam o inventário, mas também melhoram significativamente
-                        a
-                        experiência do cliente.</p>
-                </div>
-            </div>
+        <div class="container-texto">
+            <h5>Texto sobre o que fazemos</h5>
+            <a href="#" class="btn-nos">Saiba Como!</a>
         </div>
+    </section>
 
-
-        <!--Container do sensor de bloqueio-->
-        <div class="invisivel">
-            <div class="container12">
-
-                <div class="textoContainer12">
-                    <h1>Sensor de bloqueio</h1> <br>
-                    <p>Na era da inovação tecnológica, as empresas estão cada vez mais buscando soluções inteligentes
-                        para
-                        otimizar suas operações e melhorar a experiência do cliente. Uma dessas inovações
-                        revolucionárias é
-                        o uso de sensores de bloqueio para gerenciar a presença de produtos em prateleiras. Este avanço
-                        tecnológico está transformando a maneira como as empresas monitoram e controlam seus
-                        inventários,
-                        especialmente em ambientes de varejo e atacado, onde a gestão eficaz do estoque é fundamental
-                        para o
-                        sucesso do negócio.</p>
-                </div>
-                <img class="imagemPadrao" src="Assets/arduino.jpg" alt="">
-
-            </div>
-        </div>
-
-
-        <!--Container do retorno financeiro-->
-        <div class="invisivel">
-            <div class="container13">
-
-                <img class="imagemPadrao" src="Assets/retorno.jpg" alt="">
-                <div class="textoContainer13">
-                    <h1>Retorno Financeiro</h1> <br>
-                    No dinâmico setor do atacado, a eficácia na gestão de prateleiras pode ser um diferencial
-                    competitivo
-                    significativo. Neste contexto, a análise de dados não apenas transforma as operações de inventário e
-                    merchandising, mas também se mostra um poderoso motor para impulsionar o retorno financeiro.
-
-                </div>
-            </div>
-        </div>
-
-    </div>
-    </div>
-    <br><br><br>
-
-    <!--Container do footer, com nossas informações e nosso contato-->
-    <div class="container14">
-
-        <div class="textoContainer14">
-            <h1>Central</h1>
-            <p>(11) 9****-****</p>
-        </div>
-
-        <h2>Flux &copy; 2024 Todos os direitos reservados</h2>
-
-        <div class="socialContainer14">
-            <img src="Assets/instagram.png" alt="">
-            <img src="Assets/linkedin.png" alt="">
-            <img src="Assets/whatssap.png" alt="">
-        </div>
-
-
-
+    <div class="nosso-objetivo">
+        <h1>Nossos Objetivos Principais</h1>
+        <p>Saiba sobre como fazemos para alcançar nosso objetivo com as nossas técnologias avançadas <br> </p>
     </div>
 
+    <section class="objetivos">
+
+        <div class="card-container">
+            <div class="card-obj">
+                <img src="assets/empilhadeiraCorreta.jpg" alt="">
+                <div class="card-content">
+                    <h1>Titulo</h1>
+                    <p>descrição do objetivo</p>
+                </div>
+            </div>
+            <div class="card-obj">
+                <img src="assets/empilhadeiraCorreta.jpg" alt="">
+                <div class="card-content">
+                    <h1>Titulo</h1>
+                    <p>descrição do objetivo</p>
+                </div>
+            </div>
+            <div class="card-obj">
+                <img src="assets/empilhadeiraCorreta.jpg" alt="">
+                <div class="card-content">
+                    <h1>Titulo</h1>
+                    <p>descrição do objetivo</p>
+                </div>
+            </div>
+        </div>
+
+
+    </section>
+
+    <footer class="footer-inteiro">
+        <div class="footer-left">
+            <h3>Flux <span>Sync</span></h3>
+            <p class="footer-links">
+                <a href="#">Home</a>
+                |
+                <a href="#">Sobre a Flux</a>
+                |
+                <a href="#">Calculadora</a>
+                |
+                <a href="#">Cadastro</a>
+            </p>
+
+            <p class="footer-company">
+                Copyright 2024 <strong>FluxSync</strong> Todos os direitos reservados
+            </p>
+        </div>
+
+        <div class="footer-center">
+            <div>
+                <i class="map"><img src="assets/marcador.png" alt=""></i>
+                <p><span>Rua Haddock Lobo, 558</span></p>
+            </div>
+            <div>
+                <i class="tel"><img src="assets/tel.png" alt=""></i>
+                <p>+55 9****-****</p>
+            </div>
+            <div>
+                <i class="tel"><img src="assets/envelope.png" alt=""></i>
+                <p><a href="#">fluxsync@gmail.com</a></p>
+            </div>
+        </div>
+
+        <div class="footer-right">
+            <p class="footer-about">
+                <span>Sobre a empresa</span>
+                <strong>FluxSync</strong> Uma empresa inovadora para solucionar o seu problema com as perdas do seu mercado!
+            </p>
+
+            <div class="footer-icons">
+                <a href="#"><i class="facebook"><img src="assets/facebook.png" alt=""></i></a>
+                <a href="#"><i class="insta"><img src="assets/instagram (1).png" alt=""></i></a>
+                <a href="#"><i class="linkedin"><img src="assets/lin.png" alt=""></i></a>
+                <a href="#"><i class="twitter"><img src="assets/twitter.png" alt=""></i></a>
+            </div>
+        </div>
+
+    </footer>
 
 
 </body>
