@@ -7,7 +7,7 @@ var emailGestor = ''
 var senha = '';
 var confirmarSenha = '';
 
-var home = "homePage(principal).html"
+var home = "index.html"
 function voltarHome(){
     window.location.href = home;
 }
