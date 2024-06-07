@@ -12,6 +12,10 @@ router.post("/cadastrarGestor", function (req, res) {
     usuarioController.cadastrarGestor(req, res);
 })
 
+router.post("/autenticar", function (req, res) {
+    usuarioController.autenticar(req, res);
+});
+
 router.post("/autenticarGestor", function (req, res) {
     usuarioController.autenticarGestor(req, res);
 });

@@ -17,6 +17,7 @@ fkUsuario int,
 constraint pkComposta primary key (idGestor, fkUsuario),
 nomeGestor varchar(45) not null,
 emailGestor varchar(50) not null unique,
+senhaGestor varchar(50) not null,
 constraint chkEmailGestor check (emailGestor like ("%@%")),
 constraint fkGestorUsuario foreign key (fkUsuario) references usuario(idUsuario));
 

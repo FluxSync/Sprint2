@@ -59,7 +59,7 @@
 
     var prateleiras_gondolas = Number(input_prateleiras_gondolas.value);
     var tamanho_prateleiras = Number(input_tamanho_prateleiras.value);
-    var nome_setor = Number(input_nome_setor.value);
+    var nome_setor = input_nome_setor.value;
 
     fetch("/gondolas/cadastrar", {
             method: "POST",
@@ -82,7 +82,7 @@
 
                 if (resposta.ok) {
                    
-                    window.alert("Seu gestor foi cadastrado com sucesso!!");
+                    window.alert("Seu setor foi cadastrado com sucesso!!");
                     window.location.href = "./MANDAR PARA DASH AQUI!.html"
 
                 } else {
