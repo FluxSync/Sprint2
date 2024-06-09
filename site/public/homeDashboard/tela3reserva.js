@@ -1,26 +1,153 @@
-function otimo(params) {
-    alert("Tempo Otímo: Abaixo de 4 Horas");
-  }
-  function bom(params) {
-    alert("Tempo Bom: Entre 4-8 Horas");
-  }
-  function ruim(params) {
-    alert("Tempo Ruim: Entre 9-24 Horas");
-  }
-  function pessimo(params) {
-    alert("Tempo Péssimo: Acima de 24 Horas");
-  }
-  
+function otimo() {
+  alert("Tempo Otímo: Abaixo de 4 Horas");
+}
+function bom() {
+  alert("Tempo Bom: Entre 4-8 Horas");
+}
+function ruim() {
+  alert("Tempo Ruim: Entre 9-24 Horas");
+}
+function pessimo() {
+  alert("Tempo Péssimo: Acima de 24 Horas");
+}
+
+function velocidadeUltimaReposicao() {
+  fetch(`/dashboardRoutes/velocidadeUltimaReposicao`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json"
+    }
+  }).then(function (resposta) {
+    console.log("ESTOU NO THEN DO velocidadeUltimaReposicao()!")
+
+    if (resposta.ok) {
+      console.log(resposta);
+      resposta.json().then((json) => {
+        console.log(json.ultima)
+
+        var ultima = json.ultima;
+
+        UltimaReposicaoHtml.innerHTML = `${ultima}`;
+      });
+    } else {
+      console.log("Houve um erro ao tentar realizar a requisição!");
+    }
+  });
+}
+
+function ultimaEstocagem() {
+  fetch(`/dashboardRoutes/ultimaEstocagem`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json"
+    }
+  }).then(function (resposta) {
+    console.log("ESTOU NO THEN DO ultimaEstocagem()!")
+
+    if (resposta.ok) {
+      console.log(resposta);
+      resposta.json().then((json) => {
+        console.log(json.ultima)
+
+        var ultima = json.ultima;
+
+        ultimaEstocagemHtml.innerHTML = `${ultima}`;
+      });
+    } else {
+      console.log("Houve um erro ao tentar realizar a requisição!");
+    }
+  });
+}
+
+function horasSemEstoque() {
+  fetch(`/dashboardRoutes/horasSemEstoque`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json"
+    }
+  }).then(function (resposta) {
+    console.log("ESTOU NO THEN DO horasSemEstoque()!")
+
+    if (resposta.ok) {
+      console.log(resposta);
+      resposta.json().then((json) => {
+        console.log(json.tempoSemEstoque)
+
+        var horas = json.tempoSemEstoque;
+
+        tempoSemEstoqueHtml.innerHTML = `${horas}`;
+      });
+    } else {
+      console.log("Houve um erro ao tentar realizar a requisição!");
+    }
+  });
+}
+
+function messesComMaisReposicao() {
+  fetch(`/dashboardRoutes/messesComMaisReposicao`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json"
+    }
+  }).then(function (resposta) {
+    console.log("ESTOU NO THEN DO messesComMaisReposicao()!")
+
+    if (resposta.ok) {
+      console.log(resposta);
+      resposta.json().then((json) => {
+        console.log(json.mes1, json.reposicao1)
+
+        mes1.innerHTML = `1° ${json.mes1} - (${json.reposicao1})`;
+        mes2.innerHTML = `2° ${json.mes2} - (${json.reposicao2})`;
+        mes3.innerHTML = `3° ${json.mes3} - (${json.reposicao3})`;
+      });
+    } else {
+      console.log("Houve um erro ao tentar realizar a requisição!");
+    }
+  });
+}
+
+var statusSensor = [];
+var horaRegistro = [];
+
+function grafico() {
+  fetch(`/dashboardRoutes/grafico`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json"
+    }
+  }).then(function (resposta) {
+    console.log("ESTOU NO THEN DO grafico()!")
+
+    if (resposta.ok) {
+      console.log(resposta);
+      resposta.json().then((json) => {
+        console.log(json)
+
+        for (var i = 0; i < json.length; i++) {
+          statusSensor.push(json[i].statusSensor)
+          horaRegistro.push(json[i].horaRegistro)
+        }
+        criarGrafico()
+      });
+    } else {
+      console.log("Houve um erro ao tentar realizar a requisição!");
+    }
+  });
+
+}
+
+function criarGrafico() {
   const dash = document.getElementById("dash");
-  
+
   new Chart(dash, {
     type: "line",
     data: {
-      labels: ["29/09", "30/09", "01/10", "02/10", "03/10", "04/10", "05/10"],
+      labels: horaRegistro,
       datasets: [
         {
-          label: "Com Estoque",
-          data: [0, 0, 1, 1, 1, 0, 0],
+          label: "Gôndola",
+          data: statusSensor,
           borderWidth: 1,
           backgroundColor: "#11009e",
           borderColor: "#a20000",
@@ -35,7 +162,7 @@ function otimo(params) {
           display: true,
           title: {
             display: true,
-            text: "Última Semana", // Título do eixo X
+            text: "Últimos 7 registros", // Título do eixo X
             font: {
               weight: "bold", // Estilo da fonte (negrito)
               size: 16, // Tamanho da fonte
@@ -60,4 +187,4 @@ function otimo(params) {
       },
     },
   });
-  
+}

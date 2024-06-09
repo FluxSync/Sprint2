@@ -23,7 +23,7 @@ select_setor.addEventListener("change", changeSelect);
 
 changeSelect();
 
-function tela2(params) {
+function tela2() {
   let setorSelecionado = select_setor.value;
   if (setorSelecionado) {
     var novaPagina = "tela2.html";
@@ -32,3 +32,62 @@ function tela2(params) {
     alert("Selecione um Setor");
   }
 }
+
+var setorMercado = [];
+
+function setores() {
+  fetch(`/dashboardRoutes/setores`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json"
+    }
+  }).then(function (resposta) {
+    console.log("ESTOU NO THEN DO setores()!")
+
+    if (resposta.ok) {
+      console.log(resposta);
+      resposta.json().then((json) => {
+        console.log(json)
+
+        for (var i = 0; i < json.length; i++) {
+          setorMercado.push(json[i].setorMercado)
+        }
+
+        console.log(setorMercado)
+      });
+    } else {
+      console.log("Houve um erro ao tentar realizar a requisição!");
+    }
+  });
+}
+
+function verSetor() {
+  fetch(`/dashboardRoutes/verSetor`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json"
+    }
+  }).then(function (resposta) {
+    console.log("ESTOU NO THEN DO verSetor()!")
+
+    if (resposta.ok) {
+      console.log(resposta);
+      resposta.json().then((json) => {
+        console.log(json.gondolas,json.prateleiras,json.sensores)
+
+        var gondolas = json.gondolas;
+        var prateleiras = json.prateleiras;
+        var sensores = json.sensores;
+
+        gondolasNoSetor.innerHTML = `Gôndolas no Setor: ${gondolas}`;
+        prateleirasNoSetor.innerHTML = `Prateleiras no Setor: ${prateleiras}`;
+        sensoresNoSetor.innerHTML = `Sensores no Setor: ${sensores}`;
+        // nomeDoSetor.innerHTML = `Setor de ${setor}`;
+
+      });
+    } else {
+      console.log("Houve um erro ao tentar realizar a requisição!");
+    }
+  });
+}
+

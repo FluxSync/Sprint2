@@ -15,7 +15,7 @@
     <title>Flux</title>
 </head>
 
-<body>
+<body onload="grafico(), ultimaEstocagem(), horasSemEstoque(), messesComMaisReposicao(), velocidadeUltimaReposicao()">
     <header>
         <div class="flux">
             <img src="assets/logoFlux.svg" alt="" class="logo">
@@ -33,7 +33,7 @@
         <section class="replacement">
             <h2 class="title-replacement">Velocidade da Última Reposição</h2>
             <div class="replacement-timer">
-                <div class="timer"><span>29 horas</span></div>
+                <div class="timer" id="UltimaReposicaoHtml"><span>29 horas</span></div>
             </div>
             <div class="replacement-subtitle">
                 <h3 class="subtitle-title">Legenda de Reposição</h3>
@@ -52,22 +52,22 @@
                     <div class="card date">
                         <h3 class="title-card">Última Estocagem</h3>
                         <div class="indicators-itens-big">
-                            <span class="item-indicator-big">01/10</span>
+                            <span class="item-indicator-big" id="ultimaEstocagemHtml">01/10</span>
                </div>
                     </div>
                     <div class="card stock">
                         <h3 class="title-card">Tempo Total sem Estoque na Última Semana</h3>
                         <div class="indicators-itens-big">
-                            <span class="item-indicator-big time">58 <span class="small-txt">(horas)</span></span>
+                            <span class="item-indicator-big time" id="tempoSemEstoqueHtml">58 <span class="small-txt">(horas)</span></span>
                         </div>
                     </div>
                     <div class="card speed">
                         <h3 class="title-card">Meses com Mais Reposição de Estoque</h3>
                         <div class="indicators-itens-small">
                             <span></span>
-                            <span class="item-indicator-small">1° Fevereiro (12)</span>
-                            <span class="item-indicator-small">2° Julho (10)</span>
-                            <span class="item-indicator-small">3° Setembro (7)</span>
+                            <span class="item-indicator-small" id="mes1">1° Fevereiro (12)</span>
+                            <span class="item-indicator-small" id="mes2">2° Julho (10)</span>
+                            <span class="item-indicator-small" id="mes3">3° Setembro (7)</span>
                         </div>
                     </div>
                 </div>
