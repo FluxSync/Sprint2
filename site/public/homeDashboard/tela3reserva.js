@@ -148,9 +148,9 @@ function criarGrafico() {
         {
           label: "Gôndola",
           data: statusSensor,
-          borderWidth: 1,
-          backgroundColor: "#11009e",
-          borderColor: "#a20000",
+          borderWidth: 4,
+          backgroundColor: "blue",
+          borderColor: "#00ff00",
         },
       ],
     },
@@ -162,7 +162,8 @@ function criarGrafico() {
           display: true,
           title: {
             display: true,
-            text: "Últimos 7 registros", // Título do eixo X
+            text: "Últimos 7 registros",
+            color: "white",// Título do eixo X
             font: {
               weight: "bold", // Estilo da fonte (negrito)
               size: 16, // Tamanho da fonte
@@ -174,6 +175,9 @@ function criarGrafico() {
               bottom: 10,
             },
           },
+          ticks: {
+            color: "white"
+          }
         },
         y: {
           display: false, // Ocultar escala do eixo Y
