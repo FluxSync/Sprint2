@@ -514,3 +514,20 @@ footer{
 
 @media (max-width: 475px) {
 }
+
+.logo {
+    left: 40.3%;
+
+   
+    position: relative;
+    top: 16.3%;
+   
+   
+}
+  
+.logo img {
+    position: fixed;
+    width: 150px;
+    height: 109px;
+}
+
