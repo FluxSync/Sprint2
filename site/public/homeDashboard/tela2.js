@@ -2,6 +2,8 @@ const controls = document.querySelectorAll(".control");
 let currentItem = 0;
 const items = document.querySelectorAll(".item");
 const maxItems = items.length;
+let gondolasVazias = document.getElementById('gondolasVazias')
+
 
 controls.forEach((control) => {
   control.addEventListener("click", (e) => {
@@ -54,3 +56,30 @@ function checkBoxChanged() {
 }
 let checkAll = document.getElementById("checkAll");
 checkAll.addEventListener("change", checkBoxChanged);
+
+function gondolas() {
+  fetch(`/dashboardRoutes/gondolas`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json"
+    }
+  }).then(function (resposta) {
+    console.log("ESTOU NO THEN DO gondolas()!")
+
+    if (resposta.ok) {
+      console.log(resposta);
+      resposta.json().then((json) => {
+        console.log(json.TotalGondolas, json.gondolasVazias)
+
+        var gondolas = json.TotalGondolas;
+        var gondolasVazias_ = json.gondolasVazias;
+
+        console.log(gondolas, gondolasVazias)
+        gondolasVazias.innerHTML = `Gôndolas Vazias(Limpeza): ${gondolasVazias_}`
+
+      });
+    } else {
+      console.log("Houve um erro ao tentar realizar a requisição!");
+    }
+  });
+} 

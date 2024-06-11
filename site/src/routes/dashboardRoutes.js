@@ -11,6 +11,10 @@ router.get("/verSetor", function (req, res) {
     dashboardController.verSetor(req, res);
 })
 
+router.get("/gondolas", function (req, res) {
+    dashboardController.gondolas(req, res);
+})
+
 router.get("/ultimaEstocagem", function (req, res) {
     dashboardController.ultimaEstocagem(req, res);
 })

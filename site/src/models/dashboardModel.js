@@ -30,6 +30,29 @@ GROUP BY
     return database.executar(instrucaoSql);
 }
 
+function gondolas() {
+    var instrucaoSql = `
+SELECT 
+    sm.nomeSetor AS nome_do_setor,
+    COUNT(g.idGondola) AS TotalGondolas,
+    SUM(CASE WHEN rs.statusSensor = '1' THEN 1 ELSE 0 END) AS GondolasVazias
+FROM 
+    setorMercado sm
+JOIN 
+    gondola g ON sm.idSetor = g.fkSetor
+JOIN 
+    sensor s ON g.idGondola = s.fkGondola
+JOIN 
+    registroSensor rs ON s.idSensor = rs.fkSensor
+WHERE
+    sm.nomeSetor = 'Alimentos'  -- Altere 'Alimentos' para o setor desejado
+GROUP BY 
+    sm.nomeSetor;
+   `;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
 function velocidadeUltimaReposicao() {
     var instrucaoSql = `
     SELECT 
@@ -212,6 +235,7 @@ ORDER BY
 module.exports = {
     setores,
     verSetor,
+    gondolas,
     velocidadeUltimaReposicao,
     ultimaEstocagem,
     horasSemEstoque,

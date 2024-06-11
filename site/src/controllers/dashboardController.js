@@ -28,6 +28,35 @@ function verSetor(req, res) {
       });
 }
 
+function gondolas(req, res) {
+  dashboardModel.gondolas()
+      .then(function (respostaGondolas) {
+        res.json({
+          TotalGondolas: respostaGondolas[0].TotalGondolas,
+          gondolasVazias: respostaGondolas[0].GondolasVazias
+        });
+      })
+      .catch(function (erro) {
+        console.error(erro);
+        console.error("Houve um erro ao obter o gondolas! Erro: ", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+      });
+}
+
+function velocidadeUltimaReposicao(req, res) {
+  dashboardModel.velocidadeUltimaReposicao()
+    .then(function (resultadovelocidadeUltimaReposicao) {
+      res.json({
+        ultima: resultadovelocidadeUltimaReposicao[0].tempo_reposicao_em_horas
+    });
+  })
+    .catch(function (erro) {
+      console.error(erro);
+      console.error("Houve um erro ao obter o velocidadeUltimaReposicao! Erro: ", erro.sqlMessage);
+      res.status(500).json(erro.sqlMessage);
+    });
+}
+
 function velocidadeUltimaReposicao(req, res) {
   dashboardModel.velocidadeUltimaReposicao()
     .then(function (resultadovelocidadeUltimaReposicao) {
@@ -104,6 +133,7 @@ function grafico(req, res) {
 module.exports = {
   setores,
   verSetor,
+  gondolas,
   velocidadeUltimaReposicao,
   ultimaEstocagem,
   horasSemEstoque,
