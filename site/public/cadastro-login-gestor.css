@@ -92,6 +92,17 @@ button{
     cursor: pointer;
     border-radius: 0.3rem;
     font-size: 1.1rem;
+    transition: 1s ease;
+    border: #11009E solid 0.2rem;
+
+}
+
+button:hover{
+    background-color: #fff;
+    color: #11009E;
+    border: #11009E solid 0.2rem;
+    font-weight: 700;
+    font-size: 1.2rem;
 
 }
 

@@ -30,7 +30,7 @@ function velocidadeUltimaReposicao() {
 
         var ultima = json.ultima;
         var horas = parseInt(ultima.split(':')[0], 10);
-        teste = Number(horas)
+        teste = horas
 
         clock.innerHTML = `${ultima}`
         
@@ -39,10 +39,10 @@ function velocidadeUltimaReposicao() {
         if (teste < 4) {
           clock.style.backgroundColor = 'rgb(4, 160, 14)';
           clock.style.borderColor = '#055a0b';
-        } else if (teste >= 4 || teste <= 8) {
+        } else if (teste >= 4 && teste <= 8) {
           clock.style.backgroundColor = 'rgb(255, 255, 0)';
           clock.style.borderColor = '#b0b007';
-        } else if (teste >= 9 || teste <= 24) {
+        } else if (teste >= 9 && teste <= 24) {
           clock.style.backgroundColor = 'rgb(255, 69, 0)';
           clock.style.borderColor = '#c43602';
         } else {
