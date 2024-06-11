@@ -14,7 +14,7 @@
 /* Header*/
 
 header {
-  background-color: #000000;
+  background-color: rgb(5, 10, 18);
   height: 13vh;
   display: flex;
   justify-content: space-between;
@@ -25,7 +25,7 @@ header {
 .flux {
   display: flex;
   align-items: center;
-  margin-left: 1vw;
+  margin-left: 10vw;
 }
 
 .logo {
@@ -75,7 +75,7 @@ main {
 
 .box {
   padding: 15px;
-  background-color: #000000;
+  background-color: rgb(5, 10, 18);
   color: #fff;
   height: 65vh;
   width: 45vw;

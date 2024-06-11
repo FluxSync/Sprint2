@@ -73,6 +73,7 @@ header {
     list-style: none;
     overflow-y: hidden;
     text-align: center;
+    margin: 5px;
 }
 
 /* Main */
