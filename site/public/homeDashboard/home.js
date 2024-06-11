@@ -1,3 +1,7 @@
+var gondolas = '';
+var prateleiras = '';
+var sensores = '';
+
 function changeSelect() {
   let select_setor = document.getElementById("select_setor");
   let nomeDoSetor = document.getElementById("nomeDoSetor");
@@ -34,6 +38,7 @@ function tela2() {
 }
 
 var setorMercado = [];
+var setor = "";
 
 function setores() {
   fetch(`/dashboardRoutes/setores`, {
@@ -42,18 +47,28 @@ function setores() {
       "Content-Type": "application/json"
     }
   }).then(function (resposta) {
-    console.log("ESTOU NO THEN DO setores()!")
+    console.log("ESTOU NO THEN DO setores()!");
 
     if (resposta.ok) {
-      console.log(resposta);
       resposta.json().then((json) => {
-        console.log(json)
+        console.log(json);
 
+        // Extrair os setores do mercado da resposta
         for (var i = 0; i < json.length; i++) {
-          setorMercado.push(json[i].setorMercado)
+          setorMercado.push(json[i]);
         }
 
-        console.log(setorMercado)
+        // Selecionar o elemento select existente
+        var selectSetor = document.getElementById('select_setor');
+
+        // Criar as opções para o select
+        for (var i = 0; i < setorMercado.length; i++) {
+          var option = document.createElement('option');
+          option.value = setorMercado[i].nomeSetor;
+          option.text = setorMercado[i].nomeSetor;
+          selectSetor.appendChild(option);
+        }
+        console.log(setorMercado[0]);
       });
     } else {
       console.log("Houve um erro ao tentar realizar a requisição!");
@@ -75,19 +90,36 @@ function verSetor() {
       resposta.json().then((json) => {
         console.log(json.gondolas,json.prateleiras,json.sensores)
 
-        var gondolas = json.gondolas;
-        var prateleiras = json.prateleiras;
-        var sensores = json.sensores;
-
-        gondolasNoSetor.innerHTML = `Gôndolas no Setor: ${gondolas}`;
-        prateleirasNoSetor.innerHTML = `Prateleiras no Setor: ${prateleiras}`;
-        sensoresNoSetor.innerHTML = `Sensores no Setor: ${sensores}`;
-        // nomeDoSetor.innerHTML = `Setor de ${setor}`;
+        gondolas = json.gondolas;
+        prateleiras = json.prateleiras;
+        sensores = json.sensores;
 
       });
     } else {
       console.log("Houve um erro ao tentar realizar a requisição!");
     }
   });
+}
+
+function changeSelect() {
+  let select_setor = document.getElementById("select_setor");
+  let nomeDoSetor = document.getElementById("nomeDoSetor");
+  let infoSetor = document.getElementById("infoSetor");
+
+  let setorSelecionado = select_setor.value;
+
+  if (setorSelecionado) {
+    infoSetor.style.display = "flex";
+    gondolasNoSetor.innerHTML = `Gôndolas no Setor: ${gondolas}`;
+    prateleirasNoSetor.innerHTML = `Prateleiras no Setor: ${prateleiras}`;
+    sensoresNoSetor.innerHTML = `Sensores no Setor: ${sensores}`;
+    nomeDoSetor.innerHTML = `Setor de ${setorSelecionado}`;
+
+    // Atualizar a variável setor com o valor selecionado
+    setor = setorSelecionado;
+  } else {
+    infoSetor.style.display = "none";
+    nomeDoSetor.innerHTML = "Setor não Selecionado";
+  }
 }
 

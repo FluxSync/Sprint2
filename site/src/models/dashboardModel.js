@@ -8,7 +8,7 @@ function setores() {
     return database.executar(instrucaoSql);
 }
 
-function verSetor() {
+function verSetor(setor) {
     var instrucaoSql = `
 SELECT 
     sm.nomeSetor AS nome_do_setor,
@@ -22,7 +22,7 @@ LEFT JOIN
 LEFT JOIN 
     sensor s ON g.idGondola = s.fkGondola
 WHERE 
-    sm.nomeSetor = 'Alimentos'
+    sm.nomeSetor = '${setor}'
 GROUP BY 
     sm.nomeSetor;
    `;
