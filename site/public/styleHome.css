@@ -6,9 +6,25 @@
   font-family: "Poppins", sans-serif;
 }
 
-body {
-  font-family: "Poppins", sans-serif;
+::-webkit-scrollbar {
+    height: 0;
+    width: 1rem;
 }
+
+::-webkit-scrollbar-track {
+    background: rgb(255, 255, 255);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgb(21, 21, 100);
+    
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(35, 35, 85);
+}
+
+
 
 /* Global Tags */
 
@@ -38,7 +54,7 @@ nav{
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 1vw 8vw;
+    padding: 1vw 5vw;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.15);
     z-index: 1000;
 }
@@ -162,6 +178,35 @@ p{
     padding: 20px 12px;
     box-sizing: border-box;
     transition: 0.3s all ease-in-out;
+    border: 2px solid #fff;
+}
+
+.cards-tec1{
+    animation: borderAnimation 3s linear infinite;
+}
+
+.cards-tec2{
+    animation: borderAnimation 3s linear infinite;
+    animation-delay: 1s;
+}
+
+.cards-tec3{
+    animation: borderAnimation 3s linear infinite;
+    animation-delay: 2s;
+}
+
+@keyframes borderAnimation {
+    0% {
+        border-color: rgb(21, 21, 100);
+    }50%{
+        border-color:#fff;
+    }
+}
+
+
+.cardFlux{
+    border: 2px solid blue;
+    box-shadow: 1.5rem 1.5rem 1.5rem 0.5rem black;
 }
 
 h3{
@@ -184,10 +229,10 @@ h3{
 
 .nos{
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
     padding: 20px;
-    gap: 20px;
+    gap: 3rem;
 }
 
 .nos .card {
@@ -329,12 +374,13 @@ p{
 }
 
 .card-obj{
-    width: 300px;
+    width: 330px;
     background-color: #f4f4f4;
     border-radius: 10px;
     box-shadow: opx 2px 4px rgba(0, 0, 0, 0.3);
     overflow: hidden;
     transition: 0.5s all ease-in-out;
+    box-shadow: 1.5rem 1.5rem 1.5rem 0.2rem  rgba(0, 0, 0, 0.8);
 }
 
 .card-obj:hover{
@@ -365,7 +411,7 @@ p{
 
 footer{
 
-    height: 40vh;
+    height: 30vh;
     background-color: #40679E;
     color: white;
     display: flex;

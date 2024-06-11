@@ -1,28 +1,35 @@
+var slideBottom ={
+    distance: '150%',
+    origin: "bottom",
+    opacity: null,
+    delay:350,
+}
 
-/*Função IntersectionObserver - Está observando todos os elementos da página, desde div a imagens e cria uma lista com os elementos chamada
-entrada. */
-var ObservandoElementos = new IntersectionObserver((entrada) => {
+ScrollReveal().reveal('.animationBottom', slideBottom);
 
-/*Entre representa um elemento dentro da lista entrada*/
-    entrada.forEach((entre) => {
-        console.log(entrada)
-        /* Se o intersecting for true, irá aparecer no inspecionar, e fazendo uma decisão, se ele for true, crie uma div "show" com o opacity 1*/
-        if(entre.isIntersecting === true) {
-            entre.target.classList.add('show')
-        }
-        /*Se o intersecting for false, remova a tag show*/
-        else {
-            entre.target.classList.remove('show')
-        }
+var slideTop ={
+    distance: '150%',
+    origin: "top",
+    opacity: null,
+    delay:400,
+}
 
-    }) 
-})
+ScrollReveal().reveal('.animationTop', slideTop);
 
-/* Está pegando a class invisivel que deixa os elementos em opacity 0 no caso "invisivel" */
-var elementosInvisiveis = document.querySelectorAll('.invisivel')
+var slideLeft ={
+    distance: '150%',
+    origin: "left",
+    opacity: null,
+    delay:400,
+}
 
-/* Observando cada elemento da tela "ForEach = Para Cada", para cada elemento ele observara,
- método observe é especifico da classe interSectionObject*/
- 
-elementosInvisiveis.forEach((elemento) => ObservandoElementos.observe(elemento))
+ScrollReveal().reveal('.animationLeft', slideLeft);
 
+var slideRight ={
+    distance: '150%',
+    origin: "right",
+    opacity: null,
+    delay:400,
+}
+
+ScrollReveal().reveal('.animationRight', slideRight);
