@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="cadastro-login-gestor.css">
+    <title>Gestor Account</title>
+</head>
+<body>
+    <div class="content-global">
+        <section class="section1">
+            <div class="content-section">
+                <div class="high-txt1"><h1>Login do Gestor</h1></div>
+                 <div class="box-input1">
+                    <input class="input_login" type="text" id="input_emailGestorLogin" placeholder="Email do Gestor" />
+                    <input class="input_login" type="password" id="input_senhaGestorLogin" placeholder="Senha do Gestor" />
+                 </div>
+                 <div class="box-btn-cadastro1">
+                     <button  onclick="cadastroGestor()">Finalizar</button>
+                     <button onclick="mudar()">Cadastrar</button>
+                 </div>
+             </div>
+        </section>
+
+
+
+        <section class="section2">
+        <div class="content-section">
+           <div class="high-txt"><h1>Cadastro do Gestor</h1></div>
+            <div class="box-input">
+                <input class="input_cadastro" id="input_gestor" type="text" placeholder="Nome do Gestor" />
+                <input class="input_cadastro" type="text" id="input_emailGestor" placeholder="Email do Gestor" />
+                <input class="input_cadastro" type="password" id="input_senhaGestor" placeholder="Senha do Gestor" />
+                <input class="input_cadastro" type="password" id="input_confirmarSenha" placeholder="Confirme a senha" />
+            </div>
+            <div class="box-btn-cadastro">
+                <button  onclick="cadastroGestor()">Finalizar</button>
+                <button onclick="mudar2()">Fazer Login</button>
+            </div>
+        </div>
+        </section>
+
+        <section id="overlay" class="overlay">
+            <div class="high-txt-overlay">
+                <div class="logo"></div>
+                <h1 class="txt-flux">Flux</h1>
+            </div>
+
+            <h1 class="mid-txt">Seja bem-vindo!</h1>
+
+            <button class="home" onclick="voltarHome()">Home</button>
+        </section>
+        
+    </div>
+    <script src="cadastro-login-gestor.js"></script>
+</body>
+</html>
+

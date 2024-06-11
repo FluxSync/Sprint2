@@ -1,0 +1,180 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    overflow: hidden;
+}
+
+.content-global{
+    height: 100vh;
+    width: 100vw;
+
+    display: flex;
+}
+
+
+.section1{
+    height: 100vh;
+    width: 50vw;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: center;
+    align-items: end;
+}
+.section2{
+    height: 100vh;
+    width: 50vw;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: center;
+    align-items: end;
+
+}
+
+.content-section{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    width: 40vw;
+}
+
+.high-txt{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    height: 25vh;
+    width: 33vw;
+}
+
+h1{
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.box-input{
+    height: 55vh;
+    width: 33vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 5vh;
+}
+
+input{
+    padding-left: 1.5rem;
+    width: 33vw;
+    height: 6vh;
+    border-radius: 0.5rem;
+    border: solid 1px rgba(0, 0, 0, 0.3);
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
+}
+
+.box-btn-cadastro{
+    height: 20vh;
+    width: 33vw;
+    display: flex;
+    justify-content: space-around;
+    align-items: start;
+}
+
+button{
+    height: 7vh;
+    width: 13vw;
+    background-color: #11009E;
+    color: #fff;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 0.3rem;
+    font-size: 1.1rem;
+
+}
+
+.high-txt1{
+    display: flex;
+    justify-content: left;
+    align-items: end;
+    margin-bottom: 2rem;
+    height: 30vh;
+    width: 33vw;
+}
+
+.box-input1{
+    height: 35vh;
+    width: 33vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 5vh;
+}
+
+
+
+
+.box-btn-cadastro1{
+    height: 35vh;
+    width: 33vw;
+    display: flex;
+    justify-content: space-around;
+    align-items: start;
+}
+
+.overlay{
+    position: absolute;
+    transform: translate(100%);
+    z-index: 2;
+    height: 100vh;
+    width: 50vw;
+    display: flex;
+    justify-content: center;
+    gap: 8rem;
+    align-items: center;
+    flex-direction: column;
+    background-color: #40679E;
+    color: #fff;
+    transition: 1s ease;
+}
+
+
+.high-txt-overlay{
+    height: 20vh;
+    width: 40vh;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 1rem;
+
+}
+
+.logo{
+    background-image: url(./assets/logoFlux.svg);
+    background-size: cover;
+    height: 19vh;
+    width: 19vh;
+}
+
+.txt-flux{
+    font-size: 2rem;
+}
+
+.mid-txt{
+    font-size: 2.5rem;
+}
+
+.home{
+    height: 9vh;
+    width: 15vw;
+    background-color: #11009E;
+    color: #fff;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 0.3rem;
+    font-size: 1.1rem;
+}
+
