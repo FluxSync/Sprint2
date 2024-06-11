@@ -11,6 +11,9 @@ function pessimo() {
   alert("Tempo Péssimo: Acima de 24 Horas");
 }
 
+var teste = 0;
+var clock = document.getElementById('UltimaReposicaoHtml');
+
 function velocidadeUltimaReposicao() {
   fetch(`/dashboardRoutes/velocidadeUltimaReposicao`, {
     method: "GET",
@@ -26,8 +29,26 @@ function velocidadeUltimaReposicao() {
         console.log(json.ultima)
 
         var ultima = json.ultima;
+        var horas = parseInt(ultima.split(':')[0], 10);
+        teste = Number(horas)
 
-        UltimaReposicaoHtml.innerHTML = `${ultima}`;
+        clock.innerHTML = `${ultima}`
+        
+
+        
+        if (teste < 4) {
+          clock.style.backgroundColor = 'rgb(4, 160, 14)';
+          clock.style.borderColor = '#055a0b';
+        } else if (teste >= 4 || teste <= 8) {
+          clock.style.backgroundColor = 'rgb(255, 255, 0)';
+          clock.style.borderColor = '#b0b007';
+        } else if (teste >= 9 || teste <= 24) {
+          clock.style.backgroundColor = 'rgb(255, 69, 0)';
+          clock.style.borderColor = '#c43602';
+        } else {
+          clock.style.backgroundColor = 'rgb(132, 3, 3)';
+          clock.style.borderColor = '#6e0303';
+        }
       });
     } else {
       console.log("Houve um erro ao tentar realizar a requisição!");

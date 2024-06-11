@@ -239,8 +239,8 @@ header {
 
 @keyframes pulsar {
     0% {
-        border-color: #fb0101;
         transform: scale(1.05);
+        border-width: 6px;
     }
 
     50% {
@@ -249,8 +249,8 @@ header {
     }
 
     100% {
-        border-color: #fb0101;
         transform: scale(1.05);
+        border-width: 6px;
     }
 }
 
@@ -299,6 +299,7 @@ header {
 
 .good {
     background-color: #04a00e;
+    background-color: #055a0b;
 }
 
 .good:hover {
@@ -309,7 +310,7 @@ header {
 
 
 .normal {
-    background-color: #ffff00;
+    background-color: #b0b007;
     color: #000000;
 }
 
@@ -320,7 +321,7 @@ header {
 }
 
 .bad {
-    background-color: #ff4500;
+    background-color: #c43602;
 }
 
 .bad:hover {
@@ -330,6 +331,7 @@ header {
 
 .v-bad {
     background-color: #840303;
+    background-color: #6e0303;
 }
 
 .v-bad:hover {
