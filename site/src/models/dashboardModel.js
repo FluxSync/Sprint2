@@ -137,9 +137,8 @@ WHERE
 
 function messesComMaisReposicao() {
     var instrucaoSql = `
-    WITH ReposicoesPorMes AS (
+     WITH ReposicoesPorMes AS (
     SELECT 
-        g.idGondola,
         CASE 
             WHEN DATE_FORMAT(horaRegistro, '%m') = '01' THEN 'Janeiro'
             WHEN DATE_FORMAT(horaRegistro, '%m') = '02' THEN 'Fevereiro'
@@ -154,7 +153,7 @@ function messesComMaisReposicao() {
             WHEN DATE_FORMAT(horaRegistro, '%m') = '11' THEN 'Novembro'
             WHEN DATE_FORMAT(horaRegistro, '%m') = '12' THEN 'Dezembro'
         END AS mes_ano,
-        DATE_FORMAT(horaRegistro, '%m') AS mes_numero,
+        DATE_FORMAT(horaRegistro, '%Y-%m') AS mes_numero,
         COUNT(*) AS total_reposicoes
     FROM 
         (SELECT 
@@ -170,17 +169,17 @@ function messesComMaisReposicao() {
     JOIN 
         gondola g ON s.fkGondola = g.idGondola
     WHERE 
-        (statusSensor = '1' AND statusAnterior = '0')
+        (subquery.statusSensor = '1' AND subquery.statusAnterior = '0')
     GROUP BY 
-        g.idGondola, mes_ano, mes_numero
+        mes_ano, mes_numero
 )
 SELECT 
-    (SELECT mes_ano FROM ReposicoesPorMes ORDER BY mes_numero DESC LIMIT 1) AS mes1,
-    (SELECT total_reposicoes FROM ReposicoesPorMes ORDER BY mes_numero DESC LIMIT 1) AS total_reposicoes1,
-    (SELECT mes_ano FROM ReposicoesPorMes ORDER BY mes_numero DESC LIMIT 1 OFFSET 1) AS mes2,
-    (SELECT total_reposicoes FROM ReposicoesPorMes ORDER BY mes_numero DESC LIMIT 1 OFFSET 1) AS total_reposicoes2,
-    (SELECT mes_ano FROM ReposicoesPorMes ORDER BY mes_numero DESC LIMIT 1 OFFSET 2) AS mes3,
-    (SELECT total_reposicoes FROM ReposicoesPorMes ORDER BY mes_numero DESC LIMIT 1 OFFSET 2) AS total_reposicoes3;
+    (SELECT mes_ano FROM ReposicoesPorMes ORDER BY total_reposicoes DESC LIMIT 1) AS mes1,
+    (SELECT total_reposicoes FROM ReposicoesPorMes ORDER BY total_reposicoes DESC LIMIT 1) AS total_reposicoes1,
+    (SELECT mes_ano FROM ReposicoesPorMes ORDER BY total_reposicoes DESC LIMIT 1 OFFSET 1) AS mes2,
+    (SELECT total_reposicoes FROM ReposicoesPorMes ORDER BY total_reposicoes DESC LIMIT 1 OFFSET 1) AS total_reposicoes2,
+    (SELECT mes_ano FROM ReposicoesPorMes ORDER BY total_reposicoes DESC LIMIT 1 OFFSET 2) AS mes3,
+    (SELECT total_reposicoes FROM ReposicoesPorMes ORDER BY total_reposicoes DESC LIMIT 1 OFFSET 2) AS total_reposicoes3;
    `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
