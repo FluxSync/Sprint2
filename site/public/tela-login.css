@@ -72,7 +72,7 @@ body {
 
 /* CONTAINER LATERAL  */
 .box2 {
-    background-image: url(/Site/assets/imagem-login.jpg);
+    background-image: url(../assets/imagem-box2-login.jpg);
     opacity: 60%;
     width: 40%;
     height: 100%;
@@ -82,7 +82,7 @@ body {
 }
 
 .logo {
-    background-image: url(/Site/assets/logoFlux.svg);
+    background-image: url(../assets/fluxLogoNew.png);
     width: 356px;
     height: 156px;
     justify-content: space-between;

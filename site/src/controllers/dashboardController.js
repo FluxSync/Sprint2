@@ -60,7 +60,7 @@ function horasSemEstoque(req, res) {
   dashboardModel.horasSemEstoque()
     .then(function (resultadoHorasSemEstoque) {
       res.json({
-        tempoSemEstoque: resultadoHorasSemEstoque[0].tempo_sensor_vazio
+        tempoSemEstoque: resultadoHorasSemEstoque[0].tempo_sensor_inativo
     });
   })
     .catch(function (erro) {

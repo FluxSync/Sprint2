@@ -2,7 +2,7 @@ var database = require("../database/config")
 
 function setores() {
     var instrucaoSql = `
-    select setorMercado from gondola;
+    select nomeSetor from setorMercado;
    `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
@@ -10,16 +10,21 @@ function setores() {
 
 function verSetor() {
     var instrucaoSql = `
-    SELECT 
-    g.setorMercado,
+SELECT 
+    sm.nomeSetor AS nome_do_setor,
     COUNT(g.idGondola) AS quantidade_gondolas,
     SUM(g.qtdPrateleiras) AS quantidade_prateleiras,
     COUNT(s.idSensor) AS quantidade_sensores
 FROM 
-    gondola g
+    setorMercado sm
+LEFT JOIN 
+    gondola g ON sm.idSetor = g.fkSetor
 LEFT JOIN 
     sensor s ON g.idGondola = s.fkGondola
-where g.setorMercado = 'carne';
+WHERE 
+    sm.nomeSetor = 'Alimentos'
+GROUP BY 
+    sm.nomeSetor;
    `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
@@ -104,41 +109,27 @@ WHERE
 
 function horasSemEstoque() {
     var instrucaoSql = `
-      WITH StatusChanges AS (
-    SELECT 
-        rs.idRegistro,
-        rs.fkSensor,
-        rs.horaRegistro,
-        rs.statusSensor,
-        LAG(rs.statusSensor) OVER (PARTITION BY rs.fkSensor ORDER BY rs.horaRegistro) AS statusAnterior,
-        LAG(rs.horaRegistro) OVER (PARTITION BY rs.fkSensor ORDER BY rs.horaRegistro) AS horaAnterior
-    FROM 
-        registroSensor rs
-),
-PeriodsWithoutStock AS (
-    SELECT 
-        fkSensor,
-        horaAnterior AS inicioPeriodo,
-        horaRegistro AS fimPeriodo,
-        TIMESTAMPDIFF(SECOND, horaAnterior, horaRegistro) AS duracao
-    FROM 
-        StatusChanges
-    WHERE 
-        statusAnterior = '1' AND statusSensor = '0'
-)
 SELECT 
-    fkSensor,
     TIME_FORMAT(
         SEC_TO_TIME(
-            SUM(duracao)
+            SUM(TIMESTAMPDIFF(SECOND, horaAnterior, horaRegistro))
         ), '%H:%i:%s'
-    ) AS tempo_sensor_vazio
+    ) AS tempo_sensor_inativo
 FROM 
-    PeriodsWithoutStock
+    (
+        SELECT 
+            rs.idRegistro,
+            rs.fkSensor,
+            rs.horaRegistro,
+            LAG(rs.horaRegistro) OVER (PARTITION BY rs.fkSensor ORDER BY rs.horaRegistro) AS horaAnterior,
+            rs.statusSensor,
+            LAG(rs.statusSensor) OVER (PARTITION BY rs.fkSensor ORDER BY rs.horaRegistro) AS statusAnterior
+        FROM 
+            registroSensor rs
+    ) AS subquery
 WHERE 
-    inicioPeriodo >= DATE_SUB(CURDATE(), INTERVAL 1 WEEK)
-GROUP BY 
-    fkSensor;
+    statusSensor = '0' AND statusAnterior = '1'
+    AND YEARWEEK(horaRegistro, 1) = YEARWEEK(CURDATE(), 1);
    `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
