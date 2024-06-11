@@ -57,11 +57,9 @@
     var idGestor = sessionStorage.getItem('ID_GESTOR');
     console.log(idGestor);
 
-    var prateleiras_gondolas = Number(input_prateleiras_gondolas.value);
-    var tamanho_prateleiras = Number(input_tamanho_prateleiras.value);
     var nome_setor = input_nome_setor.value;
 
-    fetch("/gondolas/cadastrar", {
+    fetch("/gondolas/cadastrarSetor", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -69,10 +67,73 @@
             body: JSON.stringify({
                 // crie um atributo que recebe o valor recuperado aqui
                 // Agora vá para o arquivo routes/usuario.js
-                prateleiras_gondolasServer: prateleiras_gondolas,
-                tamanho_prateleirasServer: tamanho_prateleiras,
                 nome_setorServer: nome_setor,
                 idGestorServer: idGestor
+
+            }),
+        })
+            .then(function (resposta) {
+
+                console.log("resposta: ", resposta);
+
+                if (resposta.ok) {
+                   
+
+                } else {
+                    throw ("Houve um erro ao tentar realizar o cadastro Setor!");
+                }
+            }).catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+
+            });
+            setTimeout(puxarIdSetor, 1000)
+  }
+
+  var idSetor = 0;
+
+  function puxarIdSetor() {
+    fetch(`/gondolas/puxarIdSetor`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json"
+    }
+  }).then(function (resposta) {
+    console.log("ESTOU NO THEN DO puxarIdSetor()!")
+
+    if (resposta.ok) {
+      console.log(resposta);
+      resposta.json().then((json) => {
+        console.log(json.idSetor)
+
+        idSetor = json.idSetor;
+
+      });
+    } else {
+      console.log("Houve um erro ao tentar realizar a requisição!");
+    }
+  });
+  setTimeout(cadastrarGondolas, 1000)
+}
+           
+  function cadastrarGondolas() {
+    console.log(idSetor);
+    var fkSetor = idSetor;
+    var gondolas = Number(input_qtd_gondolas.value);
+    var prateleiras_gondolas = Number(input_prateleiras_gondolas.value);
+    var tamanho_prateleiras = Number(input_tamanho_prateleiras.value);
+
+    fetch("/gondolas/cadastrarGondolas", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                gondolasServer: gondolas,
+                prateleiras_gondolasServer: prateleiras_gondolas,
+                tamanho_prateleirasServer: tamanho_prateleiras,
+                fkSetorServer: fkSetor
 
             }),
         })
@@ -86,7 +147,7 @@
                     window.location.href = "./homeDashboard/home.html"
 
                 } else {
-                    throw ("Houve um erro ao tentar realizar o cadastro!");
+                    throw ("Houve um erro ao tentar realizar o cadastro Setor!");
                 }
             }).catch(function (resposta) {
                 console.log(`#ERRO: ${resposta}`);
