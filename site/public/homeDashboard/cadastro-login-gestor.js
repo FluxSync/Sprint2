@@ -33,8 +33,8 @@ function mudar(params) {
 
       ) {
 
-          mensagem_erro.innerHTML =
-              "(Mensagem de erro para todos os campos em branco)";
+          
+              alert("(Mensagem de erro para todos os campos em branco)");
 
 
           return false;
@@ -65,7 +65,7 @@ function mudar(params) {
               if (resposta.ok) {
                  
                   window.alert("Seu gestor foi cadastrado com sucesso!!");
-                  window.location.href = "./login-gestor.html"
+                  window.location.href = "cadastro-login-gestor.html"
 
               } else {
                   throw ("Houve um erro ao tentar realizar o cadastro!");
@@ -79,7 +79,7 @@ function mudar(params) {
 
   function autenticarGestor() {
       var emailGestorLogin = input_emailGestorLogin.value;
-      var senhaGestorLogin = input_senhaGstorLogin.value;
+      var senhaGestorLogin = input_senhaGestorLogin.value;
 
 
       if (
@@ -87,8 +87,8 @@ function mudar(params) {
           || senhaGestorLogin == ''
 
       ) {
-          mensagem_erro.innerHTML =
-              "(Mensagem de erro para todos os campos em branco)";
+          
+            alert("(Mensagem de erro para todos os campos em branco)");  
 
           return false;
       } else {

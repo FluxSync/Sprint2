@@ -231,12 +231,25 @@ function criarGrafico() {
   });
 }
 
-// Chamar a função grafico inicialmente para criar o gráfico
-grafico();
-
 // Atualizar o gráfico a cada 4 segundos
-setInterval(grafico, 4000);
-
+setInterval(()=>{
+  grafico()
+}, 10000 )
+setInterval(()=>{
+  velocidadeUltimaReposicao()
+}, 10000 )
+setInterval(()=>{
+  ultimaEstocagem()
+}, 10000 )
+setInterval(()=>{
+  gondolaAtual()
+}, 10000 )
+setInterval(()=>{
+  horasSemEstoque()
+}, 10000 )
+setInterval(()=>{
+  messesComMaisReposicao()
+}, 10000 )
 
 function tituloGondolafunc() {
   // Recuperar o título do localStorage

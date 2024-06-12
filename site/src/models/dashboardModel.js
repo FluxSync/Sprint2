@@ -22,7 +22,7 @@ LEFT JOIN
 LEFT JOIN 
     sensor s ON g.idGondola = s.fkGondola
 WHERE 
-    sm.nomeSetor = '${setor}'
+    sm.nomeSetor = 'Limpeza'
 GROUP BY 
     sm.nomeSetor;
    `;
@@ -45,7 +45,7 @@ JOIN
 JOIN 
     registroSensor rs ON s.idSensor = rs.fkSensor
 WHERE
-    sm.nomeSetor = 'Alimentos'  -- Altere 'Alimentos' para o setor desejado
+    sm.nomeSetor = 'Limpeza'  -- Altere 'Alimentos' para o setor desejado
 GROUP BY 
     sm.nomeSetor;
    `;
@@ -84,9 +84,9 @@ FROM
                 FROM 
                     registroSensor
                 WHERE 
-                    statusSensor = '1'
+                    statusSensor = '0'
             )
-            AND statusSensor = '0'
+            AND statusSensor = '1'
     ) AS ultima_sem_estoque;
    `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
@@ -124,7 +124,7 @@ SELECT
 FROM 
     LastRestock lr
 WHERE
-    lr.fkGondola = 1; -- Filtro para pegar apenas uma gôndola específica
+    lr.fkGondola = 2; -- Filtro para pegar apenas uma gôndola específica
    `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
