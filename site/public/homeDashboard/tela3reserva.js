@@ -136,6 +136,7 @@ function messesComMaisReposicao() {
 
 var statusSensor = [];
 var horaRegistro = [];
+var chart; // Variável para armazenar o gráfico
 
 function grafico() {
   fetch(`/dashboardRoutes/grafico`, {
@@ -151,23 +152,33 @@ function grafico() {
       resposta.json().then((json) => {
         console.log(json)
 
+        statusSensor = [];
+        horaRegistro = [];
         for (var i = 0; i < json.length; i++) {
           statusSensor.push(json[i].statusSensor)
           horaRegistro.push(json[i].horaRegistro)
         }
-        criarGrafico()
+        
+        if (chart) {
+          // Atualizar dados do gráfico existente
+          chart.data.labels = horaRegistro;
+          chart.data.datasets[0].data = statusSensor;
+          chart.update();
+        } else {
+          // Criar um novo gráfico
+          criarGrafico();
+        }
       });
     } else {
       console.log("Houve um erro ao tentar realizar a requisição!");
     }
   });
-
 }
 
 function criarGrafico() {
   const dash = document.getElementById("dash");
 
-  new Chart(dash, {
+  chart = new Chart(dash, {
     type: "line",
     data: {
       labels: horaRegistro,
@@ -190,7 +201,7 @@ function criarGrafico() {
           title: {
             display: true,
             text: "Últimos 7 registros",
-            color: "white",// Título do eixo X
+            color: "white", // Título do eixo X
             font: {
               weight: "bold", // Estilo da fonte (negrito)
               size: 16, // Tamanho da fonte
@@ -219,6 +230,12 @@ function criarGrafico() {
     },
   });
 }
+
+// Chamar a função grafico inicialmente para criar o gráfico
+grafico();
+
+// Atualizar o gráfico a cada 4 segundos
+setInterval(grafico, 4000);
 
 
 function tituloGondolafunc() {
