@@ -56,6 +56,11 @@ function gondolas() {
           button1.className = 'card empty';
           button1.textContent = `Gôndola ${index + 1}`;
 
+          // Adiciona evento de clique ao primeiro botão
+          button1.addEventListener('click', () => {
+            window.location.href = `tela3reserva.html?gondola=${index + 1}`;
+          });
+
 
           divGondola.appendChild(button1);
 
@@ -117,6 +122,7 @@ controls.forEach((control) => {
     }
   });
 });
+
 
 
 // let mensagemDiv = document.createElement('div');

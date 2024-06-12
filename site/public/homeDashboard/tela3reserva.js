@@ -213,3 +213,14 @@ function criarGrafico() {
     },
   });
 }
+
+
+function tituloGondolafunc() {
+  // Recuperar o título do localStorage
+  var tituloGondola = localStorage.getItem('tituloGondola');
+
+  // Definir o texto do elemento com id 'tituloGondola'
+  if (tituloGondola) {
+      document.getElementById('tituloGondola').innerText = tituloGondola;
+  }
+}
