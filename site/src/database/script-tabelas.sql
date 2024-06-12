@@ -421,6 +421,21 @@ FROM
 WHERE 
     statusSensor = '0' AND statusAnterior = '1'
     AND YEARWEEK(horaRegistro, 1) = YEARWEEK(CURDATE(), 1);
+
+
+
+-- SELECT JUAN TELA 2
+SELECT 
+    g.idGondola as idGondola, 
+    rs.statusSensor as statusSensor
+FROM 
+    gondola g
+JOIN 
+    sensor s ON g.idGondola = s.fkGondola
+JOIN 
+    registroSensor rs ON s.idSensor = rs.fkSensor
+WHERE 
+    g.idGondola = 2;
    
    
    
