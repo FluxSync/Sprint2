@@ -13,12 +13,13 @@ function setores(req, res) {
 }
 
 function verSetor(req, res) {
-  dashboardModel.verSetor()
+  var setor = req.params.setorSelecionado;
+  dashboardModel.verSetor(setor)
       .then(function (respostaVerSetor) {
         res.json({
             gondolas: respostaVerSetor[0].quantidade_gondolas,
             prateleiras: respostaVerSetor[0].quantidade_prateleiras,
-            sensores: respostaVerSetor[0].quantidade_sensores
+            sensores: respostaVerSetor[0].quantidade_sensores,
         });
       })
       .catch(function (erro) {

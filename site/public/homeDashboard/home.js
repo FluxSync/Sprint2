@@ -76,8 +76,11 @@ function setores() {
   });
 }
 
+var setorSelecionado = '';
+
 function verSetor() {
-  fetch(`/dashboardRoutes/verSetor`, {
+  setorSelecionado = select_setor.value;
+  fetch(`/dashboardRoutes/verSetor/${setorSelecionado}`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json"
@@ -88,12 +91,15 @@ function verSetor() {
     if (resposta.ok) {
       console.log(resposta);
       resposta.json().then((json) => {
-        console.log(json.gondolas,json.prateleiras,json.sensores)
+        console.log(json.gondolas, json.prateleiras, json.sensores)
 
         gondolas = json.gondolas;
         prateleiras = json.prateleiras;
         sensores = json.sensores;
 
+        gondolasNoSetor.innerHTML = `Gôndolas no setor: ${gondolas}`
+        prateleirasNoSetor.innerHTML = `Prateleiras no setor: ${prateleiras}`
+        sensoresNoSetor.innerHTML = `Sensores no Setor: ${prateleiras * 10}`
       });
     } else {
       console.log("Houve um erro ao tentar realizar a requisição!");

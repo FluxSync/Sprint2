@@ -22,7 +22,7 @@ LEFT JOIN
 LEFT JOIN 
     sensor s ON g.idGondola = s.fkGondola
 WHERE 
-    sm.nomeSetor = 'Limpeza'
+    sm.nomeSetor = '${setor}'
 GROUP BY 
     sm.nomeSetor;
    `;

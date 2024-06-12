@@ -7,7 +7,7 @@ router.get("/setores", function (req, res) {
     dashboardController.setores(req, res);
 })
 
-router.get("/verSetor", function (req, res) {
+router.get("/verSetor/:setorSelecionado", function (req, res) {
     dashboardController.verSetor(req, res);
 })
 
