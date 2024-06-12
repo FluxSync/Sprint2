@@ -16,7 +16,7 @@
     <title>Flux</title>
 </head>
 
-<body onload="grafico(), ultimaEstocagem(), horasSemEstoque(), messesComMaisReposicao(), velocidadeUltimaReposicao()">
+<body onload="grafico(), ultimaEstocagem(), horasSemEstoque(), messesComMaisReposicao(), velocidadeUltimaReposicao(), gondolaAtual()">
     <div id="jira-widget-container"></div>
     <header>
         <div class="flux">
@@ -34,7 +34,7 @@
     <main class="dashboard">
         <section class="replacement">
             <h2 class="title-replacement">Velocidade da Última Reposição</h2>
-            <div class="title-replacement"></div>
+            <div class="title-replacement" id="atual"></div>
             <div  class="replacement-timer">
                 <div id="UltimaReposicaoHtml" class="timer"><span>29 horas</span></div>
             </div>

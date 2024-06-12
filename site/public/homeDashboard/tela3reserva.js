@@ -80,6 +80,12 @@ function ultimaEstocagem() {
   });
 }
 
+
+function gondolaAtual() {
+  atual.innerHTML = sessionStorage.GondolaAtual;
+}
+
+
 function horasSemEstoque() {
   fetch(`/dashboardRoutes/horasSemEstoque`, {
     method: "GET",
