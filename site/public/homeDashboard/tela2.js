@@ -1,38 +1,7 @@
 const controls = document.querySelectorAll(".control");
 let currentItem = 0;
-const items = document.querySelectorAll(".item");
-const maxItems = items.length;
-let gondolasVazias = document.getElementById('gondolasVazias')
-
-
-controls.forEach((control) => {
-  control.addEventListener("click", (e) => {
-    isLeft = e.target.classList.contains("arrow-left");
-
-    if (isLeft) {
-      currentItem -= 1;
-    } else {
-      currentItem += 1;
-    }
-
-    if (currentItem >= maxItems) {
-      currentItem = 0;
-    }
-
-    if (currentItem < 0) {
-      currentItem = maxItems - 1;
-    }
-
-    items.forEach((item) => item.classList.remove("current-item"));
-
-    items[currentItem].scrollIntoView({
-      behavior: "smooth",
-      inline: "center",
-    });
-
-    items[currentItem].classList.add("current-item");
-  });
-});
+let items = [];
+let gondolasVazias = document.getElementById('gondolasVazias');
 
 function checkBoxChanged() {
   let checkAll = document.getElementById("checkAll");
@@ -54,9 +23,11 @@ function checkBoxChanged() {
     });
   }
 }
+
 let checkAll = document.getElementById("checkAll");
 checkAll.addEventListener("change", checkBoxChanged);
 
+let TotGondolas = 0;
 function gondolas() {
   fetch(`/dashboardRoutes/gondolas`, {
     method: "GET",
@@ -64,37 +35,89 @@ function gondolas() {
       "Content-Type": "application/json"
     }
   }).then(function (resposta) {
-    console.log("ESTOU NO THEN DO gondolas()!")
+    console.log("ESTOU NO THEN DO gondolas()!");
 
     if (resposta.ok) {
-      console.log(resposta);
       resposta.json().then((json) => {
-        console.log(json.TotalGondolas, json.gondolasVazias)
-
-        var gondolas = json.TotalGondolas;
+        TotGondolas = json.TotalGondolas;
         var gondolasVazias_ = json.gondolasVazias;
 
-        console.log(gondolas, gondolasVazias)
-        gondolasVazias.innerHTML = `Gôndolas Vazias(Limpeza): ${gondolasVazias_}`
+        gondolasVazias.innerHTML = `Gôndolas Vazias (Limpeza): ${gondolasVazias_}`;
+
+        const gallery = document.getElementById('gallery');
+        gallery.innerHTML = ''; // Limpar qualquer conteúdo existente
+
+        for (let index = 0; index < TotGondolas; index++) {
+          let divGondola = document.createElement('div');
+          divGondola.className = 'item current-item';
+
+          // Cria o primeiro botão
+          let button1 = document.createElement('button');
+          button1.className = 'card empty';
+          button1.textContent = `Gôndola ${index + 1}`;
 
 
-        for (let index = 0; index < gondolas; index++) {
-          let mensagemDiv = document.createElement('div');
+          divGondola.appendChild(button1);
 
-          
+          // Adiciona o segundo botão, se ainda houver gôndolas restantes
+          if (index + 1 < TotGondolas) {
+            index++; // Incrementa o índice para o segundo botão
+            let button2 = document.createElement('button');
+            button2.className = 'card contains';
+            button2.textContent = `Gôndola ${index + 1}`;
+
+            divGondola.appendChild(button2);
+          }
+
+          gallery.appendChild(divGondola);
         }
 
-
-
-
+        // Atualizar a lista de itens após adicionar gôndolas ao DOM
+        items = document.querySelectorAll(".item");
       });
     } else {
       console.log("Houve um erro ao tentar realizar a requisição!");
     }
   });
-} 
+}
 
-document.getElementById(`container_msg_others`).appendChild(mensagemDiv);
+// Chame a função gondolas() para inicializar os itens
+gondolas();
+
+controls.forEach((control) => {
+  control.addEventListener("click", (e) => {
+    let isLeft = e.target.classList.contains("arrow-left");
+
+    if (isLeft) {
+      currentItem -= 1;
+    } else {
+      currentItem += 1;
+    }
+
+    const maxItems = Math.ceil(TotGondolas / 2);
+
+    if (currentItem >= maxItems) {
+      currentItem = 0;
+    }
+
+    if (currentItem < 0) {
+      currentItem = maxItems - 1;
+    }
+
+    items.forEach((item) => item.classList.remove("current-item"));
+
+    // Verificar se o item atual existe antes de chamar scrollIntoView e adicionar a classe
+    if (items[currentItem]) {
+      items[currentItem].scrollIntoView({
+        behavior: "smooth",
+        inline: "center",
+      });
+
+      items[currentItem].classList.add("current-item");
+    }
+  });
+});
+
 
 // let mensagemDiv = document.createElement('div');
 // let dobra = mensagem.dobra;
