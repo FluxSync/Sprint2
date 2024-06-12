@@ -89,6 +89,35 @@ function gondolas() {
   });
 }
 
+var numGondola = 0
+
+function puxarDadoSensor() {
+  fetch(`/dashboardRoutes/dadoSensor`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json"
+    }
+  }).then(function (resposta) {
+    console.log("ESTOU NO THEN DO gondolas()!");
+
+    if (resposta.ok) {
+      resposta.json().then((json) => {
+        numGondola = json.idGondola;
+        valorGondola = json.statusSensor;
+
+      
+          });
+
+
+    } else {
+      console.log("Houve um erro ao tentar realizar a requisição!");
+    }
+  });
+}
+
+
+
+
 // Chame a função gondolas() para inicializar os itens
 gondolas();
 
