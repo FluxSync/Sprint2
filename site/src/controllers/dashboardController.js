@@ -11,9 +11,9 @@ function setores(req, res) {
       res.status(500).json(erro.sqlMessage);
     });
 }
-
+var setor = '';
 function verSetor(req, res) {
-  var setor = req.params.setorSelecionado;
+  setor = req.params.setorSelecionado;
   dashboardModel.verSetor(setor)
       .then(function (respostaVerSetor) {
         res.json({
@@ -30,18 +30,20 @@ function verSetor(req, res) {
 }
 
 function gondolas(req, res) {
-  dashboardModel.gondolas()
-      .then(function (respostaGondolas) {
-        res.json({
-          TotalGondolas: respostaGondolas[0].TotalGondolas,
-          gondolasVazias: respostaGondolas[0].GondolasVazias
-        });
-      })
-      .catch(function (erro) {
-        console.error(erro);
-        console.error("Houve um erro ao obter o gondolas! Erro: ", erro.sqlMessage);
-        res.status(500).json(erro.sqlMessage);
-      });
+  var setorGondolas = setor;
+  dashboardModel.gondolas(setorGondolas)
+  .then(function (respostaGondolas) {
+    res.json({
+        gondolas: respostaGondolas[0].quantidade_gondolas,
+        prateleiras: respostaGondolas[0].quantidade_prateleiras,
+        sensores: respostaGondolas[0].quantidade_sensores,
+    });
+  })
+  .catch(function (erro) {
+    console.error(erro);
+    console.error("Houve um erro ao obter o verSetor! Erro: ", erro.sqlMessage);
+    res.status(500).json(erro.sqlMessage);
+  });
 }
 
 function velocidadeUltimaReposicao(req, res) {

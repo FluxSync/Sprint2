@@ -331,6 +331,7 @@ main {
 
 .empty {
     background-image: linear-gradient(to top, red, rgb(0, 0, 0));
+    pointer-events: none; /* Desabilita eventos de mouse no botão */
 }
 
 .contains {

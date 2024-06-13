@@ -93,11 +93,11 @@ function verSetor() {
       resposta.json().then((json) => {
         console.log(json.gondolas, json.prateleiras, json.sensores)
 
-        gondolas = json.gondolas;
+        gondolas_ = json.gondolas;
         prateleiras = json.prateleiras;
         sensores = json.sensores;
 
-        gondolasNoSetor.innerHTML = `Gôndolas no setor: ${gondolas}`
+        gondolasNoSetor.innerHTML = `Gôndolas no setor: ${gondolas_}`
         prateleirasNoSetor.innerHTML = `Prateleiras no setor: ${prateleiras}`
         sensoresNoSetor.innerHTML = `Sensores no Setor: ${prateleiras * 10}`
       });

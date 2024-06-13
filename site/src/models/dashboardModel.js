@@ -12,7 +12,7 @@ function verSetor(setor) {
     var instrucaoSql = `
 SELECT 
     sm.nomeSetor AS nome_do_setor,
-    COUNT(g.idGondola) AS quantidade_gondolas,
+    sum(g.qtdGondolas) AS quantidade_gondolas,
     SUM(g.qtdPrateleiras) AS quantidade_prateleiras,
     COUNT(s.idSensor) AS quantidade_sensores
 FROM 
@@ -30,22 +30,21 @@ GROUP BY
     return database.executar(instrucaoSql);
 }
 
-function gondolas() {
+function gondolas(setorGondolas) {
     var instrucaoSql = `
 SELECT 
     sm.nomeSetor AS nome_do_setor,
-    COUNT(g.idGondola) AS TotalGondolas,
-    SUM(CASE WHEN rs.statusSensor = '1' THEN 1 ELSE 0 END) AS GondolasVazias
+    sum(g.qtdGondolas) AS quantidade_gondolas,
+    SUM(g.qtdPrateleiras) AS quantidade_prateleiras,
+    COUNT(s.idSensor) AS quantidade_sensores
 FROM 
     setorMercado sm
-JOIN 
+LEFT JOIN 
     gondola g ON sm.idSetor = g.fkSetor
-JOIN 
+LEFT JOIN 
     sensor s ON g.idGondola = s.fkGondola
-JOIN 
-    registroSensor rs ON s.idSensor = rs.fkSensor
-WHERE
-    sm.nomeSetor = 'Limpeza'  -- Altere 'Alimentos' para o setor desejado
+WHERE 
+    sm.nomeSetor = '${setorGondolas}'
 GROUP BY 
     sm.nomeSetor;
    `;

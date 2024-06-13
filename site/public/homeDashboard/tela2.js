@@ -27,6 +27,7 @@ function checkBoxChanged() {
 let checkAll = document.getElementById("checkAll");
 checkAll.addEventListener("change", checkBoxChanged);
 
+
 let TotGondolas = 0;
 function gondolas() {
   fetch(`/dashboardRoutes/gondolas`, {
@@ -39,8 +40,12 @@ function gondolas() {
 
     if (resposta.ok) {
       resposta.json().then((json) => {
-        TotGondolas = json.TotalGondolas;
-        var gondolasVazias_ = json.gondolasVazias;
+        console.log(json.gondolas, json.prateleiras, json.sensores)
+
+        TotGondolas = json.gondolas;
+        prateleiras = json.prateleiras;
+        sensores = json.sensores;
+        var gondolasVazias_ = TotGondolas - 1;
 
         gondolasVazias.innerHTML = `Gôndolas Vazias (Limpeza): ${gondolasVazias_}`;
 
@@ -53,7 +58,11 @@ function gondolas() {
 
           // Cria o primeiro botão
           let button1 = document.createElement('button');
-          button1.className = 'card empty';
+          if (index == 0) {
+            button1.className = 'card contains';
+            }else{
+            button1.className = 'card empty';
+          }
           button1.textContent = `Gôndola ${index + 1}`;
 
 
@@ -70,7 +79,7 @@ function gondolas() {
           if (index + 1 < TotGondolas) {
             index++; // Incrementa o índice para o segundo botão
             let button2 = document.createElement('button');
-            button2.className = 'card contains';
+            button2.className = 'card empty';
             button2.textContent = `Gôndola ${index + 1}`;
             
 
@@ -88,35 +97,6 @@ function gondolas() {
     }
   });
 }
-
-var numGondola = 0
-
-function puxarDadoSensor() {
-  fetch(`/dashboardRoutes/dadoSensor`, {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json"
-    }
-  }).then(function (resposta) {
-    console.log("ESTOU NO THEN DO gondolas()!");
-
-    if (resposta.ok) {
-      resposta.json().then((json) => {
-        numGondola = json.idGondola;
-        valorGondola = json.statusSensor;
-
-      
-          });
-
-
-    } else {
-      console.log("Houve um erro ao tentar realizar a requisição!");
-    }
-  });
-}
-
-
-
 
 // Chame a função gondolas() para inicializar os itens
 gondolas();
@@ -156,55 +136,3 @@ controls.forEach((control) => {
 });
 
 
-
-// let mensagemDiv = document.createElement('div');
-// let dobra = mensagem.dobra;
-// let foto = mensagem.foto;
-// let idforum = mensagem.idForum
-
-
-
-// if (id == mensagem.idUsuario) {
-//   mensagemDiv.innerHTML = `
-//     <div class="box_msg usersMsg">
-//         <div class="content-high-msg">
-//             <div class="usuario-msg">
-//                 <div class="foto_msg"></div>
-//                 <div class="txtNameUsuario">${mensagem.nome}</div>
-//             </div>
-//             <div class="msg-usuario">
-//             <textarea id="idForum_${idforum}" class="txt-usuario" disabled maxlength="240">${mensagem.mensagem}</textarea>
-//             </div>
-//         </div>
-//         <div class="content-low-msg">
-//             <div class="content-hora">${mensagem.hora}</div>
-//             <div class="content-day">${mensagem.data}</div>
-//             <div class="content-btn-msg">
-//             <div style="display: none;" onclick="fecharForum(${idforum})" class="btn-msg material-symbols-outlined fechar_${idforum}">arrow_back</div>
-//             <div style="display: none;" onclick="atualizarForum(${idforum})" class="btn-msg material-symbols-outlined atualizar_${idforum}">check</div>
-//             <div onclick="editarForum(${idforum})" class="btn-msg material-symbols-outlined editar_${idforum}">edit </div>
-//             <div onclick="deletarForum(${idforum})" class="btn-msg material-symbols-outlined deletar_${idforum}">delete </div>
-//             </div>
-//         </div>
-//     </div>
-// `;
-// }else{
-//   mensagemDiv.innerHTML = `
-//     <div class="box_msg usersMsg">
-//         <div class="content-high-msg">
-//             <div class="usuario-msg">
-//                 <div class="foto_msg"></div>
-//                 <div class="txtNameUsuario">${mensagem.nome}</div>
-//             </div>
-//             <div class="msg-usuario">
-//             <textarea class="txt-usuario" disabled maxlength="240">${mensagem.mensagem}</textarea>
-//             </div>
-//         </div>
-//         <div class="content-low-msg">
-//             <div class="content-hora">${mensagem.hora}</div>
-//             <div class="content-day">${mensagem.data}</div>
-//             <div class="content-btn-msg">
-//             </div>
-//         </div>
-//     </div>
-// `;

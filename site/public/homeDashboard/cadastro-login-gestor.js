@@ -13,7 +13,7 @@ function mudar(params) {
 
 
 
-  var home = "index.html"
+  var home = "home.html"
   function voltarHome() {
       window.location.href = home;
   }
